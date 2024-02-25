@@ -9,6 +9,7 @@ config = Config(stream_or_path=env_file_path)
 
 def load():
     # Configurar la variable de entorno OPENAI_API_KEY
-    os.environ['OPENAI_API_KEY'] = config.get("OPENAI_API_KEY") or "MY_OPENAI_API_KEY"
+    os.environ['OPENAI_API_KEY'] = config.get("OPENAI_API_KEY") or "MY_OPENAI_API_KEY"        
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = config.get("GOOGLE_APPLICATION_CREDENTIALS") or "MY_GOOGLE_APPLICATION_CREDENTIALS"
 
-    return os.environ['OPENAI_API_KEY']
+    return (os.environ['GOOGLE_APPLICATION_CREDENTIALS'], os.environ['OPENAI_API_KEY'])

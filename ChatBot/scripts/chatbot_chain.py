@@ -19,7 +19,7 @@ class chatbot():
         self._retriever = None
         self._template = None
         self._prompt = None
-        self._model = ChatOpenAI(model="gpt-4-0125-preview")
+        self._model = ChatOpenAI(model="gpt-3.5-turbo-0125")
         self._chain = None
         self._salida = None
         self._callback = None

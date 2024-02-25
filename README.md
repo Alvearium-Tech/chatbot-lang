@@ -64,7 +64,9 @@ Se mantuvieron reuniones semanales con el stake holder para el seguimiento del p
 Las fases generales del proyecto son:
 
 - Creación de Chatbot funcional mediante LangChain
+
 - Implementación de API de Open AI (Modelo gpt-4-0125-preview)
+
 - Conexión de modelo a Unreal Engine 5
 - Visualización de chatbot en asistente dentro de Unreal
 - Speech to text dentro de experiencia inmmersiva
@@ -116,4 +118,5 @@ El proyecto debe de ser presentado el martes día 27 de febrero.
   <samp>  
     Esta es la página principal <a href="https://alvearium.io/">Alvearium</a>
   </samp>
+
 </p>
