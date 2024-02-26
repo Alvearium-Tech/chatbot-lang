@@ -1,13 +1,11 @@
 import os
 from typing import List, Tuple
-from fastapi import FastAPI, File, UploadFile, HTTPException
-from fastapi.responses import StreamingResponse, FileResponse
-from pydub import AudioSegment
+from fastapi import FastAPI, File, UploadFile, HTTPException, BackgroundTasks
+from fastapi.responses import FileResponse
 from langserve import add_routes
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.prompts import ChatPromptTemplate
-from langchain.prompts.prompt import PromptTemplate
 from langchain.schema import format_document
 from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import RunnableMap, RunnablePassthrough
@@ -16,15 +14,12 @@ from langchain_community.callbacks import get_openai_callback
 from google.cloud import texttospeech_v1 as texttospeech
 from google.cloud import speech_v1 as speech
 from operator import itemgetter
-from werkzeug.utils import secure_filename
-from io import BytesIO
-AudioSegment.ffmpeg = "C:\\Users\\ferna\\OneDrive\\Escritorio\\ffmpeg\\ffmpeg-6.1.1\\ffmpeg.exe"
-#AudioSegment.ffprobe = "C:\\Users\\ferna\\OneDrive\\Escritorio\\ffmpeg\\ffmpeg-6.1.1\\ffprobe.exe"
 import librosa
 from extract_apis_keys import load
 import soundfile as sf
 import tempfile
-import speech_recognition as sr
+import pyaudio
+import wave
 
 
 app = FastAPI(
@@ -53,7 +48,18 @@ Follow Up Input: {question}
 Standalone question:"""
 CONDENSE_QUESTION_PROMPT = ChatPromptTemplate.from_template(_TEMPLATE)
 
-ANSWER_TEMPLATE = """Answer the question based only on the following context:
+ANSWER_TEMPLATE = """Respond to the question based solely on the following context, ensuring that the response remains within the context of the provided conversation. Relate it to Alvearium, linking it to the following synonyms. The following synonyms are part of the meaning of Alvearium:
+Alvearium
+Alveario
+Albeo
+Albio
+Alvio
+Avearium
+Alveolar
+Alveolado
+Alveolario
+Alveolaria
+Alveolite:
 {context}
 
 Question: {question}
@@ -118,19 +124,46 @@ chain = conversational_qa_chain.with_types(input_type=ChatHistory)
 # Variable global para almacenar el historial del chat
 global_chat_history = []
 
-# Función para convertir texto a voz (TTS)
-def text_to_speech(text):
+# Función para grabar audio
+def record_audio(file_path: str, duration: int = 8):
+    CHUNK = 1024
+    FORMAT = pyaudio.paInt16
+    CHANNELS = 1
+    RATE = 16000
+    RECORD_SECONDS = duration
+    
+    audio = pyaudio.PyAudio()
+    
+    stream = audio.open(format=FORMAT, channels=CHANNELS,
+                        rate=RATE, input=True,
+                        frames_per_buffer=CHUNK)
+    
+    print("Recording...")
+    frames = []
+    
+    for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+        data = stream.read(CHUNK)
+        frames.append(data)
+    
+    print("Finished recording.")
+    
+    stream.stop_stream()
+    stream.close()
+    audio.terminate()
+    
+    with wave.open(file_path, 'wb') as wf:
+        wf.setnchannels(CHANNELS)
+        wf.setsampwidth(audio.get_sample_size(FORMAT))
+        wf.setframerate(RATE)
+        wf.writeframes(b''.join(frames))
+
+# Función Text-to-Speech (TTS) usando Google Cloud
+def text_to_speech(text: str):
     client = texttospeech.TextToSpeechClient()
     synthesis_input = texttospeech.SynthesisInput(text=text)
-    voice = texttospeech.VoiceSelectionParams(
-        language_code="es-ES", ssml_gender=texttospeech.SsmlVoiceGender.FEMALE
-    )
-    audio_config = texttospeech.AudioConfig(
-        audio_encoding=texttospeech.AudioEncoding.LINEAR16
-    )
-    response = client.synthesize_speech(
-        input=synthesis_input, voice=voice, audio_config=audio_config
-    )
+    voice = texttospeech.VoiceSelectionParams(language_code="es-ES", ssml_gender=texttospeech.SsmlVoiceGender.FEMALE)
+    audio_config = texttospeech.AudioConfig(audio_encoding=texttospeech.AudioEncoding.MP3)  # Ajustado para MP3
+    response = client.synthesize_speech(input=synthesis_input, voice=voice, audio_config=audio_config)
     return response.audio_content
 
 async def speech_to_text(file: UploadFile = File(...)):
@@ -153,22 +186,44 @@ async def speech_to_text(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+# Función Speech-to-Text (STT) actualizada para usar Google Cloud Speech-to-Text
 async def speech_to_text_internal(audio_path: str) -> str:
-    try:
-        # Crear un objeto Recognizer
-        recognizer = sr.Recognizer()
+    client = speech.SpeechClient()
 
-        # Abrir el archivo de audio como una fuente de audio
-        with sr.AudioFile(audio_path) as source:
-            # Escuchar el audio y transcribirlo
-            audio_data = recognizer.record(source)
-            transcription = recognizer.recognize_google(audio_data, language="es-ES")
+    # Lee el archivo de audio
+    with open(audio_path, "rb") as audio_file:
+        content = audio_file.read()
 
-        # Devolver la transcripción
+    audio = speech.RecognitionAudio(content=content)
+    config = speech.RecognitionConfig(
+        encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
+        sample_rate_hertz=16000,
+        language_code="es-ES",
+    )
+
+    # Detecta el texto del audio
+    response = client.recognize(config=config, audio=audio)
+
+    # Reúne los resultados de la transcripción
+    if response.results:
+        transcription = " ".join(result.alternatives[0].transcript for result in response.results)
         return transcription
-
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    else:
+        return "No se pudo transcribir el audio."
+    
+# Ruta para la grabación de audio
+@app.post("/record_audio")
+async def record_audio_endpoint(duration: int = 5):
+    # Guardamos el archivo de audio grabado
+    file_path_wav = os.path.join(UPLOAD_DIRECTORY, "recorded_audio.mp3")
+    
+    # Normalizar la ruta del archivo
+    file_path_wav = os.path.normpath(file_path_wav)
+    
+    # Llama a la función de grabación de audio
+    record_audio(file_path_wav, duration)
+    
+    return {"message": "Audio grabado exitosamente."}
 
 # Define la ruta y la función controladora para manejar las solicitudes POST
 @app.post("/answer")
@@ -207,18 +262,20 @@ async def get_answer(request_body: dict):
     return FileResponse(tmp_audio_file_path, media_type="audio/mp3")
 
 @app.post("/speech_to_text")
-async def stt(file: UploadFile = File(...)):
+async def stt_endpoint(file: UploadFile = File(...)):
     try:
-        # Guardar el archivo de audio temporalmente en el disco
-        with tempfile.NamedTemporaryFile(delete=False) as temp_audio:
-            temp_audio.write(await file.read())
-            temp_audio_path = temp_audio.name
+        # Crea un archivo temporal para guardar el contenido del archivo subido
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp_file:
+            contents = await file.read()
+            tmp_file.write(contents)
+            tmp_file_path = tmp_file.name
+        # Asegúrate de cerrar el archivo aquí, ya que with lo cierra automáticamente
 
-        # Realizar la transcripción de voz utilizando la función interna
-        transcription = await speech_to_text_internal(temp_audio_path)
+        # Ahora que el archivo está cerrado, intenta acceder a él nuevamente
+        transcription = await speech_to_text_internal(tmp_file_path)
 
-        # Eliminar el archivo temporal
-        os.remove(temp_audio_path)
+        # Limpia el archivo temporal después de usarlo
+        os.remove(tmp_file_path)
 
         return {"text": transcription}
 
@@ -253,12 +310,37 @@ async def ask_question_audio(file: UploadFile = File(...)):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+    
+
+def delete_file(path: str):
+    os.remove(path)
 
 # Ruta para la conversión de texto a voz (TTS)
 @app.post("/text_to_speech")
-async def tts(text: str):
-    audio_content = text_to_speech(text)
-    return {"audio_content": audio_content}
+async def generate_speech(text: str):
+    # Configura el cliente de Google Cloud Text-to-Speech
+    client = texttospeech.TextToSpeechClient()
+
+    # Configuración de la solicitud
+    synthesis_input = texttospeech.SynthesisInput(text=text)
+    voice = texttospeech.VoiceSelectionParams(
+        language_code='en-US',
+        ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+    )
+    audio_config = texttospeech.AudioConfig(
+        audio_encoding=texttospeech.AudioEncoding.MP3
+    )
+
+    # Solicita la síntesis del texto
+    response = client.synthesize_speech(input=synthesis_input, voice=voice, audio_config=audio_config)
+
+    # Crea un archivo temporal para guardar el audio
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp:
+        tmp.write(response.audio_content)
+        tmp_path = tmp.name
+
+    # Devuelve el archivo de audio
+    return FileResponse(path=tmp_path, filename="speech.mp3", media_type='audio/mpeg', background= BackgroundTasks(delete_file, tmp_path))
 
 # Ruta para ver el historial del chat
 @app.get("/chat_history")
