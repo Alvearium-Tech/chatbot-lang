@@ -48,19 +48,8 @@ Follow Up Input: {question}
 Standalone question:"""
 CONDENSE_QUESTION_PROMPT = ChatPromptTemplate.from_template(_TEMPLATE)
 
-ANSWER_TEMPLATE = """Respond to the question based solely on the following context, ensuring that the response remains within the context of the provided conversation. Relate it to Alvearium, linking it to the following synonyms. The following synonyms are part of the meaning of Alvearium:
-Alvearium
-Alveario
-Albeo
-Albio
-Alvio
-Avearium
-Alveolar
-Alveolado
-Alveolario
-Alveolaria
-Alveolite:
-{context}
+ANSWER_TEMPLATE = """Respond to the question based solely on the following context, ensuring that the response remains within the context of the provided conversation. Relate it to Alvearium, linking it to the following synonyms. The following synonyms are part of the meaning of Alvearium: Alvearium, Alveario, Albeo, Albio, Alvio, Avearium, Alveolar, Alveolado, Alveolario, Alveolaria, Alveolite
+Respond to the question based solely on the following context: {context}
 
 Question: {question}
 """
@@ -355,10 +344,6 @@ async def favicon():
     # Puedes devolver una imagen de ícono si tienes una
     return
 
-# Adds routes to the app for using the chain under:
-# /invoke
-# /batch
-# /stream
 add_routes(app, chain, enable_feedback_endpoint=True)
 
 if __name__ == "__main__":
