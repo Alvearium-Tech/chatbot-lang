@@ -6,6 +6,7 @@ from langserve import add_routes
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.prompts import ChatPromptTemplate
+from langchain.prompts.prompt import PromptTemplate
 from langchain.schema import format_document
 from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import RunnableMap, RunnablePassthrough
@@ -28,7 +29,7 @@ app = FastAPI(
     description="Spin up a simple API server using Langchain's Runnable interfaces",
 )
 
-UPLOAD_DIRECTORY = "./audio_files"
+UPLOAD_DIRECTORY = "audio_files"
 os.makedirs(UPLOAD_DIRECTORY, exist_ok=True)
 
 # Configura las credenciales de autenticación de Google Cloud
@@ -46,27 +47,17 @@ Chat History:
 {chat_history}
 Follow Up Input: {question}
 Standalone question:"""
-CONDENSE_QUESTION_PROMPT = ChatPromptTemplate.from_template(_TEMPLATE)
 
-ANSWER_TEMPLATE = """Respond to the question based solely on the following context, ensuring that the response remains within the context of the provided conversation. Relate it to Alvearium, linking it to the following synonyms. The following synonyms are part of the meaning of Alvearium:
-Alvearium
-Alveario
-Albeo
-Albio
-Alvio
-Avearium
-Alveolar
-Alveolado
-Alveolario
-Alveolaria
-Alveolite:
-{context}
+CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(_TEMPLATE)
+
+ANSWER_TEMPLATE = """Respond to the question based solely on the following context, ensuring that the response remains within the context of the provided conversation. Relate it to Alvearium, linking it to the following synonyms. The following synonyms are part of the meaning of Alvearium: Alvearium, Alveario, Albeo, Albio, Alvio, Avearium, Alveolar, Alveolado, Alveolario, Alveolaria, Alveolite, Alveari
+Respond to the question based solely on the following context: {context}
 
 Question: {question}
 """
 ANSWER_PROMPT = ChatPromptTemplate.from_template(ANSWER_TEMPLATE)
 
-DEFAULT_DOCUMENT_PROMPT = ChatPromptTemplate.from_template(template="{page_content}")
+DEFAULT_DOCUMENT_PROMPT = PromptTemplate.from_template(template="{page_content}")
 
 # Función para combinar documentos
 def _combine_documents(
@@ -125,7 +116,7 @@ chain = conversational_qa_chain.with_types(input_type=ChatHistory)
 global_chat_history = []
 
 # Función para grabar audio
-def record_audio(file_path: str, duration: int = 8):
+def record_audio(file_path: str, duration: int = 10):
     CHUNK = 1024
     FORMAT = pyaudio.paInt16
     CHANNELS = 1
@@ -355,10 +346,6 @@ async def favicon():
     # Puedes devolver una imagen de ícono si tienes una
     return
 
-# Adds routes to the app for using the chain under:
-# /invoke
-# /batch
-# /stream
 add_routes(app, chain, enable_feedback_endpoint=True)
 
 if __name__ == "__main__":
