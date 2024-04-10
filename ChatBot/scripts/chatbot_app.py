@@ -72,17 +72,34 @@ def grabar_audio_y_enviar():
         response_answer = requests.post(f"{url_servidor}/answer", json={"text": transcription})
         response_answer.raise_for_status()  # Lanzar una excepción en caso de error de solicitud
 
+         # Obtener la respuesta del chatbot
+        respuesta = response_answer.json()
+        ruta_audio = respuesta["audio_file"]
+        
+
+        # Mostrar la respuesta del chatbot
+        st.write("Respuesta del chatbot:")
+        # Reproducir el archivo de audio
+        st.audio(ruta_audio, format='audio/mp3')
+
+    except requests.exceptions.RequestException as e:
+        st.error(f"Error en la solicitud: {e}")
+    except Exception as e:
+        st.error(f"Error inesperado: {e}")
+
+def enviar_pregunta_escrita_al_modelo(pregunta):
+    try:
+        # Realizar la solicitud al servidor para obtener la respuesta del chatbot
+        response = requests.post(f"{url_servidor}/answer", json={"text": pregunta})
+        response.raise_for_status()  # Lanzar una excepción en caso de error de solicitud
+
         # Obtener la respuesta del chatbot
-        answer = response_answer.content
+        respuesta = response.json()
+        answer = respuesta["text_response"]
 
-        # Guardar la respuesta del chatbot en un archivo de audio MP3
-        with open(ruta_archivo_audio_mp3_respuesta, "wb") as audio_file:
-            audio_file.write(answer)
-
-        st.success("Respuesta del chatbot generada correctamente")
-
-        # Reproducir la respuesta del chatbot
-        st.audio(ruta_archivo_audio_mp3_respuesta, format='audio/mp3')
+        # Mostrar la respuesta del chatbot
+        st.write("Respuesta del chatbot:")
+        st.write(answer)  # Decodificar la respuesta a UTF-8 antes de mostrarla
 
     except requests.exceptions.RequestException as e:
         st.error(f"Error en la solicitud: {e}")
@@ -105,9 +122,21 @@ def main():
     st.title("Alvearium - Chatbot")
 
     # Agregar pestañas para las diferentes funcionalidades
-    tabs = st.sidebar.radio("Navegación", ["Grabar Audio", "Ver Historial de Conversación"])
+    tabs = st.sidebar.radio("Navegación", ["Escribir Pregunta", "Grabar Pregunta", "Ver Historial de Conversación"])
 
-    if tabs == "Grabar Audio":
+    if tabs == "Escribir Pregunta":
+        st.sidebar.image("cropped-cropped-favicon-01-32x32.png", width=50)
+
+        st.header("Escribir Pregunta")
+        pregunta_usuario = st.text_area("Escribe tu pregunta aqui")
+
+        if st.button("Enviar Pregunta"):
+            if pregunta_usuario:
+                enviar_pregunta_escrita_al_modelo(pregunta_usuario)
+            else:
+                st.warning("Por favor ingresa una pregunta antes de enviarla")
+
+    if tabs == "Grabar Pregunta":
         st.sidebar.image("cropped-cropped-favicon-01-32x32.png", width=50)  # Agregar icono a la pestaña
         # Mostrar botón para iniciar la grabación de audio
         if st.button("Iniciar grabación de audio"):

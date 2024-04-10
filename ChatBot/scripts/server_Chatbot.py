@@ -21,6 +21,7 @@ import soundfile as sf
 import tempfile
 import pyaudio
 import wave
+from fastapi.responses import JSONResponse
 
 
 app = FastAPI(
@@ -80,7 +81,7 @@ def _format_chat_history(chat_history: List[Tuple]) -> str:
 # Carga del índice de vectores
 index_directory = "./faiss_index"
 persisted_vectorstore = FAISS.load_local(index_directory, openai_embeddings)
-retriever = persisted_vectorstore.as_retriever()
+retriever = persisted_vectorstore.as_retriever(search_type="mmr")
 
 # Definición del mapeo de entrada y contexto
 _inputs = RunnableMap(
@@ -88,7 +89,7 @@ _inputs = RunnableMap(
         chat_history=lambda x: _format_chat_history(x["chat_history"])
     )
     | CONDENSE_QUESTION_PROMPT
-    | ChatOpenAI(api_key=OPENAI_API_KEY, temperature=0)
+    | ChatOpenAI(api_key=OPENAI_API_KEY, temperature=0, max_tokens=50)
     | StrOutputParser(),
 )
 _context = {
@@ -108,7 +109,7 @@ class ChatHistory(BaseModel):
 
 # Cadena de procesamiento de la conversación
 conversational_qa_chain = (
-    _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model="gpt-4-0125-preview") | StrOutputParser()
+    _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model="gpt-4-0125-preview", max_tokens=50) | StrOutputParser()
 )
 chain = conversational_qa_chain.with_types(input_type=ChatHistory)
 
@@ -170,7 +171,7 @@ async def speech_to_text(file: UploadFile = File(...)):
         # Eliminar el archivo temporal
         os.remove(temp_audio_path)
 
-        # Devolver directamente el texto transcribido
+        # Devolver directamente el texto transcrito
         return {"text": transcription}
 
     except Exception as e:
@@ -249,8 +250,13 @@ async def get_answer(request_body: dict):
         tmp_audio_file.write(audio_content)
         tmp_audio_file_path = tmp_audio_file.name
 
+    response_data = {
+        "audio_file": tmp_audio_file_path,
+        "text_response": answer
+    }
+
     # Devolver el archivo temporal como respuesta
-    return FileResponse(tmp_audio_file_path, media_type="audio/mp3")
+    return JSONResponse(content=response_data)
 
 @app.post("/speech_to_text")
 async def stt_endpoint(file: UploadFile = File(...)):
