@@ -5,6 +5,9 @@ ChatBot/chatbot-env/
 
 /.gitignore
 
+Chatbot_testing
+Jupyter Notebooks
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
