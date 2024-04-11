@@ -12,17 +12,16 @@ from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import RunnableMap, RunnablePassthrough
 from langchain.vectorstores.faiss import FAISS
 from langchain_community.callbacks import get_openai_callback
-from google.cloud import texttospeech_v1 as texttospeech
-from google.cloud import speech_v1 as speech
 from operator import itemgetter
-import librosa
 from extract_apis_keys import load
 import soundfile as sf
 import tempfile
 import pyaudio
 import wave
 from fastapi.responses import JSONResponse
-
+from openai import OpenAI
+from pathlib import Path
+import subprocess
 
 app = FastAPI(
     title="LangChain Server",
@@ -33,13 +32,11 @@ app = FastAPI(
 UPLOAD_DIRECTORY = "audio_files"
 os.makedirs(UPLOAD_DIRECTORY, exist_ok=True)
 
-# Configura las credenciales de autenticación de Google Cloud
-GOOGLE_APPLICATION_CREDENTIALS = load()
 
 # Carga de la clave de la API OpenAI
 OPENAI_API_KEY = load()[1]
 openai_embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
-
+client = OpenAI(api_key=OPENAI_API_KEY)
 # Plantillas de conversación y respuesta
 _TEMPLATE = """Given the following conversation and a follow up question, rephrase the 
 follow up question to be a standalone question, in its original language.
@@ -142,80 +139,86 @@ def record_audio(file_path: str, duration: int = 10):
     stream.stop_stream()
     stream.close()
     audio.terminate()
+
+    # Guardar el audio en formato WAV temporal
+    wav_file = tempfile.NamedTemporaryFile(suffix=".wav", delete=False)
+    wav_file_path = wav_file.name
+    wav_file.close()
     
-    with wave.open(file_path, 'wb') as wf:
+    with wave.open(wav_file_path, 'wb') as wf:
         wf.setnchannels(CHANNELS)
         wf.setsampwidth(audio.get_sample_size(FORMAT))
         wf.setframerate(RATE)
         wf.writeframes(b''.join(frames))
 
-# Función Text-to-Speech (TTS) usando Google Cloud
+    # Convertir el archivo WAV a MP3
+    mp3_file_path = os.path.splitext(file_path)[0] + ".mp3"
+    subprocess.run(['ffmpeg', "-i", wav_file_path, "-codec:a", "libmp3lame", mp3_file_path])
+    
+    # Leer el contenido del archivo MP3 como bytes
+    with open(mp3_file_path, 'rb') as mp3_file:
+        audio_content = mp3_file.read()
+    
+    # Eliminar el archivo WAV temporal
+    os.remove(wav_file_path)
+    
+    return audio_content
+
 def text_to_speech(text: str):
-    client = texttospeech.TextToSpeechClient()
-    synthesis_input = texttospeech.SynthesisInput(text=text)
-    voice = texttospeech.VoiceSelectionParams(language_code="es-ES", ssml_gender=texttospeech.SsmlVoiceGender.FEMALE)
-    audio_config = texttospeech.AudioConfig(audio_encoding=texttospeech.AudioEncoding.MP3)  # Ajustado para MP3
-    response = client.synthesize_speech(input=synthesis_input, voice=voice, audio_config=audio_config)
-    return response.audio_content
-
-async def speech_to_text(file: UploadFile = File(...)):
     try:
-        # Guardar el archivo de audio temporalmente en el disco
-        with tempfile.NamedTemporaryFile(delete=False) as temp_audio:
-            temp_audio.write(await file.read())
-            temp_audio_path = temp_audio.name
+        client = OpenAI(api_key=OPENAI_API_KEY)
+        file_path = os.path.join(UPLOAD_DIRECTORY, "respuesta.mp3")
+        response = client.audio.speech.create(
+            model="tts-1",
+            voice="alloy",
+            input=text
+        )
 
-        # Realizar la transcripción de voz
-        transcription = await speech_to_text_internal(temp_audio_path)
+        with open(file_path, 'wb') as file:
+            audio = file.write(response.read())
 
-        # Eliminar el archivo temporal
-        os.remove(temp_audio_path)
-
-        # Devolver directamente el texto transcrito
-        return {"text": transcription}
-
+        return audio
+    
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+async def speech_to_text_internal(file_path: str) -> str:
 
-# Función Speech-to-Text (STT) actualizada para usar Google Cloud Speech-to-Text
-async def speech_to_text_internal(audio_path: str) -> str:
-    client = speech.SpeechClient()
+    print("Enviando solicitud a la API de OpenAI...")
 
-    # Lee el archivo de audio
-    with open(audio_path, "rb") as audio_file:
-        content = audio_file.read()
-
-    audio = speech.RecognitionAudio(content=content)
-    config = speech.RecognitionConfig(
-        encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
-        sample_rate_hertz=16000,
-        language_code="es-ES",
-    )
-
+    print(file_path)
+    with open(file_path, "rb") as file:
     # Detecta el texto del audio
-    response = client.recognize(config=config, audio=audio)
+        transcription = client.audio.transcriptions.create(
+            model="whisper-1",
+            file=file,
+            response_format="text",
+            prompt="Alvearium, alvearium"
+        )
 
-    # Reúne los resultados de la transcripción
-    if response.results:
-        transcription = " ".join(result.alternatives[0].transcript for result in response.results)
-        return transcription
-    else:
-        return "No se pudo transcribir el audio."
+    print("Solicitud completada.")
+
+    print("Respuesta de la API de OpenAI:", transcription)
+
+    return transcription
     
 # Ruta para la grabación de audio
 @app.post("/record_audio")
-async def record_audio_endpoint(duration: int = 5):
-    # Guardamos el archivo de audio grabado
-    file_path_wav = os.path.join(UPLOAD_DIRECTORY, "recorded_audio.mp3")
-    
-    # Normalizar la ruta del archivo
-    file_path_wav = os.path.normpath(file_path_wav)
-    
-    # Llama a la función de grabación de audio
-    record_audio(file_path_wav, duration)
-    
-    return {"message": "Audio grabado exitosamente."}
+async def record_audio_endpoint(duration: int = 10):
+    file_path = os.path.join(UPLOAD_DIRECTORY, "recorded_audio.mp3")
+    file_content = record_audio(file_path, duration)
+
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_audio_file:
+        tmp_audio_file.write(file_content)
+        tmp_audio_file_path =  tmp_audio_file.name
+
+    # Devolver el archivo temporal como respuesta
+    return FileResponse(
+        path=tmp_audio_file_path,
+        filename="recorded_audio.mp3",
+        media_type='audio/mpeg',
+        background=BackgroundTasks([lambda: delete_file(tmp_audio_file_path)])
+    )
 
 # Define la ruta y la función controladora para manejar las solicitudes POST
 @app.post("/answer")
@@ -261,53 +264,17 @@ async def get_answer(request_body: dict):
 @app.post("/speech_to_text")
 async def stt_endpoint(file: UploadFile = File(...)):
     try:
-        # Crea un archivo temporal para guardar el contenido del archivo subido
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp_file:
-            contents = await file.read()
-            tmp_file.write(contents)
-            tmp_file_path = tmp_file.name
-        # Asegúrate de cerrar el archivo aquí, ya que with lo cierra automáticamente
+        filename = file.filename
 
-        # Ahora que el archivo está cerrado, intenta acceder a él nuevamente
-        transcription = await speech_to_text_internal(tmp_file_path)
+        file_path = os.path.join(UPLOAD_DIRECTORY, filename)
 
-        # Limpia el archivo temporal después de usarlo
-        os.remove(tmp_file_path)
+        # Llamar a la función de transcripción de voz a texto con la ruta del archivo
+        transcription = await speech_to_text_internal(file_path)
 
         return {"text": transcription}
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-    
-@app.post("/ask_audio")
-async def ask_question_audio(file: UploadFile = File(...)):
-    try:
-        # Leer el contenido del archivo de audio
-        contents = await file.read()
-
-        # Crear un archivo temporal para escribir el contenido
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp_audio_file:
-            tmp_audio_file.write(contents)
-            tmp_audio_file_path = tmp_audio_file.name
-
-        # Resample a 16000 Hz si la frecuencia de muestreo no coincide
-        y, sr = librosa.load(tmp_audio_file_path, sr=None)
-        if sr != 16000:
-            y_resampled = librosa.resample(y, orig_sr=sr, target_sr=16000)
-            sr = 16000
-        else:
-            y_resampled = y
-
-        # Escribir el audio resampleado en un archivo WAV
-        output_path = "temp_audio_resampled.wav"
-        sf.write(output_path, y_resampled, sr)
-
-        # Devolver el archivo WAV como respuesta
-        return FileResponse(output_path, media_type="audio/wav")
-
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-    
 
 def delete_file(path: str):
     os.remove(path)
@@ -315,25 +282,12 @@ def delete_file(path: str):
 # Ruta para la conversión de texto a voz (TTS)
 @app.post("/text_to_speech")
 async def generate_speech(text: str):
-    # Configura el cliente de Google Cloud Text-to-Speech
-    client = texttospeech.TextToSpeechClient()
-
-    # Configuración de la solicitud
-    synthesis_input = texttospeech.SynthesisInput(text=text)
-    voice = texttospeech.VoiceSelectionParams(
-        language_code='en-US',
-        ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
-    )
-    audio_config = texttospeech.AudioConfig(
-        audio_encoding=texttospeech.AudioEncoding.MP3
-    )
-
-    # Solicita la síntesis del texto
-    response = client.synthesize_speech(input=synthesis_input, voice=voice, audio_config=audio_config)
+    
+    response = text_to_speech(text)
 
     # Crea un archivo temporal para guardar el audio
     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp:
-        tmp.write(response.audio_content)
+        tmp.write(response)
         tmp_path = tmp.name
 
     # Devuelve el archivo de audio
