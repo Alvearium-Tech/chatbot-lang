@@ -5,6 +5,8 @@ ChatBot/chatbot-env/
 
 /.gitignore
 
+key-app-chatbot-alvearium.pem
+
 Chatbot_testing
 Jupyter Notebooks
 
