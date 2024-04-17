@@ -2,6 +2,8 @@ import os
 import time
 import requests
 import streamlit as st
+import base64
+import tempfile
 
 # Definir la URL del servidor
 url_servidor = "http://localhost:8000"
@@ -66,21 +68,26 @@ def grabar_audio_y_enviar():
         # Obtener la transcripción de audio a texto
         transcription = response_stt.json().get("text")
 
-        st.write(f"Transcripción de audio a texto: {transcription}")
-
         # Realizar la solicitud al servidor para obtener la respuesta del chatbot
         response_answer = requests.post(f"{url_servidor}/answer", json={"text": transcription})
         response_answer.raise_for_status()  # Lanzar una excepción en caso de error de solicitud
 
          # Obtener la respuesta del chatbot
         respuesta = response_answer.json()
-        ruta_audio = respuesta["audio_file"]
+        audio_base64 = respuesta["audio_base64"]
         
 
-        # Mostrar la respuesta del chatbot
-        st.write("Respuesta del chatbot:")
+        # Decodificar el audio Base64
+        audio_content = base64.b64decode(audio_base64)
+
+        # Guardar el audio como archivo temporal
+        audio_temp_file = tempfile.NamedTemporaryFile(suffix=".mp3", delete=False)
+        audio_temp_file.write(audio_content)
+        audio_temp_file_path = audio_temp_file.name
+        audio_temp_file.close()
+
         # Reproducir el archivo de audio
-        st.audio(ruta_audio, format='audio/mp3')
+        st.audio(audio_temp_file_path, format='audio/mp3')
 
     except requests.exceptions.RequestException as e:
         st.error(f"Error en la solicitud: {e}")

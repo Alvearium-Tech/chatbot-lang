@@ -14,14 +14,13 @@ from langchain.vectorstores.faiss import FAISS
 from langchain_community.callbacks import get_openai_callback
 from operator import itemgetter
 from extract_apis_keys import load
-import soundfile as sf
 import tempfile
 import pyaudio
 import wave
 from fastapi.responses import JSONResponse
 from openai import OpenAI
-from pathlib import Path
 import subprocess
+import base64
 
 app = FastAPI(
     title="LangChain Server",
@@ -86,7 +85,7 @@ _inputs = RunnableMap(
         chat_history=lambda x: _format_chat_history(x["chat_history"])
     )
     | CONDENSE_QUESTION_PROMPT
-    | ChatOpenAI(api_key=OPENAI_API_KEY, temperature=0, max_tokens=50)
+    | ChatOpenAI(api_key=OPENAI_API_KEY, temperature=0.1)
     | StrOutputParser(),
 )
 _context = {
@@ -106,7 +105,7 @@ class ChatHistory(BaseModel):
 
 # Cadena de procesamiento de la conversación
 conversational_qa_chain = (
-    _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model="gpt-4-0125-preview", max_tokens=50) | StrOutputParser()
+    _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model="gpt-4-0125-preview", max_tokens=200, temperature=0.1) | StrOutputParser()
 )
 chain = conversational_qa_chain.with_types(input_type=ChatHistory)
 
@@ -153,7 +152,7 @@ def record_audio(file_path: str, duration: int = 10):
 
     # Convertir el archivo WAV a MP3
     mp3_file_path = os.path.splitext(file_path)[0] + ".mp3"
-    subprocess.run(['ffmpeg', "-i", wav_file_path, "-codec:a", "libmp3lame", mp3_file_path])
+    subprocess.run(['ffmpeg', "-y", "-i", wav_file_path, "-codec:a", "libmp3lame", mp3_file_path])
     
     # Leer el contenido del archivo MP3 como bytes
     with open(mp3_file_path, 'rb') as mp3_file:
@@ -164,20 +163,32 @@ def record_audio(file_path: str, duration: int = 10):
     
     return audio_content
 
-def text_to_speech(text: str):
+def text_to_speech(text: str, save_path: str) -> bytes:
     try:
         client = OpenAI(api_key=OPENAI_API_KEY)
-        file_path = os.path.join(UPLOAD_DIRECTORY, "respuesta.mp3")
         response = client.audio.speech.create(
             model="tts-1",
-            voice="alloy",
+            voice="nova",
             input=text
         )
 
-        with open(file_path, 'wb') as file:
-            audio = file.write(response.read())
+        # Guardar el audio temporalmente en formato WAV
+        wav_file_path = save_path.replace('.mp3', '.wav')
+        with open(wav_file_path, 'wb') as file:
+            file.write(response.read())
 
-        return audio
+        # Convertir el archivo WAV a MP3
+        subprocess.run(['ffmpeg', "-y", "-i", wav_file_path, "-codec:a", "libmp3lame", save_path])
+
+        # Leer el contenido del archivo MP3 como bytes
+        with open(save_path, 'rb') as audio_file:
+            audio_content = audio_file.read()
+
+        # Eliminar el archivo WAV temporal
+        os.remove(wav_file_path)
+
+        # Devolver el contenido de audio como bytes
+        return audio_content
     
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -193,7 +204,7 @@ async def speech_to_text_internal(file_path: str) -> str:
             model="whisper-1",
             file=file,
             response_format="text",
-            prompt="Alvearium, alvearium"
+            prompt="Alvearium"
         )
 
     print("Solicitud completada.")
@@ -209,7 +220,7 @@ async def record_audio_endpoint(duration: int = 10):
     file_content = record_audio(file_path, duration)
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_audio_file:
-        tmp_audio_file.write(file_content)
+        tmp_audio_file.write(bytes(file_content))
         tmp_audio_file_path =  tmp_audio_file.name
 
     # Devolver el archivo temporal como respuesta
@@ -221,6 +232,7 @@ async def record_audio_endpoint(duration: int = 10):
     )
 
 # Define la ruta y la función controladora para manejar las solicitudes POST
+
 @app.post("/answer")
 async def get_answer(request_body: dict):
     global global_chat_history
@@ -242,7 +254,8 @@ async def get_answer(request_body: dict):
             raise HTTPException(status_code=500, detail="Error al procesar la pregunta")
     
     # Convertir la respuesta del chatbot a audio utilizando la función text_to_speech
-    audio_content = text_to_speech(answer)
+    file_path = os.path.join(UPLOAD_DIRECTORY, "respuesta.mp3")
+    audio_content = text_to_speech(answer, file_path)
     
     # Actualizar el historial de chat global con la nueva conversación
     global_chat_history.append(("Usuario", question))
@@ -250,15 +263,18 @@ async def get_answer(request_body: dict):
     
     # Crear un archivo temporal para almacenar el contenido de audio
     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_audio_file:
-        tmp_audio_file.write(audio_content)
+        tmp_audio_file.write(bytes(audio_content))
         tmp_audio_file_path = tmp_audio_file.name
 
+    # Codificar el contenido de audio a Base64
+    audio_base64 = base64.b64encode(audio_content).decode('utf-8')
+
     response_data = {
-        "audio_file": tmp_audio_file_path,
+        "audio_base64": audio_base64,
         "text_response": answer
     }
 
-    # Devolver el archivo temporal como respuesta
+    # Devolver el contenido del archivo temporal como respuesta
     return JSONResponse(content=response_data)
 
 @app.post("/speech_to_text")
@@ -281,17 +297,18 @@ def delete_file(path: str):
 
 # Ruta para la conversión de texto a voz (TTS)
 @app.post("/text_to_speech")
-async def generate_speech(text: str):
-    
-    response = text_to_speech(text)
+async def generate_speech(text: str) -> bytes:
+    try:
+        response = text_to_speech(text)  # Llama a la función para generar el audio
+        
+        # Lee el contenido del archivo temporal
+        audio_content = response.read()
 
-    # Crea un archivo temporal para guardar el audio
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp:
-        tmp.write(response)
-        tmp_path = tmp.name
+        # Devuelve el contenido de audio como respuesta
+        return audio_content
 
-    # Devuelve el archivo de audio
-    return FileResponse(path=tmp_path, filename="speech.mp3", media_type='audio/mpeg', background= BackgroundTasks(delete_file, tmp_path))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 # Ruta para ver el historial del chat
 @app.get("/chat_history")
