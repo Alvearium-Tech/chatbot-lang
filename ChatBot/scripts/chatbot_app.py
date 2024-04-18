@@ -6,7 +6,7 @@ import base64
 import tempfile
 
 # Definir la URL del servidor
-url_servidor = "http://localhost:8000"
+url_servidor = "http://3.121.212.228:8000"
 
 # Definir la ruta base donde se encuentran los archivos de audio
 ruta_base_audio = "./audio_files/"
@@ -116,7 +116,7 @@ def enviar_pregunta_escrita_al_modelo(pregunta):
 # Función para obtener el historial del chat desde la API
 def get_chat_history():
     try:
-        response = requests.get("http://localhost:8000/chat_history")
+        response = requests.get(f"{url_servidor}/chat_history")
         response.raise_for_status()  # Lanzar una excepción si la solicitud falla
         return response.json().get("chat_history", [])
     except Exception as e:
