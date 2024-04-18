@@ -6,7 +6,7 @@ import base64
 import tempfile
 
 # Definir la URL del servidor
-url_servidor = "http://3.121.212.228:8000"
+url_servidor = "http://0.0.0.0:8000"
 
 # Definir la ruta base donde se encuentran los archivos de audio
 ruta_base_audio = "./audio_files/"
