@@ -76,7 +76,7 @@ def _format_chat_history(chat_history: List[Tuple]) -> str:
 
 # Carga del índice de vectores
 index_directory = "./faiss_index"
-persisted_vectorstore = FAISS.load_local(index_directory, openai_embeddings)
+persisted_vectorstore = FAISS.load_local(index_directory, openai_embeddings, allow_dangerous_deserialization=True)
 retriever = persisted_vectorstore.as_retriever(search_type="mmr")
 
 # Definición del mapeo de entrada y contexto
