@@ -158,7 +158,7 @@ def main():
                             // Enviar el archivo de audio al servidor
                             let formData = new FormData();
                             formData.append('file', blob, 'recorded_audio.wav'); // Cambiado a WAV para una mejor compatibilidad
-                            fetch('http://127.0.0.1:8000/speech_to_text', {
+                            fetch('http://18.185.79.122:8000/speech_to_text', {
                                 method: 'POST',
                                 body: formData
                             })
@@ -167,7 +167,7 @@ def main():
                                 console.log('Transcripción recibida:', data.text);
 
                                 // Realizar la solicitud fetch adicional para obtener la respuesta del servidor
-                                fetch('http://127.0.0.1:8000/answer', {
+                                fetch('http://18.185.79.122:8000/answer', {
                                     method: 'POST',
                                     headers: {
                                         'Content-Type': 'application/json'
