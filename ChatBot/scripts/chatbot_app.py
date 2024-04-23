@@ -137,8 +137,8 @@ def main():
                             stream = mediaStream;
                             recorder = RecordRTC(stream, {
                                 type: 'audio',
-                                mimeType: 'audio/wav',  // Cambiado a WAV para una mejor compatibilidad
-                                recorderType: RecordRTC.StereoAudioRecorder, // Require stereo audio
+                                mimeType: 'audio/wav',  
+                                recorderType: RecordRTC.StereoAudioRecorder, 
                                 desiredSampRate: 16000
                             });
 
@@ -152,51 +152,56 @@ def main():
 
                     stopButton.addEventListener('click', function() {
                         this.disabled = true;
-                        recorder.stopRecording(function() {
-                            let blob = recorder.getBlob();
+                        // Verificar si recorder está definido antes de llamar a stopRecording()
+                        if (recorder) {
+                            recorder.stopRecording(function() {
+                                let blob = recorder.getBlob();
 
-                            // Enviar el archivo de audio al servidor
-                            let formData = new FormData();
-                            formData.append('file', blob, 'recorded_audio.wav'); // Cambiado a WAV para una mejor compatibilidad
-                            fetch('http://18.185.79.122:8000/speech_to_text', {
-                                method: 'POST',
-                                body: formData
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                console.log('Transcripción recibida:', data.text);
-
-                                // Realizar la solicitud fetch adicional para obtener la respuesta del servidor
-                                fetch('http://18.185.79.122:8000/answer', {
+                                // Enviar el archivo de audio al servidor
+                                let formData = new FormData();
+                                formData.append('file', blob, 'recorded_audio.wav'); 
+                                fetch('http://18.185.79.122:8000/speech_to_text', {
                                     method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify({ text: data.text })
+                                    body: formData
                                 })
                                 .then(response => response.json())
                                 .then(data => {
-                                    console.log('Respuesta del servidor:', data);
+                                    console.log('Transcripción recibida:', data.text);
 
-                                    // Obtener la URL del archivo de audio
-                                    const audioUrl = data.audio_url;
+                                    // Realizar la solicitud fetch adicional para obtener la respuesta del servidor
+                                    fetch('http://18.185.79.122:8000/answer', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({ text: data.text })
+                                    })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        console.log('Respuesta del servidor:', data);
 
-                                    // Reproducir el archivo de audio
-                                    const audioElement = new Audio(audioUrl);
-                                    audioElement.play();
+                                        // Obtener la URL del archivo de audio
+                                        const audioUrl = data.audio_url;
+
+                                        // Reproducir el archivo de audio
+                                        const audioElement = new Audio(audioUrl);
+                                        audioElement.play();
+                                    })
+                                    .catch(error => {
+                                        console.error('Error al enviar la solicitud de audio:', error);
+                                    });
                                 })
                                 .catch(error => {
-                                    console.error('Error al enviar la solicitud de audio:', error);
+                                    console.error('Error al enviar el audio:', error);
+                                })
+                                .finally(() => {
+                                    startButton.disabled = false;
+                                    stopStream(); 
                                 });
-                            })
-                            .catch(error => {
-                                console.error('Error al enviar el audio:', error);
-                            })
-                            .finally(() => {
-                                startButton.disabled = false;
-                                stopStream(); // Detener el flujo de medios
                             });
-                        });
+                        } else {
+                            console.error('Recorder is undefined');
+                        }
                     });
                 </script>
             </body>
