@@ -1,12 +1,13 @@
 import os
-import time
 import requests
 import streamlit as st
 import base64
 import tempfile
+from streamlit.components.v1 import html
 
 # Definir la URL del servidor
-url_servidor = "http://3.121.212.228:8000"
+url_servidor = "http://18.185.79.122:8000"
+#url_servidor = "http://127.0.0.1:8000"
 
 # Definir la ruta base donde se encuentran los archivos de audio
 ruta_base_audio = "./audio_files/"
@@ -50,50 +51,6 @@ def aplicar_estilo_personalizado():
     """, unsafe_allow_html=True)
 
 # Función para grabar audio y enviarlo al servidor
-def grabar_audio_y_enviar():
-    try:
-        # Realizar la solicitud al servidor para grabar audio
-        response_record_audio = requests.post(f"{url_servidor}/record_audio")
-        response_record_audio.raise_for_status()  # Lanzar una excepción en caso de error de solicitud
-
-        st.success("Audio grabado exitosamente")
-
-        # Esperar un tiempo para que el servidor tenga tiempo de procesar el audio
-        time.sleep(2)  # Ajusta el tiempo de espera según sea necesario
-
-        # Realizar la solicitud al servidor para convertir el audio grabado a texto (STT)
-        response_stt = requests.post(f"{url_servidor}/speech_to_text", files={"file": open(ruta_archivo_audio_mp3_original, "rb")})
-        response_stt.raise_for_status()  # Lanzar una excepción en caso de error de solicitud
-
-        # Obtener la transcripción de audio a texto
-        transcription = response_stt.json().get("text")
-
-        # Realizar la solicitud al servidor para obtener la respuesta del chatbot
-        response_answer = requests.post(f"{url_servidor}/answer", json={"text": transcription})
-        response_answer.raise_for_status()  # Lanzar una excepción en caso de error de solicitud
-
-         # Obtener la respuesta del chatbot
-        respuesta = response_answer.json()
-        audio_base64 = respuesta["audio_base64"]
-        
-
-        # Decodificar el audio Base64
-        audio_content = base64.b64decode(audio_base64)
-
-        # Guardar el audio como archivo temporal
-        audio_temp_file = tempfile.NamedTemporaryFile(suffix=".mp3", delete=False)
-        audio_temp_file.write(audio_content)
-        audio_temp_file_path = audio_temp_file.name
-        audio_temp_file.close()
-
-        # Reproducir el archivo de audio
-        st.audio(audio_temp_file_path, format='audio/mp3')
-
-    except requests.exceptions.RequestException as e:
-        st.error(f"Error en la solicitud: {e}")
-    except Exception as e:
-        st.error(f"Error inesperado: {e}")
-
 def enviar_pregunta_escrita_al_modelo(pregunta):
     try:
         # Realizar la solicitud al servidor para obtener la respuesta del chatbot
@@ -143,11 +100,109 @@ def main():
             else:
                 st.warning("Por favor ingresa una pregunta antes de enviarla")
 
-    if tabs == "Grabar Pregunta":
-        st.sidebar.image("cropped-cropped-favicon-01-32x32.png", width=50)  # Agregar icono a la pestaña
-        # Mostrar botón para iniciar la grabación de audio
+    elif tabs == "Grabar Pregunta":
+        st.sidebar.image("cropped-cropped-favicon-01-32x32.png", width=50)
         if st.button("Iniciar grabación de audio"):
-            grabar_audio_y_enviar()
+            st.write("Haz clic en el botón de grabar para iniciar la grabación.")
+            html_code = """
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Grabador de Audio</title>
+                <script src="https://cdn.WebRTC-Experiment.com/RecordRTC.js"></script>
+            </head>
+            <body>
+                <button id="btn-start-recording">Iniciar Grabación</button>
+                <button id="btn-stop-recording" disabled>Detener Grabación</button>
+
+                <script>
+                    let recorder;
+                    let stream;
+                    const startButton = document.getElementById('btn-start-recording');
+                    const stopButton = document.getElementById('btn-stop-recording');
+
+                    function stopStream() {
+                        if (stream) {
+                            stream.getTracks().forEach(track => track.stop());
+                        }
+                    }
+
+                    startButton.addEventListener('click', function() {
+                        this.disabled = true;
+                        stopButton.disabled = false;
+                        navigator.mediaDevices.getUserMedia({ audio: true })
+                        .then(function(mediaStream) {
+                            stream = mediaStream;
+                            recorder = RecordRTC(stream, {
+                                type: 'audio',
+                                mimeType: 'audio/wav',  // Cambiado a WAV para una mejor compatibilidad
+                                recorderType: RecordRTC.StereoAudioRecorder, // Require stereo audio
+                                desiredSampRate: 16000
+                            });
+
+                            recorder.startRecording();
+                        }).catch(function(error) {
+                            console.error('Error accessing media devices.', error);
+                            startButton.disabled = false;
+                            stopButton.disabled = true;
+                        });
+                    });
+
+                    stopButton.addEventListener('click', function() {
+                        this.disabled = true;
+                        recorder.stopRecording(function() {
+                            let blob = recorder.getBlob();
+
+                            // Enviar el archivo de audio al servidor
+                            let formData = new FormData();
+                            formData.append('file', blob, 'recorded_audio.wav'); // Cambiado a WAV para una mejor compatibilidad
+                            fetch('http://18.185.79.122:8000/speech_to_text', {
+                                method: 'POST',
+                                body: formData
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('Transcripción recibida:', data.text);
+
+                                // Realizar la solicitud fetch adicional para obtener la respuesta del servidor
+                                fetch('http://18.185.79.122:8000/answer', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({ text: data.text })
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    console.log('Respuesta del servidor:', data);
+
+                                    // Obtener la URL del archivo de audio
+                                    const audioUrl = data.audio_url;
+
+                                    // Reproducir el archivo de audio
+                                    const audioElement = new Audio(audioUrl);
+                                    audioElement.play();
+                                })
+                                .catch(error => {
+                                    console.error('Error al enviar la solicitud de audio:', error);
+                                });
+                            })
+                            .catch(error => {
+                                console.error('Error al enviar el audio:', error);
+                            })
+                            .finally(() => {
+                                startButton.disabled = false;
+                                stopStream(); // Detener el flujo de medios
+                            });
+                        });
+                    });
+                </script>
+            </body>
+            </html>
+            """
+            st.components.v1.html(html_code, height=200)
 
     elif tabs == "Ver Historial de Conversación":
         st.sidebar.image("cropped-cropped-favicon-01-32x32.png", width=50)  # Agregar icono a la pestaña

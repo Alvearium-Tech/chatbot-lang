@@ -21,11 +21,21 @@ from fastapi.responses import JSONResponse
 from openai import OpenAI
 import subprocess
 import base64
+from fastapi.middleware.cors import CORSMiddleware
+from io import BytesIO
 
 app = FastAPI(
     title="LangChain Server",
     version="1.0",
     description="Spin up a simple API server using Langchain's Runnable interfaces",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://18.185.79.122:8501"],  # Reemplaza esto con la URL de tu aplicación Streamlit
+    allow_credentials=True,
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"],
 )
 
 UPLOAD_DIRECTORY = "audio_files"
@@ -47,8 +57,7 @@ Standalone question:"""
 
 CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(_TEMPLATE)
 
-ANSWER_TEMPLATE = """Respond to the question based solely on the following context, ensuring that the response remains within the context of the provided conversation. Relate it to Alvearium, linking it to the following synonyms. The following synonyms are part of the meaning of Alvearium: Alvearium, Alveario, Albeo, Albio, Alvio, Avearium, Alveolar, Alveolado, Alveolario, Alveolaria, Alveolite, Alveari
-Respond to the question based solely on the following context: {context}
+ANSWER_TEMPLATE = """Respond to the question based solely on the following context, ensuring that the response remains within the context of the provided conversation. Respond to the question based solely on the following context: {context}
 
 Question: {question}
 """
@@ -79,13 +88,17 @@ index_directory = "./faiss_index"
 persisted_vectorstore = FAISS.load_local(index_directory, openai_embeddings, allow_dangerous_deserialization=True)
 retriever = persisted_vectorstore.as_retriever(search_type="mmr")
 
+'''index_directory = "./faiss_index"
+persisted_vectorstore = FAISS.load_local(index_directory, openai_embeddings)
+retriever = persisted_vectorstore.as_retriever(search_type="mmr")'''
+
 # Definición del mapeo de entrada y contexto
 _inputs = RunnableMap(
     standalone_question=RunnablePassthrough.assign(
         chat_history=lambda x: _format_chat_history(x["chat_history"])
     )
     | CONDENSE_QUESTION_PROMPT
-    | ChatOpenAI(api_key=OPENAI_API_KEY, temperature=0.1)
+    | ChatOpenAI(api_key=OPENAI_API_KEY, model="gpt-4-0125-preview")
     | StrOutputParser(),
 )
 _context = {
@@ -105,7 +118,7 @@ class ChatHistory(BaseModel):
 
 # Cadena de procesamiento de la conversación
 conversational_qa_chain = (
-    _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model="gpt-4-0125-preview", max_tokens=200, temperature=0.1) | StrOutputParser()
+    _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model="gpt-4-0125-preview", max_tokens=200) | StrOutputParser()
 )
 chain = conversational_qa_chain.with_types(input_type=ChatHistory)
 
@@ -194,24 +207,21 @@ def text_to_speech(text: str, save_path: str) -> bytes:
         raise HTTPException(status_code=500, detail=str(e))
 
 async def speech_to_text_internal(file_path: str) -> str:
+    try:
+        print(file_path)
+        with open(file_path, "rb") as file:
+        # Detecta el texto del audio
+            transcription = client.audio.transcriptions.create(
+                model="whisper-1",
+                file=file,
+                response_format="text",
+                prompt="Alvearium, alvea"
+            )
 
-    print("Enviando solicitud a la API de OpenAI...")
-
-    print(file_path)
-    with open(file_path, "rb") as file:
-    # Detecta el texto del audio
-        transcription = client.audio.transcriptions.create(
-            model="whisper-1",
-            file=file,
-            response_format="text",
-            prompt="Alvearium"
-        )
-
-    print("Solicitud completada.")
-
-    print("Respuesta de la API de OpenAI:", transcription)
-
-    return transcription
+        return transcription
+    
+    except Exception as e:
+        raise Exception(f"Error en la transcripción de voz a texto: {e}")
     
 # Ruta para la grabación de audio
 @app.post("/record_audio")
@@ -261,16 +271,17 @@ async def get_answer(request_body: dict):
     global_chat_history.append(("Usuario", question))
     global_chat_history.append(("Asistente", answer))
     
-    # Crear un archivo temporal para almacenar el contenido de audio
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_audio_file:
-        tmp_audio_file.write(bytes(audio_content))
-        tmp_audio_file_path = tmp_audio_file.name
+    base_url = "http://18.185.79.122:8000"
 
+    # Construir la URL completa del archivo de audio
+    audio_file_path = "audio_files/respuesta.mp3"
+    audio_url = f"{base_url}/{audio_file_path}"
+    
     # Codificar el contenido de audio a Base64
     audio_base64 = base64.b64encode(audio_content).decode('utf-8')
 
     response_data = {
-        "audio_base64": audio_base64,
+        "audio_url": audio_url,  # Cambiado de "audio_base64" a "audio_url"
         "text_response": answer
     }
 
@@ -280,12 +291,16 @@ async def get_answer(request_body: dict):
 @app.post("/speech_to_text")
 async def stt_endpoint(file: UploadFile = File(...)):
     try:
-        filename = file.filename
-
-        file_path = os.path.join(UPLOAD_DIRECTORY, filename)
+        # Guardar el archivo de audio en el directorio de almacenamiento
+        file_path = os.path.join(UPLOAD_DIRECTORY, file.filename)
+        with open(file_path, "wb") as buffer:
+            buffer.write(await file.read())
 
         # Llamar a la función de transcripción de voz a texto con la ruta del archivo
         transcription = await speech_to_text_internal(file_path)
+
+        # Eliminar el archivo después de procesarlo si es necesario
+        os.remove(file_path)
 
         return {"text": transcription}
 
@@ -316,6 +331,15 @@ async def view_chat_history():
     global global_chat_history
     # La función `view_chat_history` devuelve el historial global del chat
     return {"chat_history": global_chat_history}
+
+# Ruta para servir archivos de audio
+@app.get("/audio_files/{file_name}")
+async def get_audio_file(file_name: str):
+    file_path = os.path.join("audio_files", file_name)
+    if os.path.exists(file_path):
+        return FileResponse(file_path, media_type="audio/mpeg")
+    else:
+        return {"error": "Archivo no encontrado"}
 
 # Manejar solicitudes para el ícono de favicon
 @app.get("/favicon.ico", include_in_schema=False)
