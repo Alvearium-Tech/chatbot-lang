@@ -12,17 +12,17 @@ from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import RunnableMap, RunnablePassthrough
 from langchain.vectorstores.faiss import FAISS
 from langchain_community.callbacks import get_openai_callback
-from google.cloud import texttospeech_v1 as texttospeech
-from google.cloud import speech_v1 as speech
 from operator import itemgetter
-import librosa
 from extract_apis_keys import load
-import soundfile as sf
 import tempfile
 import pyaudio
 import wave
 from fastapi.responses import JSONResponse
-
+from openai import OpenAI
+import subprocess
+import base64
+from fastapi.middleware.cors import CORSMiddleware
+from io import BytesIO
 
 app = FastAPI(
     title="LangChain Server",
@@ -30,16 +30,22 @@ app = FastAPI(
     description="Spin up a simple API server using Langchain's Runnable interfaces",
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://18.185.79.122:8501"],  # Reemplaza esto con la URL de tu aplicación Streamlit
+    allow_credentials=True,
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"],
+)
+
 UPLOAD_DIRECTORY = "audio_files"
 os.makedirs(UPLOAD_DIRECTORY, exist_ok=True)
 
-# Configura las credenciales de autenticación de Google Cloud
-GOOGLE_APPLICATION_CREDENTIALS = load()
 
 # Carga de la clave de la API OpenAI
 OPENAI_API_KEY = load()[1]
 openai_embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
-
+client = OpenAI(api_key=OPENAI_API_KEY)
 # Plantillas de conversación y respuesta
 _TEMPLATE = """Given the following conversation and a follow up question, rephrase the 
 follow up question to be a standalone question, in its original language.
@@ -51,8 +57,7 @@ Standalone question:"""
 
 CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(_TEMPLATE)
 
-ANSWER_TEMPLATE = """Respond to the question based solely on the following context, ensuring that the response remains within the context of the provided conversation. Relate it to Alvearium, linking it to the following synonyms. The following synonyms are part of the meaning of Alvearium: Alvearium, Alveario, Albeo, Albio, Alvio, Avearium, Alveolar, Alveolado, Alveolario, Alveolaria, Alveolite, Alveari
-Respond to the question based solely on the following context: {context}
+ANSWER_TEMPLATE = """Respond to the question based solely on the following context, ensuring that the response remains within the context of the provided conversation. Respond to the question based solely on the following context: {context}
 
 Question: {question}
 """
@@ -80,8 +85,12 @@ def _format_chat_history(chat_history: List[Tuple]) -> str:
 
 # Carga del índice de vectores
 index_directory = "./faiss_index"
-persisted_vectorstore = FAISS.load_local(index_directory, openai_embeddings)
+persisted_vectorstore = FAISS.load_local(index_directory, openai_embeddings, allow_dangerous_deserialization=True)
 retriever = persisted_vectorstore.as_retriever(search_type="mmr")
+
+'''index_directory = "./faiss_index"
+persisted_vectorstore = FAISS.load_local(index_directory, openai_embeddings)
+retriever = persisted_vectorstore.as_retriever(search_type="mmr")'''
 
 # Definición del mapeo de entrada y contexto
 _inputs = RunnableMap(
@@ -89,7 +98,7 @@ _inputs = RunnableMap(
         chat_history=lambda x: _format_chat_history(x["chat_history"])
     )
     | CONDENSE_QUESTION_PROMPT
-    | ChatOpenAI(api_key=OPENAI_API_KEY, temperature=0, max_tokens=50)
+    | ChatOpenAI(api_key=OPENAI_API_KEY, model="gpt-4-0125-preview")
     | StrOutputParser(),
 )
 _context = {
@@ -109,7 +118,7 @@ class ChatHistory(BaseModel):
 
 # Cadena de procesamiento de la conversación
 conversational_qa_chain = (
-    _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model="gpt-4-0125-preview", max_tokens=50) | StrOutputParser()
+    _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model="gpt-4-0125-preview", max_tokens=200) | StrOutputParser()
 )
 chain = conversational_qa_chain.with_types(input_type=ChatHistory)
 
@@ -142,82 +151,98 @@ def record_audio(file_path: str, duration: int = 10):
     stream.stop_stream()
     stream.close()
     audio.terminate()
+
+    # Guardar el audio en formato WAV temporal
+    wav_file = tempfile.NamedTemporaryFile(suffix=".wav", delete=False)
+    wav_file_path = wav_file.name
+    wav_file.close()
     
-    with wave.open(file_path, 'wb') as wf:
+    with wave.open(wav_file_path, 'wb') as wf:
         wf.setnchannels(CHANNELS)
         wf.setsampwidth(audio.get_sample_size(FORMAT))
         wf.setframerate(RATE)
         wf.writeframes(b''.join(frames))
 
-# Función Text-to-Speech (TTS) usando Google Cloud
-def text_to_speech(text: str):
-    client = texttospeech.TextToSpeechClient()
-    synthesis_input = texttospeech.SynthesisInput(text=text)
-    voice = texttospeech.VoiceSelectionParams(language_code="es-ES", ssml_gender=texttospeech.SsmlVoiceGender.FEMALE)
-    audio_config = texttospeech.AudioConfig(audio_encoding=texttospeech.AudioEncoding.MP3)  # Ajustado para MP3
-    response = client.synthesize_speech(input=synthesis_input, voice=voice, audio_config=audio_config)
-    return response.audio_content
+    # Convertir el archivo WAV a MP3
+    mp3_file_path = os.path.splitext(file_path)[0] + ".mp3"
+    subprocess.run(['ffmpeg', "-y", "-i", wav_file_path, "-codec:a", "libmp3lame", mp3_file_path])
+    
+    # Leer el contenido del archivo MP3 como bytes
+    with open(mp3_file_path, 'rb') as mp3_file:
+        audio_content = mp3_file.read()
+    
+    # Eliminar el archivo WAV temporal
+    os.remove(wav_file_path)
+    
+    return audio_content
 
-async def speech_to_text(file: UploadFile = File(...)):
+def text_to_speech(text: str, save_path: str) -> bytes:
     try:
-        # Guardar el archivo de audio temporalmente en el disco
-        with tempfile.NamedTemporaryFile(delete=False) as temp_audio:
-            temp_audio.write(await file.read())
-            temp_audio_path = temp_audio.name
+        client = OpenAI(api_key=OPENAI_API_KEY)
+        response = client.audio.speech.create(
+            model="tts-1",
+            voice="nova",
+            input=text
+        )
 
-        # Realizar la transcripción de voz
-        transcription = await speech_to_text_internal(temp_audio_path)
+        # Guardar el audio temporalmente en formato WAV
+        wav_file_path = save_path.replace('.mp3', '.wav')
+        with open(wav_file_path, 'wb') as file:
+            file.write(response.read())
 
-        # Eliminar el archivo temporal
-        os.remove(temp_audio_path)
+        # Convertir el archivo WAV a MP3
+        subprocess.run(['ffmpeg', "-y", "-i", wav_file_path, "-codec:a", "libmp3lame", save_path])
 
-        # Devolver directamente el texto transcrito
-        return {"text": transcription}
+        # Leer el contenido del archivo MP3 como bytes
+        with open(save_path, 'rb') as audio_file:
+            audio_content = audio_file.read()
 
+        # Eliminar el archivo WAV temporal
+        os.remove(wav_file_path)
+
+        # Devolver el contenido de audio como bytes
+        return audio_content
+    
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+async def speech_to_text_internal(file_path: str) -> str:
+    try:
+        print(file_path)
+        with open(file_path, "rb") as file:
+        # Detecta el texto del audio
+            transcription = client.audio.transcriptions.create(
+                model="whisper-1",
+                file=file,
+                response_format="text",
+                prompt="Alvearium, alvea"
+            )
 
-# Función Speech-to-Text (STT) actualizada para usar Google Cloud Speech-to-Text
-async def speech_to_text_internal(audio_path: str) -> str:
-    client = speech.SpeechClient()
-
-    # Lee el archivo de audio
-    with open(audio_path, "rb") as audio_file:
-        content = audio_file.read()
-
-    audio = speech.RecognitionAudio(content=content)
-    config = speech.RecognitionConfig(
-        encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
-        sample_rate_hertz=16000,
-        language_code="es-ES",
-    )
-
-    # Detecta el texto del audio
-    response = client.recognize(config=config, audio=audio)
-
-    # Reúne los resultados de la transcripción
-    if response.results:
-        transcription = " ".join(result.alternatives[0].transcript for result in response.results)
         return transcription
-    else:
-        return "No se pudo transcribir el audio."
+    
+    except Exception as e:
+        raise Exception(f"Error en la transcripción de voz a texto: {e}")
     
 # Ruta para la grabación de audio
 @app.post("/record_audio")
-async def record_audio_endpoint(duration: int = 5):
-    # Guardamos el archivo de audio grabado
-    file_path_wav = os.path.join(UPLOAD_DIRECTORY, "recorded_audio.mp3")
-    
-    # Normalizar la ruta del archivo
-    file_path_wav = os.path.normpath(file_path_wav)
-    
-    # Llama a la función de grabación de audio
-    record_audio(file_path_wav, duration)
-    
-    return {"message": "Audio grabado exitosamente."}
+async def record_audio_endpoint(duration: int = 10):
+    file_path = os.path.join(UPLOAD_DIRECTORY, "recorded_audio.mp3")
+    file_content = record_audio(file_path, duration)
+
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_audio_file:
+        tmp_audio_file.write(bytes(file_content))
+        tmp_audio_file_path =  tmp_audio_file.name
+
+    # Devolver el archivo temporal como respuesta
+    return FileResponse(
+        path=tmp_audio_file_path,
+        filename="recorded_audio.mp3",
+        media_type='audio/mpeg',
+        background=BackgroundTasks([lambda: delete_file(tmp_audio_file_path)])
+    )
 
 # Define la ruta y la función controladora para manejar las solicitudes POST
+
 @app.post("/answer")
 async def get_answer(request_body: dict):
     global global_chat_history
@@ -239,105 +264,66 @@ async def get_answer(request_body: dict):
             raise HTTPException(status_code=500, detail="Error al procesar la pregunta")
     
     # Convertir la respuesta del chatbot a audio utilizando la función text_to_speech
-    audio_content = text_to_speech(answer)
+    file_path = os.path.join(UPLOAD_DIRECTORY, "respuesta.mp3")
+    audio_content = text_to_speech(answer, file_path)
     
     # Actualizar el historial de chat global con la nueva conversación
     global_chat_history.append(("Usuario", question))
     global_chat_history.append(("Asistente", answer))
     
-    # Crear un archivo temporal para almacenar el contenido de audio
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_audio_file:
-        tmp_audio_file.write(audio_content)
-        tmp_audio_file_path = tmp_audio_file.name
+    base_url = "http://18.185.79.122:8000"
+
+    # Construir la URL completa del archivo de audio
+    audio_file_path = "audio_files/respuesta.mp3"
+    audio_url = f"{base_url}/{audio_file_path}"
+    
+    # Codificar el contenido de audio a Base64
+    audio_base64 = base64.b64encode(audio_content).decode('utf-8')
 
     response_data = {
-        "audio_file": tmp_audio_file_path,
+        "audio_url": audio_url,  # Cambiado de "audio_base64" a "audio_url"
         "text_response": answer
     }
 
-    # Devolver el archivo temporal como respuesta
+    # Devolver el contenido del archivo temporal como respuesta
     return JSONResponse(content=response_data)
 
 @app.post("/speech_to_text")
 async def stt_endpoint(file: UploadFile = File(...)):
     try:
-        # Crea un archivo temporal para guardar el contenido del archivo subido
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp_file:
-            contents = await file.read()
-            tmp_file.write(contents)
-            tmp_file_path = tmp_file.name
-        # Asegúrate de cerrar el archivo aquí, ya que with lo cierra automáticamente
+        # Guardar el archivo de audio en el directorio de almacenamiento
+        file_path = os.path.join(UPLOAD_DIRECTORY, file.filename)
+        with open(file_path, "wb") as buffer:
+            buffer.write(await file.read())
 
-        # Ahora que el archivo está cerrado, intenta acceder a él nuevamente
-        transcription = await speech_to_text_internal(tmp_file_path)
+        # Llamar a la función de transcripción de voz a texto con la ruta del archivo
+        transcription = await speech_to_text_internal(file_path)
 
-        # Limpia el archivo temporal después de usarlo
-        os.remove(tmp_file_path)
+        # Eliminar el archivo después de procesarlo si es necesario
+        os.remove(file_path)
 
         return {"text": transcription}
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-    
-@app.post("/ask_audio")
-async def ask_question_audio(file: UploadFile = File(...)):
-    try:
-        # Leer el contenido del archivo de audio
-        contents = await file.read()
-
-        # Crear un archivo temporal para escribir el contenido
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp_audio_file:
-            tmp_audio_file.write(contents)
-            tmp_audio_file_path = tmp_audio_file.name
-
-        # Resample a 16000 Hz si la frecuencia de muestreo no coincide
-        y, sr = librosa.load(tmp_audio_file_path, sr=None)
-        if sr != 16000:
-            y_resampled = librosa.resample(y, orig_sr=sr, target_sr=16000)
-            sr = 16000
-        else:
-            y_resampled = y
-
-        # Escribir el audio resampleado en un archivo WAV
-        output_path = "temp_audio_resampled.wav"
-        sf.write(output_path, y_resampled, sr)
-
-        # Devolver el archivo WAV como respuesta
-        return FileResponse(output_path, media_type="audio/wav")
-
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-    
 
 def delete_file(path: str):
     os.remove(path)
 
 # Ruta para la conversión de texto a voz (TTS)
 @app.post("/text_to_speech")
-async def generate_speech(text: str):
-    # Configura el cliente de Google Cloud Text-to-Speech
-    client = texttospeech.TextToSpeechClient()
+async def generate_speech(text: str) -> bytes:
+    try:
+        response = text_to_speech(text)  # Llama a la función para generar el audio
+        
+        # Lee el contenido del archivo temporal
+        audio_content = response.read()
 
-    # Configuración de la solicitud
-    synthesis_input = texttospeech.SynthesisInput(text=text)
-    voice = texttospeech.VoiceSelectionParams(
-        language_code='en-US',
-        ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
-    )
-    audio_config = texttospeech.AudioConfig(
-        audio_encoding=texttospeech.AudioEncoding.MP3
-    )
+        # Devuelve el contenido de audio como respuesta
+        return audio_content
 
-    # Solicita la síntesis del texto
-    response = client.synthesize_speech(input=synthesis_input, voice=voice, audio_config=audio_config)
-
-    # Crea un archivo temporal para guardar el audio
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp:
-        tmp.write(response.audio_content)
-        tmp_path = tmp.name
-
-    # Devuelve el archivo de audio
-    return FileResponse(path=tmp_path, filename="speech.mp3", media_type='audio/mpeg', background= BackgroundTasks(delete_file, tmp_path))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 # Ruta para ver el historial del chat
 @app.get("/chat_history")
@@ -345,6 +331,15 @@ async def view_chat_history():
     global global_chat_history
     # La función `view_chat_history` devuelve el historial global del chat
     return {"chat_history": global_chat_history}
+
+# Ruta para servir archivos de audio
+@app.get("/audio_files/{file_name}")
+async def get_audio_file(file_name: str):
+    file_path = os.path.join("audio_files", file_name)
+    if os.path.exists(file_path):
+        return FileResponse(file_path, media_type="audio/mpeg")
+    else:
+        return {"error": "Archivo no encontrado"}
 
 # Manejar solicitudes para el ícono de favicon
 @app.get("/favicon.ico", include_in_schema=False)
@@ -357,4 +352,4 @@ add_routes(app, chain, enable_feedback_endpoint=True)
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="localhost", port=8000)
+    uvicorn.run(app, port=8000)

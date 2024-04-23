@@ -5,6 +5,11 @@ ChatBot/chatbot-env/
 
 /.gitignore
 
+key-app-chatbot-alvearium.pem
+
+Chatbot_testing
+Jupyter Notebooks
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
