@@ -111,7 +111,8 @@ def main():
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Grabador de Audio</title>
-                <script src="https://cdn.WebRTC-Experiment.com/RecordRTC.js"></script>
+                <!-- Corregir el enlace a la librería RecordRTC.js -->
+                <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
             </head>
             <body>
                 <button id="btn-start-recording">Iniciar Grabación</button>
@@ -138,20 +139,21 @@ def main():
                                 stream = mediaStream;
                                 recorder = RecordRTC(stream, {
                                     type: 'audio',
-                                    mimeType: 'audio/wav',  // Cambiado a WAV para una mejor compatibilidad
-                                    recorderType: RecordRTC.StereoAudioRecorder, // Require stereo audio
+                                    // Cambiar el tipo MIME a audio/webm para una mejor compatibilidad
+                                    mimeType: 'audio/webm',
+                                    recorderType: RecordRTC.StereoAudioRecorder,
                                     desiredSampRate: 16000
                                 });
 
                                 recorder.startRecording();
                             })
                             .catch(function(error) {
-                                console.error('Error accessing media devices or user denied access:', error);
+                                console.error('Error al acceder a los dispositivos de medios o el usuario denegó el acceso:', error);
                                 startButton.disabled = false;
                                 stopButton.disabled = true;
                             });
                         } else {
-                            console.error('getUserMedia is not supported');
+                            console.error('getUserMedia no es compatible');
                             startButton.disabled = false;
                             stopButton.disabled = true;
                         }
@@ -165,7 +167,7 @@ def main():
 
                                 // Enviar el archivo de audio al servidor
                                 let formData = new FormData();
-                                formData.append('file', blob, 'recorded_audio.wav'); // Cambiado a WAV para una mejor compatibilidad
+                                formData.append('file', blob, 'grabacion_audio.webm');
                                 fetch('http://18.185.79.122:8000/speech_to_text', {
                                     method: 'POST',
                                     body: formData
@@ -195,6 +197,10 @@ def main():
                                     })
                                     .catch(error => {
                                         console.error('Error al enviar la solicitud de audio:', error);
+                                    })
+                                    .finally(() => {
+                                        startButton.disabled = false;
+                                        stopStream(); // Detener el flujo de medios
                                     });
                                 })
                                 .catch(error => {
@@ -206,7 +212,7 @@ def main():
                                 });
                             });
                         } else {
-                            console.error('Recorder is not initialized or does not have a stopRecording method');
+                            console.error('El grabador no está inicializado o no tiene un método stopRecording');
                         }
                     });
                 </script>
