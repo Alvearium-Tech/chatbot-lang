@@ -32,7 +32,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8501"],  # Reemplaza esto con la URL de tu aplicación Streamlit
+    allow_origins=["http://18.185.79.122:8501"],  # Reemplaza esto con la URL de tu aplicación Streamlit
     allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
@@ -84,13 +84,13 @@ def _format_chat_history(chat_history: List[Tuple]) -> str:
     return buffer
 
 # Carga del índice de vectores
-'''index_directory = "./faiss_index"
-persisted_vectorstore = FAISS.load_local(index_directory, openai_embeddings, allow_dangerous_deserialization=True)
-retriever = persisted_vectorstore.as_retriever(search_type="mmr")'''
-
 index_directory = "./faiss_index"
-persisted_vectorstore = FAISS.load_local(index_directory, openai_embeddings)
+persisted_vectorstore = FAISS.load_local(index_directory, openai_embeddings, allow_dangerous_deserialization=True)
 retriever = persisted_vectorstore.as_retriever(search_type="mmr")
+
+'''index_directory = "./faiss_index"
+persisted_vectorstore = FAISS.load_local(index_directory, openai_embeddings)
+retriever = persisted_vectorstore.as_retriever(search_type="mmr")'''
 
 # Definición del mapeo de entrada y contexto
 _inputs = RunnableMap(
@@ -271,7 +271,7 @@ async def get_answer(request_body: dict):
     global_chat_history.append(("Usuario", question))
     global_chat_history.append(("Asistente", answer))
     
-    base_url = "http://127.0.0.1:8000"
+    base_url = "http://18.185.79.122:8000"
 
     # Construir la URL completa del archivo de audio
     audio_file_path = "audio_files/respuesta.mp3"
