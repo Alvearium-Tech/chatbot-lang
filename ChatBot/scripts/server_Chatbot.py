@@ -32,10 +32,12 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://18.185.79.122:8501"],  # Reemplaza esto con la URL de tu aplicación Streamlit
-    allow_credentials=True,
-    allow_methods=["GET", "POST"],
-    allow_headers=["*"],
+    allow_origins=["*"],  # Permitir solicitudes desde cualquier origen
+    allow_credentials=True,  # Permitir el envío de credenciales (por ejemplo, cookies, tokens)
+    allow_methods=["*"],  # Permitir todos los métodos HTTP (GET, POST, PUT, DELETE, etc.)
+    allow_headers=["*"],  # Permitir cualquier encabezado en la solicitud
+    expose_headers=["*"],  # Exponer cualquier encabezado en la respuesta
+    max_age=600,  # Duración máxima en segundos para la que las credenciales se pueden mantener en caché
 )
 
 UPLOAD_DIRECTORY = "audio_files"
