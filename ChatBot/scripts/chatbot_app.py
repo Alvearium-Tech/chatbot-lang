@@ -132,34 +132,40 @@ def main():
                     startButton.addEventListener('click', function() {
                         this.disabled = true;
                         stopButton.disabled = false;
-                        navigator.mediaDevices.getUserMedia({ audio: true })
-                        .then(function(mediaStream) {
-                            stream = mediaStream;
-                            recorder = RecordRTC(stream, {
-                                type: 'audio',
-                                mimeType: 'audio/wav',  
-                                recorderType: RecordRTC.StereoAudioRecorder, 
-                                desiredSampRate: 16000
-                            });
+                        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                            navigator.mediaDevices.getUserMedia({ audio: true })
+                            .then(function(mediaStream) {
+                                stream = mediaStream;
+                                recorder = RecordRTC(stream, {
+                                    type: 'audio',
+                                    mimeType: 'audio/wav',  // Cambiado a WAV para una mejor compatibilidad
+                                    recorderType: RecordRTC.StereoAudioRecorder, // Require stereo audio
+                                    desiredSampRate: 16000
+                                });
 
-                            recorder.startRecording();
-                        }).catch(function(error) {
-                            console.error('Error accessing media devices.', error);
+                                recorder.startRecording();
+                            })
+                            .catch(function(error) {
+                                console.error('Error accessing media devices or user denied access:', error);
+                                startButton.disabled = false;
+                                stopButton.disabled = true;
+                            });
+                        } else {
+                            console.error('getUserMedia is not supported');
                             startButton.disabled = false;
                             stopButton.disabled = true;
-                        });
+                        }
                     });
 
                     stopButton.addEventListener('click', function() {
                         this.disabled = true;
-                        // Verificar si recorder está definido antes de llamar a stopRecording()
-                        if (recorder) {
+                        if (recorder && typeof recorder.stopRecording === 'function') {
                             recorder.stopRecording(function() {
                                 let blob = recorder.getBlob();
 
                                 // Enviar el archivo de audio al servidor
                                 let formData = new FormData();
-                                formData.append('file', blob, 'recorded_audio.wav'); 
+                                formData.append('file', blob, 'recorded_audio.wav'); // Cambiado a WAV para una mejor compatibilidad
                                 fetch('http://18.185.79.122:8000/speech_to_text', {
                                     method: 'POST',
                                     body: formData
@@ -196,11 +202,11 @@ def main():
                                 })
                                 .finally(() => {
                                     startButton.disabled = false;
-                                    stopStream(); 
+                                    stopStream(); // Detener el flujo de medios
                                 });
                             });
                         } else {
-                            console.error('Recorder is undefined');
+                            console.error('Recorder is not initialized or does not have a stopRecording method');
                         }
                     });
                 </script>
