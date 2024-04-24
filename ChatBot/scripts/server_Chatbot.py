@@ -347,7 +347,8 @@ async def get_audio_file(file_name: str):
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
     # Puedes devolver una imagen de ícono si tienes una
-    return
+    favicon_path = "ChatBot\scripts\cropped-cropped-favicon-01-32x32.png"
+    return favicon_path
 
 add_routes(app, chain, enable_feedback_endpoint=True)
 

@@ -222,7 +222,7 @@ def main():
             st.components.v1.html(html_code, height=200)
 
     elif tabs == "Ver Historial de Conversación":
-        st.sidebar.image("cropped-cropped-favicon-01-32x32.png", width=50)  # Agregar icono a la pestaña
+        st.sidebar.image("ChatBot\scripts\cropped-cropped-favicon-01-32x32.png", width=50)  # Agregar icono a la pestaña
         # Obtener el historial de la conversación desde la API
         chat_history = get_chat_history()
         
