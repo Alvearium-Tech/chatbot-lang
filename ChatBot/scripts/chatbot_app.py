@@ -168,7 +168,7 @@ def main():
                                 // Enviar el archivo de audio al servidor
                                 let formData = new FormData();
                                 formData.append('file', blob, 'grabacion_audio.webm');
-                                fetch('http://18.195.124.67:8000/speech_to_text', {
+                                fetch('http://18.192.57.108:8000/speech_to_text', {
                                     method: 'POST',
                                     body: formData
                                 })
@@ -177,7 +177,7 @@ def main():
                                     console.log('Transcripción recibida:', data.text);
 
                                     // Realizar la solicitud fetch adicional para obtener la respuesta del servidor
-                                    fetch('http://18.195.124.67:8000/answer', {
+                                    fetch('http://18.192.57.108:8000/answer', {
                                         method: 'POST',
                                         headers: {
                                             'Content-Type': 'application/json'

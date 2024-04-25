@@ -273,7 +273,7 @@ async def get_answer(request_body: dict):
     global_chat_history.append(("Usuario", question))
     global_chat_history.append(("Asistente", answer))
     
-    base_url = "http://18.195.124.67:8000"
+    base_url = "http://18.192.57.108:8000"
 
     # Construir la URL completa del archivo de audio
     audio_file_path = "audio_files/respuesta.mp3"
