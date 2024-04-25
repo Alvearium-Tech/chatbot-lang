@@ -6,7 +6,7 @@ import tempfile
 from streamlit.components.v1 import html
 
 # Definir la URL del servidor
-url_servidor = "http://18.195.124.67:8000"
+url_servidor = "http://18.192.57.108:8000"
 #url_servidor = "http://127.0.0.1:8000"
 
 # Definir la ruta base donde se encuentran los archivos de audio
