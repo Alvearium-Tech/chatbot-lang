@@ -6,7 +6,7 @@ import tempfile
 from streamlit.components.v1 import html
 
 # Definir la URL del servidor
-url_servidor = "http://18.185.79.122:8000"
+url_servidor = "http://18.192.57.108:8000"
 #url_servidor = "http://127.0.0.1:8000"
 
 # Definir la ruta base donde se encuentran los archivos de audio
@@ -89,7 +89,7 @@ def main():
     tabs = st.sidebar.radio("Navegación", ["Escribir Pregunta", "Grabar Pregunta", "Ver Historial de Conversación"])
 
     if tabs == "Escribir Pregunta":
-        st.sidebar.image("cropped-cropped-favicon-01-32x32.png", width=50)
+        #st.sidebar.image("cropped-cropped-favicon-01-32x32.png", width=50)
 
         st.header("Escribir Pregunta")
         pregunta_usuario = st.text_area("Escribe tu pregunta aqui")
@@ -101,7 +101,7 @@ def main():
                 st.warning("Por favor ingresa una pregunta antes de enviarla")
 
     elif tabs == "Grabar Pregunta":
-        st.sidebar.image("cropped-cropped-favicon-01-32x32.png", width=50)
+        #st.sidebar.image("cropped-cropped-favicon-01-32x32.png", width=50)
         if st.button("Iniciar grabación de audio"):
             st.write("Haz clic en el botón de grabar para iniciar la grabación.")
             html_code = """
@@ -111,7 +111,8 @@ def main():
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Grabador de Audio</title>
-                <script src="https://cdn.WebRTC-Experiment.com/RecordRTC.js"></script>
+                <!-- Corregir el enlace a la librería RecordRTC.js -->
+                <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
             </head>
             <body>
                 <button id="btn-start-recording">Iniciar Grabación</button>
@@ -132,71 +133,87 @@ def main():
                     startButton.addEventListener('click', function() {
                         this.disabled = true;
                         stopButton.disabled = false;
-                        navigator.mediaDevices.getUserMedia({ audio: true })
-                        .then(function(mediaStream) {
-                            stream = mediaStream;
-                            recorder = RecordRTC(stream, {
-                                type: 'audio',
-                                mimeType: 'audio/wav',  // Cambiado a WAV para una mejor compatibilidad
-                                recorderType: RecordRTC.StereoAudioRecorder, // Require stereo audio
-                                desiredSampRate: 16000
-                            });
+                        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                            navigator.mediaDevices.getUserMedia({ audio: true })
+                            .then(function(mediaStream) {
+                                stream = mediaStream;
+                                recorder = RecordRTC(stream, {
+                                    type: 'audio',
+                                    // Cambiar el tipo MIME a audio/webm para una mejor compatibilidad
+                                    mimeType: 'audio/webm',
+                                    recorderType: RecordRTC.StereoAudioRecorder,
+                                    desiredSampRate: 16000
+                                });
 
-                            recorder.startRecording();
-                        }).catch(function(error) {
-                            console.error('Error accessing media devices.', error);
+                                recorder.startRecording();
+                            })
+                            .catch(function(error) {
+                                console.error('Error al acceder a los dispositivos de medios o el usuario denegó el acceso:', error);
+                                startButton.disabled = false;
+                                stopButton.disabled = true;
+                            });
+                        } else {
+                            console.error('getUserMedia no es compatible');
                             startButton.disabled = false;
                             stopButton.disabled = true;
-                        });
+                        }
                     });
 
                     stopButton.addEventListener('click', function() {
                         this.disabled = true;
-                        recorder.stopRecording(function() {
-                            let blob = recorder.getBlob();
+                        if (recorder && typeof recorder.stopRecording === 'function') {
+                            recorder.stopRecording(function() {
+                                let blob = recorder.getBlob();
 
-                            // Enviar el archivo de audio al servidor
-                            let formData = new FormData();
-                            formData.append('file', blob, 'recorded_audio.wav'); // Cambiado a WAV para una mejor compatibilidad
-                            fetch('http://18.185.79.122:8000/speech_to_text', {
-                                method: 'POST',
-                                body: formData
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                console.log('Transcripción recibida:', data.text);
-
-                                // Realizar la solicitud fetch adicional para obtener la respuesta del servidor
-                                fetch('http://18.185.79.122:8000/answer', {
+                                // Enviar el archivo de audio al servidor
+                                let formData = new FormData();
+                                formData.append('file', blob, 'grabacion_audio.webm');
+                                fetch('http://18.192.57.108:8000/speech_to_text', {
                                     method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify({ text: data.text })
+                                    body: formData
                                 })
                                 .then(response => response.json())
                                 .then(data => {
-                                    console.log('Respuesta del servidor:', data);
+                                    console.log('Transcripción recibida:', data.text);
 
-                                    // Obtener la URL del archivo de audio
-                                    const audioUrl = data.audio_url;
+                                    // Realizar la solicitud fetch adicional para obtener la respuesta del servidor
+                                    fetch('http://18.192.57.108:8000/answer', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({ text: data.text })
+                                    })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        console.log('Respuesta del servidor:', data);
 
-                                    // Reproducir el archivo de audio
-                                    const audioElement = new Audio(audioUrl);
-                                    audioElement.play();
+                                        // Obtener la URL del archivo de audio
+                                        const audioUrl = data.audio_url;
+
+                                        // Reproducir el archivo de audio
+                                        const audioElement = new Audio(audioUrl);
+                                        audioElement.play();
+                                    })
+                                    .catch(error => {
+                                        console.error('Error al enviar la solicitud de audio:', error);
+                                    })
+                                    .finally(() => {
+                                        startButton.disabled = false;
+                                        stopStream(); // Detener el flujo de medios
+                                    });
                                 })
                                 .catch(error => {
-                                    console.error('Error al enviar la solicitud de audio:', error);
+                                    console.error('Error al enviar el audio:', error);
+                                })
+                                .finally(() => {
+                                    startButton.disabled = false;
+                                    stopStream(); // Detener el flujo de medios
                                 });
-                            })
-                            .catch(error => {
-                                console.error('Error al enviar el audio:', error);
-                            })
-                            .finally(() => {
-                                startButton.disabled = false;
-                                stopStream(); // Detener el flujo de medios
                             });
-                        });
+                        } else {
+                            console.error('El grabador no está inicializado o no tiene un método stopRecording');
+                        }
                     });
                 </script>
             </body>
@@ -205,7 +222,7 @@ def main():
             st.components.v1.html(html_code, height=200)
 
     elif tabs == "Ver Historial de Conversación":
-        st.sidebar.image("cropped-cropped-favicon-01-32x32.png", width=50)  # Agregar icono a la pestaña
+        #st.sidebar.image("ChatBot\scripts\cropped-cropped-favicon-01-32x32.png", width=50)  # Agregar icono a la pestaña
         # Obtener el historial de la conversación desde la API
         chat_history = get_chat_history()
         

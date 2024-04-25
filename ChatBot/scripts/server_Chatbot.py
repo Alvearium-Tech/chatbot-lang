@@ -32,10 +32,12 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://18.185.79.122:8501"],  # Reemplaza esto con la URL de tu aplicación Streamlit
-    allow_credentials=True,
-    allow_methods=["GET", "POST"],
-    allow_headers=["*"],
+    allow_origins=["*"],  # Permitir solicitudes desde cualquier origen
+    allow_credentials=True,  # Permitir el envío de credenciales (por ejemplo, cookies, tokens)
+    allow_methods=["*"],  # Permitir todos los métodos HTTP (GET, POST, PUT, DELETE, etc.)
+    allow_headers=["*"],  # Permitir cualquier encabezado en la solicitud
+    expose_headers=["*"],  # Exponer cualquier encabezado en la respuesta
+    max_age=600,  # Duración máxima en segundos para la que las credenciales se pueden mantener en caché
 )
 
 UPLOAD_DIRECTORY = "audio_files"
@@ -271,7 +273,7 @@ async def get_answer(request_body: dict):
     global_chat_history.append(("Usuario", question))
     global_chat_history.append(("Asistente", answer))
     
-    base_url = "http://18.185.79.122:8000"
+    base_url = "http://18.192.57.108:8000"
 
     # Construir la URL completa del archivo de audio
     audio_file_path = "audio_files/respuesta.mp3"
@@ -345,7 +347,8 @@ async def get_audio_file(file_name: str):
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
     # Puedes devolver una imagen de ícono si tienes una
-    return
+    favicon_path = "ChatBot\scripts\cropped-cropped-favicon-01-32x32.png"
+    return favicon_path
 
 add_routes(app, chain, enable_feedback_endpoint=True)
 
