@@ -41,13 +41,17 @@ app.add_middleware(
 )
 
 UPLOAD_DIRECTORY = "audio_files"
+
 os.makedirs(UPLOAD_DIRECTORY, exist_ok=True)
 
+# Configura las credenciales de autenticación de Google Cloud
+GOOGLE_APPLICATION_CREDENTIALS = load()
 
 # Carga de la clave de la API OpenAI
 OPENAI_API_KEY = load()[1]
 openai_embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
 client = OpenAI(api_key=OPENAI_API_KEY)
+
 # Plantillas de conversación y respuesta
 _TEMPLATE = """Given the following conversation and a follow up question, rephrase the 
 follow up question to be a standalone question, in its original language.
@@ -64,6 +68,7 @@ ANSWER_TEMPLATE = """Respond to the question based solely on the following conte
 Question: {question}
 """
 ANSWER_PROMPT = ChatPromptTemplate.from_template(ANSWER_TEMPLATE)
+
 
 DEFAULT_DOCUMENT_PROMPT = PromptTemplate.from_template(template="{page_content}")
 
@@ -126,6 +131,7 @@ chain = conversational_qa_chain.with_types(input_type=ChatHistory)
 
 # Variable global para almacenar el historial del chat
 global_chat_history = []
+
 
 # Función para grabar audio
 def record_audio(file_path: str, duration: int = 10):
@@ -268,6 +274,7 @@ async def get_answer(request_body: dict):
     # Convertir la respuesta del chatbot a audio utilizando la función text_to_speech
     file_path = os.path.join(UPLOAD_DIRECTORY, "respuesta.mp3")
     audio_content = text_to_speech(answer, file_path)
+
     
     # Actualizar el historial de chat global con la nueva conversación
     global_chat_history.append(("Usuario", question))
@@ -350,6 +357,10 @@ async def favicon():
     favicon_path = "ChatBot\scripts\cropped-cropped-favicon-01-32x32.png"
     return favicon_path
 
+# Adds routes to the app for using the chain under:
+# /invoke
+# /batch
+# /stream
 add_routes(app, chain, enable_feedback_endpoint=True)
 
 if __name__ == "__main__":
