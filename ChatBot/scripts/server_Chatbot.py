@@ -23,6 +23,8 @@ import subprocess
 import base64
 from fastapi.middleware.cors import CORSMiddleware
 from io import BytesIO
+from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
+
 
 app = FastAPI(
     title="LangChain Server",
@@ -39,6 +41,8 @@ app.add_middleware(
     expose_headers=["*"],  # Exponer cualquier encabezado en la respuesta
     max_age=600,  # Duración máxima en segundos para la que las credenciales se pueden mantener en caché
 )
+
+app.add_middleware(HTTPSRedirectMiddleware)
 
 UPLOAD_DIRECTORY = "audio_files"
 os.makedirs(UPLOAD_DIRECTORY, exist_ok=True)
