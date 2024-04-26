@@ -190,19 +190,13 @@ def text_to_speech(text: str, save_path: str) -> bytes:
         )
 
         # Guardar el audio temporalmente en formato WAV
-        wav_file_path = save_path.replace('.mp3', '.wav')
+        wav_file_path = save_path.replace('.waw', '.wav')
         with open(wav_file_path, 'wb') as file:
             file.write(response.read())
-
-        # Convertir el archivo WAV a MP3
-        subprocess.run(['ffmpeg', "-y", "-i", wav_file_path, "-codec:a", "libmp3lame", save_path])
 
         # Leer el contenido del archivo MP3 como bytes
         with open(save_path, 'rb') as audio_file:
             audio_content = audio_file.read()
-
-        # Eliminar el archivo WAV temporal
-        os.remove(wav_file_path)
 
         # Devolver el contenido de audio como bytes
         return audio_content
