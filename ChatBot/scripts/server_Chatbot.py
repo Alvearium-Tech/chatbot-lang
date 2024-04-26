@@ -189,19 +189,20 @@ def text_to_speech(text: str, save_path: str) -> bytes:
             input=text
         )
 
-        # Guardar el audio temporalmente en formato WAV
-        wav_file_path = save_path.replace('.mp3', '.wav')
-        with open(wav_file_path, 'wb') as file:
-            file.write(response.read())
-            
-        # Convertir el archivo WAV a MP3
-        subprocess.run(['ffmpeg', "-y", "-i", "pipe:0", "-acodec", "pcm_s16le", "-ar", "44100", "-ac", "2", save_path])
+        # Guardar el audio en formato MP3
+        mp3_file_path = save_path
+        mp3_subprocess = subprocess.Popen(['ffmpeg', '-y', '-i', 'pipe:0', '-acodec', 'pcm_s16le', '-ar', '44100', '-ac', '2', mp3_file_path], stdin=subprocess.PIPE)
+        mp3_subprocess.communicate(input=response.read())
+        mp3_subprocess.wait()
 
-        # Leer el contenido del archivo MP3 como bytes
-        with open(save_path, 'rb') as audio_file:
+        # Convertir el archivo MP3 a WAV
+        wav_file_path = save_path.replace('.mp3', '.wav')
+        wav_subprocess = subprocess.run(['ffmpeg', '-y', '-i', mp3_file_path, '-acodec', 'pcm_s16le', '-ar', '44100', '-ac', '2', wav_file_path], check=True)
+
+        # Leer el contenido del archivo WAV como bytes
+        with open(wav_file_path, 'rb') as audio_file:
             audio_content = audio_file.read()
 
-        # Devolver el contenido de audio como bytes
         return audio_content
     
     except Exception as e:
