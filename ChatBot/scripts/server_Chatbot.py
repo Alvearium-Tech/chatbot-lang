@@ -275,7 +275,7 @@ async def get_answer(request_body: dict):
     global_chat_history.append(("Usuario", question))
     global_chat_history.append(("Asistente", answer))
     
-    base_url = "http://18.159.48.159"
+    base_url = "https://mwy0tuecpg.execute-api.eu-central-1.amazonaws.com"
 
     # Construir la URL completa del archivo de audio
     audio_file_path = "audio_files/respuesta.mp3"
