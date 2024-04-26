@@ -42,8 +42,6 @@ app.add_middleware(
     max_age=600,  # Duración máxima en segundos para la que las credenciales se pueden mantener en caché
 )
 
-#app.add_middleware(HTTPSRedirectMiddleware)
-
 UPLOAD_DIRECTORY = "audio_files"
 os.makedirs(UPLOAD_DIRECTORY, exist_ok=True)
 
@@ -277,7 +275,7 @@ async def get_answer(request_body: dict):
     global_chat_history.append(("Usuario", question))
     global_chat_history.append(("Asistente", answer))
     
-    base_url = "https://apialvychatbot.ddns.net"
+    base_url = "http://18.159.48.159"
 
     # Construir la URL completa del archivo de audio
     audio_file_path = "audio_files/respuesta.mp3"
