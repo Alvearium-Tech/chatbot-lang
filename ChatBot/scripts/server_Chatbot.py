@@ -190,9 +190,12 @@ def text_to_speech(text: str, save_path: str) -> bytes:
         )
 
         # Guardar el audio temporalmente en formato WAV
-        wav_file_path = save_path.replace('.waw', '.wav')
+        wav_file_path = save_path.replace('.mp3', '.wav')
         with open(wav_file_path, 'wb') as file:
             file.write(response.read())
+            
+        # Convertir el archivo WAV a MP3
+        subprocess.run(['ffmpeg', "-y", "-i", "pipe:0", "-acodec", "pcm_s16le", "-ar", "44100", "-ac", "2", save_path])
 
         # Leer el contenido del archivo MP3 como bytes
         with open(save_path, 'rb') as audio_file:
@@ -272,15 +275,19 @@ async def get_answer(request_body: dict):
     base_url = "https://mwy0tuecpg.execute-api.eu-central-1.amazonaws.com"
 
     # Construir la URL completa del archivo de audio
-    audio_file_path = "audio_files/respuesta.wav"
-    audio_url = f"{base_url}/{audio_file_path}"
+    audio_file_path_mp3 = "audio_files/respuesta.mp3"
+    audio_url_mp3 = f"{base_url}/{audio_file_path_mp3}"
+
+    audio_file_path_wav = "audio_files/respuesta.wav"
+    audio_url_wav = f"{base_url}/{audio_file_path_wav}"
     
     # Codificar el contenido de audio a Base64
     audio_base64 = base64.b64encode(audio_content).decode('utf-8')
 
     response_data = {
-        "audio_url": audio_url,  # Cambiado de "audio_base64" a "audio_url"
-        "text_response": answer
+        "audio_url_mp3": audio_url_mp3,  # Cambiado de "audio_base64" a "audio_url"
+        "text_response": answer,
+        "audio_url_wav": audio_url_wav,
     }
 
     # Devolver el contenido del archivo temporal como respuesta
