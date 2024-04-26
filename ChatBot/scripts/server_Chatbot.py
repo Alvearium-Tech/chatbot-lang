@@ -272,7 +272,7 @@ async def get_answer(request_body: dict):
     base_url = "https://mwy0tuecpg.execute-api.eu-central-1.amazonaws.com"
 
     # Construir la URL completa del archivo de audio
-    audio_file_path = "audio_files/respuesta.mp3"
+    audio_file_path = "audio_files/respuesta.wav"
     audio_url = f"{base_url}/{audio_file_path}"
     
     # Codificar el contenido de audio a Base64
