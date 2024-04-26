@@ -191,7 +191,7 @@ def text_to_speech(text: str, save_path: str) -> bytes:
 
         # Guardar el audio en formato MP3
         mp3_file_path = save_path
-        mp3_subprocess = subprocess.Popen(['ffmpeg', '-y', '-i', 'pipe:0', '-acodec', 'pcm_s16le', '-ar', '44100', '-ac', '2', mp3_file_path], stdin=subprocess.PIPE)
+        mp3_subprocess = subprocess.Popen(['ffmpeg', "-y", "-i", "pipe:0", "-codec:a", "libmp3lame", mp3_file_path], stdin=subprocess.PIPE)
         mp3_subprocess.communicate(input=response.read())
         mp3_subprocess.wait()
 
