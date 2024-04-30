@@ -61,7 +61,7 @@ Standalone question:"""
 
 CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(_TEMPLATE)
 
-ANSWER_TEMPLATE = """Respond to the question based solely on the following context, ensuring that the response remains within the context of the provided conversation. Respond to the question based solely on the following context: {context}
+ANSWER_TEMPLATE = """Given the following context, generate a response to the question while ensuring it stays within the conversation's context. Ensure that the response consists of a maximum of approximately 100 words. If the answer is not known or not within the context, simply state that it is unknown. Additionally, respond politely to greetings such as "Hello" or "How are you?". The context is as follows: {context}
 
 Question: {question}
 """
@@ -77,11 +77,14 @@ def _combine_documents(
     doc_strings = [format_document(doc, document_prompt) for doc in docs]
     return document_separator.join(doc_strings)
 
+MAX_CHAT_HISTORY_LENGTH = 6
+
 # Función para formatear el historial del chat
 def _format_chat_history(chat_history: List[Tuple]) -> str:
     """Format chat history into a string."""
     buffer = ""
-    for dialogue_turn in chat_history:
+    truncated_history = chat_history[-MAX_CHAT_HISTORY_LENGTH:]
+    for dialogue_turn in truncated_history:
         human = "Human: " + dialogue_turn[0]
         ai = "Assistant: " + dialogue_turn[1]
         buffer += "\n" + "\n".join([human, ai])
