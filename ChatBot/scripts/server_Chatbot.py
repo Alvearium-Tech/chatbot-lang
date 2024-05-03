@@ -61,7 +61,7 @@ Standalone question:"""
 
 CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(_TEMPLATE)
 
-ANSWER_TEMPLATE = """Given the following context, generate a response to the question while ensuring it stays within the conversation's context. Ensure that the response consists of a maximum of approximately 100 words. If the answer is not known or not within the context, simply state that it is unknown. Additionally, respond politely to greetings such as "Hello" or "How are you?". The context is as follows: {context}
+ANSWER_TEMPLATE = """Answer the question with 250 words based only on the following context. If you don't know the answer, simply state that you don't know. The context is as follows: {context}
 
 Question: {question}
 """
