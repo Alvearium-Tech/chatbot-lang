@@ -61,7 +61,7 @@ Standalone question:"""
 
 CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(_TEMPLATE)
 
-ANSWER_TEMPLATE = """Answer the question with 250 words as if you were an expert guide in tourism and an expert in Alvearium, based solely on the following context. If you don't know the answer, simply state that you don't know. The context is as follows: {context}
+ANSWER_TEMPLATE = """"Answer the question with 250 words as if you were an expert in all aspects of Alvearium, based solely on the following context. If you don't know the answer, simply state that you don't know. The context is as follows:" {context}
 
 Question: {question}
 """
