@@ -61,7 +61,7 @@ Standalone question:"""
 
 CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(_TEMPLATE)
 
-ANSWER_TEMPLATE = """"Answer the question using only 50 words as if you were an expert in all aspects of Alvearium, based solely on the following context. Keep in mind that "Alvearium, alvearium" has synonyms like "Alveariun, albearium, albeariun, alvear, alveol, alveolar, salbearium, salvearium, alveary, albeary, alvearium, albearium, alveary, among others.". Also if you don't know the answer, simply say to the user "Can you repeat the question, please?". The context is as follows:" {context}
+ANSWER_TEMPLATE = """"Answer the question using only 50 words as if you were an expert in all aspects of Alvearium, based solely on the following context. Keep in mind that "Alvearium, alvearium" has synonyms like "Alveariun, albearium, albeariun, alvear, alveol, alveolar, salbearium, salvearium, alveary, albeary, alvearium, albearium, alveary, among others.". Also if you don't know the answer based solely on the following context, simply say to the user "Can you repeat the question, please?". The context is as follows:" {context}
 
 Question: {question}
 """
