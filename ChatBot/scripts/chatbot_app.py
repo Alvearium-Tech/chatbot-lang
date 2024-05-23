@@ -6,7 +6,7 @@ import tempfile
 from streamlit.components.v1 import html
 
 # Definir la URL del servidor
-url_servidor = "https://apialvychatbot.ddns.net"
+url_servidor = "https://mwy0tuecpg.execute-api.eu-central-1.amazonaws.com"
 #url_servidor = "http://127.0.0.1:8000"
 
 # Definir la ruta base donde se encuentran los archivos de audio
@@ -168,7 +168,7 @@ def main():
                                 // Enviar el archivo de audio al servidor
                                 let formData = new FormData();
                                 formData.append('file', blob, 'grabacion_audio.webm');
-                                fetch('https://apialvychatbot.ddns.net/speech_to_text', {
+                                fetch('https://mwy0tuecpg.execute-api.eu-central-1.amazonaws.com/speech_to_text', {
                                     method: 'POST',
                                     body: formData
                                 })
@@ -177,7 +177,7 @@ def main():
                                     console.log('Transcripción recibida:', data.text);
 
                                     // Realizar la solicitud fetch adicional para obtener la respuesta del servidor
-                                    fetch('https://apialvychatbot.ddns.net/answer', {
+                                    fetch('https://mwy0tuecpg.execute-api.eu-central-1.amazonaws.com/answer', {
                                         method: 'POST',
                                         headers: {
                                             'Content-Type': 'application/json'
@@ -189,7 +189,7 @@ def main():
                                         console.log('Respuesta del servidor:', data);
 
                                         // Obtener la URL del archivo de audio
-                                        const audioUrl = data.audio_url;
+                                        const audioUrl = data.audio_url_mp3;
 
                                         // Reproducir el archivo de audio
                                         const audioElement = new Audio(audioUrl);
