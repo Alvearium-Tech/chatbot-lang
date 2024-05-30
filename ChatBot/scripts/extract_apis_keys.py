@@ -11,6 +11,8 @@ def load():
     # Configurar la variable de entorno OPENAI_API_KEY
     os.environ['OPENAI_API_KEY'] = config.get("OPENAI_API_KEY") or "MY_OPENAI_API_KEY"        
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = config.get("GOOGLE_APPLICATION_CREDENTIALS") or "MY_GOOGLE_APPLICATION_CREDENTIALS"
+
     os.environ['MONGODB_ATLAS_CLUSTER_URI'] =  config.get("MONGODB_ATLAS_CLUSTER_URI") or "MY_MONGODB_ATLAS_CLUSTER_URI"
 
     return (os.environ['GOOGLE_APPLICATION_CREDENTIALS'], os.environ['OPENAI_API_KEY'], os.environ['MONGODB_ATLAS_CLUSTER_URI'])
+
