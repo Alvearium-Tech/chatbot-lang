@@ -100,7 +100,7 @@ def generate_speech(request_body: TextToSpeechRequest ) -> bytes:
         #audio_file_path_mp3 = "audio_files/respuesta.mp3"
         #audio_url_mp3 = f"{base_url}/{audio_file_path_mp3}"
 
-        audio_file_path_wav = "audio_files/respuesta.wav"
+        audio_file_path_wav = "/home/ubuntu/Alvearium-VR/newAlvearium/audio_files/respuesta.wav"
         audio_url_wav = f"{base_url}/{audio_file_path_wav}"
 
         response_data = {
