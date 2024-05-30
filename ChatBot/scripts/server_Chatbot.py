@@ -23,6 +23,8 @@ import subprocess
 import base64
 from fastapi.middleware.cors import CORSMiddleware
 from io import BytesIO
+from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
+
 
 app = FastAPI(
     title="LangChain Server",
@@ -63,7 +65,32 @@ Standalone question:"""
 
 CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(_TEMPLATE)
 
-ANSWER_TEMPLATE = """Respond to the question based solely on the following context, ensuring that the response remains within the context of the provided conversation. Respond to the question based solely on the following context: {context}
+ANSWER_TEMPLATE = """"You are a personal assistant for Alvearium Company, tasked with responding to questions based on the provided context, with a friendly and warm tone. You must also follow these instructions when generating a response:
+
+###Instructions###
+Follow these instructions to the letter, do not skip any:
+
+1. You will rely solely on the provided context to answer the questions (this instruction is the most important, use only the provided information).
+2. The language in which the question is written is the language in which you must respond.
+3. Responses must contain a maximum of 50 words, they cannot exceed this limit.
+4. Keep in mind that the words "Alvearium, alvearium" have synonyms such as "Alveariun, albearium, albeariun, alvear, alveol, alveolar, salbearium, salvearium, alveary, albeary, alvearium, albearium, alveary, alveolo," among others.
+5. You must answer the following questions according to the following examples:
+Example 1:
+Q: "Hola, ¿cómo estás?"
+A: "Bien, gracias, estoy aquí esperando para ayudarte con lo que necesites."
+Example 2:
+Q: "Hola, ¿quién eres?"
+A: "Hola, encantado de conocerte, soy Alvy, tu asistente personal, estoy aquí para ayudarte con lo que necesites."
+Example 3:
+Q: "Hola"
+A: "¡Hola! ¿Quién eres? Soy Alvy, tu asistente personal, estoy aquí para ayudarte con lo que necesites."
+6. If you don't know the answer based solely on the provided context, respond to the user according to the following examples:
+A: "I didn't quite understand you, please repeat your question."
+A: "Can you repeat the question, please?"
+7. Double-check the information before responding, you can only respond based on the provided context.
+8. You can only tell the truth.
+###Your main objective using all the above information, instructions, and provided context###
+Answer the following question based solely on the provided context, the information you will use to respond is the context we will provide, you can only tell the truth. The context is the following:" {context}
 
 Question: {question}
 """
@@ -80,11 +107,14 @@ def _combine_documents(
     doc_strings = [format_document(doc, document_prompt) for doc in docs]
     return document_separator.join(doc_strings)
 
+MAX_CHAT_HISTORY_LENGTH = 6
+
 # Función para formatear el historial del chat
 def _format_chat_history(chat_history: List[Tuple]) -> str:
     """Format chat history into a string."""
     buffer = ""
-    for dialogue_turn in chat_history:
+    truncated_history = chat_history[-MAX_CHAT_HISTORY_LENGTH:]
+    for dialogue_turn in truncated_history:
         human = "Human: " + dialogue_turn[0]
         ai = "Assistant: " + dialogue_turn[1]
         buffer += "\n" + "\n".join([human, ai])
@@ -105,7 +135,7 @@ _inputs = RunnableMap(
         chat_history=lambda x: _format_chat_history(x["chat_history"])
     )
     | CONDENSE_QUESTION_PROMPT
-    | ChatOpenAI(api_key=OPENAI_API_KEY, model="gpt-4-0125-preview")
+    | ChatOpenAI(api_key=OPENAI_API_KEY, model="gpt-4o", temperature=0.7)
     | StrOutputParser(),
 )
 _context = {
@@ -125,7 +155,7 @@ class ChatHistory(BaseModel):
 
 # Cadena de procesamiento de la conversación
 conversational_qa_chain = (
-    _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model="gpt-4-0125-preview", max_tokens=200) | StrOutputParser()
+    _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model="gpt-4o", max_tokens=300, temperature=0.7) | StrOutputParser()
 )
 chain = conversational_qa_chain.with_types(input_type=ChatHistory)
 
@@ -193,22 +223,20 @@ def text_to_speech(text: str, save_path: str) -> bytes:
             input=text
         )
 
-        # Guardar el audio temporalmente en formato WAV
+        # Guardar el audio en formato MP3
+        mp3_file_path = save_path
+        mp3_subprocess = subprocess.Popen(['ffmpeg', "-y", "-i", "pipe:0", "-codec:a", "libmp3lame", mp3_file_path], stdin=subprocess.PIPE)
+        mp3_subprocess.communicate(input=response.read())
+        mp3_subprocess.wait()
+
+        # Convertir el archivo MP3 a WAV
         wav_file_path = save_path.replace('.mp3', '.wav')
-        with open(wav_file_path, 'wb') as file:
-            file.write(response.read())
+        wav_subprocess = subprocess.run(['ffmpeg', '-y', '-i', mp3_file_path, '-acodec', 'pcm_s16le', '-ar', '44100', '-ac', '2', wav_file_path], check=True)
 
-        # Convertir el archivo WAV a MP3
-        subprocess.run(['ffmpeg', "-y", "-i", wav_file_path, "-codec:a", "libmp3lame", save_path])
-
-        # Leer el contenido del archivo MP3 como bytes
-        with open(save_path, 'rb') as audio_file:
+        # Leer el contenido del archivo WAV como bytes
+        with open(wav_file_path, 'rb') as audio_file:
             audio_content = audio_file.read()
 
-        # Eliminar el archivo WAV temporal
-        os.remove(wav_file_path)
-
-        # Devolver el contenido de audio como bytes
         return audio_content
     
     except Exception as e:
@@ -280,18 +308,22 @@ async def get_answer(request_body: dict):
     global_chat_history.append(("Usuario", question))
     global_chat_history.append(("Asistente", answer))
     
-    base_url = "http://18.192.57.108:8000"
+    base_url = "https://mwy0tuecpg.execute-api.eu-central-1.amazonaws.com"
 
     # Construir la URL completa del archivo de audio
-    audio_file_path = "audio_files/respuesta.mp3"
-    audio_url = f"{base_url}/{audio_file_path}"
+    audio_file_path_mp3 = "audio_files/respuesta.mp3"
+    audio_url_mp3 = f"{base_url}/{audio_file_path_mp3}"
+
+    audio_file_path_wav = "audio_files/respuesta.wav"
+    audio_url_wav = f"{base_url}/{audio_file_path_wav}"
     
     # Codificar el contenido de audio a Base64
     audio_base64 = base64.b64encode(audio_content).decode('utf-8')
 
     response_data = {
-        "audio_url": audio_url,  # Cambiado de "audio_base64" a "audio_url"
-        "text_response": answer
+        "audio_url_mp3": audio_url_mp3,  # Cambiado de "audio_base64" a "audio_url"
+        "text_response": answer,
+        "audio_url_wav": audio_url_wav,
     }
 
     # Devolver el contenido del archivo temporal como respuesta
