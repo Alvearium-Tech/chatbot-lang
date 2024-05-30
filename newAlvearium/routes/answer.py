@@ -62,7 +62,7 @@ async def get_answer(request_body: AnswerRequest):
     global_chat_history.append(new_entry1)
     global_chat_history.append(new_entry2)
 
-    file_path = os.path.join(UPLOAD_DIRECTORY, "respuesta.wav")
+    file_path = os.path.join("audio_files", "respuesta.wav")
 
     async with httpx.AsyncClient() as client:
         response = await client.post(f"{url_servidor}/text_to_speech", json={"text": answer, "save_path": file_path})
@@ -71,6 +71,7 @@ async def get_answer(request_body: AnswerRequest):
 
     base_url = "https://mwy0tuecpg.execute-api.eu-central-1.amazonaws.com"
 
+    print(file_path)
     #audio_file_path_mp3 = "audio_files/respuesta.mp3"
     #audio_url_mp3 = f"{base_url}/{audio_file_path_mp3}"
 
