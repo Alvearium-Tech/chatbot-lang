@@ -33,19 +33,23 @@ def text_to_speech(text: str, save_path: str) -> bytes:
 
         wav_file_path = save_path
         with subprocess.Popen(
-            ['ffmpeg', '-y', '-i', 'pipe:0', wav_file_path],
+            ['ffmpeg', '-y', '-i', 'pipe:0', '-f', 'wav', wav_file_path],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE
         ) as wav_subprocess:
             stdout, stderr = wav_subprocess.communicate(input=audio_data)
             if wav_subprocess.returncode != 0:
-                raise Exception(f"ffmpeg error: {stderr.decode()}")
+                error_message = f"ffmpeg error: {stderr.decode()}"
+                print(error_message)
+                raise Exception(error_message)
 
         print(f"Received audio data length: {len(audio_data)}")
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        error_message = str(e)
+        print(error_message)
+        raise HTTPException(status_code=500, detail=error_message)
 
 async def speech_to_text_internal(file_path: str) -> str:
     try:
