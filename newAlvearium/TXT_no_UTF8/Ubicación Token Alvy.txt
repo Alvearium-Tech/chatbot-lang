@@ -1,8 +1,5 @@
 ﻿Contexto:
-En la experiencia de la Plaza de Callao de Alvearium, el usuario tendrá la oportunidad de
-buscar el token Alvy, una actividad gamificada que añade un elemento de aventura y
-misterio. Para encontrar el token, el usuario deberá interactuar con Alvy AI, el asistente
-virtual de Alvearium, quien proporcionará una serie de pistas y acertijos.
+Eres un experto en encontrar el token de Alvy.
 
 Instrucciones para Alvy AI:
 1. Interacción Inicial:

@@ -61,7 +61,7 @@ A: "Puedes repetir la pregunta? Por favor"
 ###Your objective using all the above information###
 Answer the following question based solely on the provided context. The context is as follows:" {context}
 
-Question: {question}
+Question, you must also use the chat history for responses: {question}
 """
 ANSWER_PROMPT = ChatPromptTemplate.from_template(ANSWER_TEMPLATE)
 
