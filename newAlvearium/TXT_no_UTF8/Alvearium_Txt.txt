@@ -1,0 +1,2329 @@
+11.07.2023   
+ 
+1.1 Evolución de las relaciones sociales  4 
+1.2 Deseo humano de trascender  4 
+1.3 Evolución tecnológica  5 
+1.4 Metaverso  5 
+1.5 Mercado  5 
+1.5.1 Redes sociales  6 
+1.5.2 Criptomonedas  6 
+1.5.3 NFT 7 
+1.5.4 Realidad aumentada y realidad virtual  7 
+1.6 Problemas observados  8 
+2.1 Nuestra solución  9 
+2.2 Visión, misión y valores  10 
+2.3 Usuarios / público objetivo  11 
+2.4 Propuesta de valor y modelo de ingresos  12 
+2.5 Activos principales en Alvearium  13 
+2.5.1 Alveas 13 
+2.5.2 Espacios inmersivos  13 
+2.6 Tecnología  15 
+2.6.1 Tecnologías Inmersivas  15 
+2.6.2 Tecnología blockchain  15 
+2.6.3 Inteligencia Artificial  15 
+2.7 Tokenomics  17 
+2.7.1 Política monetaria  17 
+2.7.2 Utilidades del token  19 
+2.7.3 Uso de los fondos obtenidos  21 
+2.8 Funcionalidades red social  21 
+3.1 Fases previstas  22 
+3.1.1 Fase I | Recursos  22 
+3.1.2 Fase II | Red Social  23 
+3.1.3 Fase III | Metaverso  23 
+3.1.4 Fase IV | Ciudades Inteligentes  23 3.2 Equipo 25 
+3.3 Partners  27 
+3.4 Estrategia de marketing  28 
+3.4.1 Creación de comunidad  28 
+3.4.2 Redes sociales  28 
+3.4.4 Partnership con Google Ads  29 
+3.4.5 Asistencia a eventos y convenciones  29 
+3.4.6 Listados ICO/ITO - Launchpads  29 
+3.4.7 Eventos lanzamiento promocional  29 
+4.1 Misión 30 
+4.2 Visión 30 
+4.3 Valores 30 
+4.4 Organización  30 
+4.5 Verticales  31 
+4.5.1 Educación y cultura:  31 
+4.5.2 Salud, deporte y bienestar:  32 
+4.5.3 Gestión de recursos, naturaleza y sostenibilidad  32 
+4.5.4 Arquitectura y movilidad urbana  32 
+4.5.5 Igualdad, inclusión y gobernanza  33 
+4.5.6 Cooperación al desarrollo  33 
+4.5.7 Sociedad, innovación y tecnología  33 
+4.6 Funcionamiento  34 
+4.7 Fases 35 
+5.1 Glosario  36 
+5.2 Disclaimer  37 
+5.3 Riesgos 38 
+5.4 Términos y condiciones  43 
+5.5 Avisos 46 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+Al cooperar con otras personas, construimos relaciones sociales que nos permiten acceder 
+a recursos, información y protección más allá de los que conseguiríamos como individuos.  
+Las relaciones sociales cambian y evolucionan constantemente con el tiempo. Se trata de 
+un fenómeno complejo y multidimensional que puede enfocarse desde la perspectiva de 
+los individuos, del grupo, del tipo de relación, de la frecuencia o incluso del medio a través 
+del cual nos relacionamos.  
+Todas estas perspectivas confluyen en un punto, el efecto que dicha relación genera en los  
+individuos que participamos y en nuestro entorno.  
+Si atendemos al medio a través del cual nos relacionamos, un hito importante en la historia 
+de la humanidad fue la aparición de las redes sociales online gracias a la llegada de internet, 
+permitiendo la comunicación por texto entre grupos de personas pequeños que se 
+encontraban en lugares diferentes y sin necesidad de estar de manera simultánea.  
+Desde su aparición, las redes sociales no han hecho más que expandir su alcance, 
+comenzando por SixDegrees.com (1997) que ya permitía crear perfil y hacer amigos, pasando 
+por Friendster (2002) que permitía a los usuarios subir fotos y compartirlas con sus amigos, 
+así como encontrar amigos en función de intereses compartidos, MySpace (2003) que 
+permitió a los usuarios personalizar sus perfiles con código HTML y agregar música y videos, y 
+llegando por supuesto a Facebook (2004) que tiene más de 2 mil millones de usuarios activos.  
+En la última década han surgido redes sociales especializadas por tipo de contenido (texto,  
+foto, video, profesional, crypto…) como Twitter, Instagram, YouTube, Twitch, TikTok, Discord,…  
+La evolución natural de las redes sociales, gracias a los avances tecnológicos de los que 
+hablaremos a continuación, nos permitirá disfrutar de relaciones sociales más inmersivas 
+mejorando nuestra experiencia.  
+ 
+ 
+El ser humano como especie, siempre ha tenido el deseo de trascender más allá de las 
+limitaciones existentes del espacio y el tiempo según las leyes de la física o la naturaleza. Durante 
+siglos hemos investigado, analizado, inventado y desarrollado herramientas, objetos, máquinas, 
+en definitiva, tecnología que nos ha permitido interactuar más allá de nuestro entorno cercano 
+y del tiempo presente (en diferido).  
+La creatividad, el ingenio humano y la colaboración, así como el deseo de mejora continua, nos 
+empuja a innovar. Es precisamente esta capacidad de innovación unida al deseo de trascender lo 
+que motiva al ser humano a buscar formas alternativas de crear nuevas experiencias sensoriales.  
+ 
+ 
+4 
+ 
+Las diferentes tecnologías inmersivas (XR: VR, AR, MR) nos permiten añadir una nueva 
+dimensión a la forma de interactuar, elevando las posibilidades de nuestras experiencias 
+sensoriales permitiendo unir lo físico y lo digital.  
+La tecnología blockchain ha revolucionado nuestra forma de documentar todo tipo 
+de transacciones. La red descentralizada aporta ventajas sustanciales en términos de 
+seguridad, transparencia, inmutabilidad y control de la información.  
+El concepto Web3 se apoya en la tecnología blockchain, para conseguir una colaboración 
+descentralizada a través de internet. Los usuarios se convierten en constructores de 
+esta y propietarios de la información que generan en lugar de limitarse a ser 
+consumidores y/o un producto (datos, publicidad).  
+La Inteligencia Artificial abarca el conjunto de sistemas computacionales que replican y 
+mejoran la capacidad de pensar, actuar, sintetizar y automatizar tareas relevantes para 
+cualquier ámbito de la actividad intelectual humana.  
+ 
+ 
+El desarrollo constante de todas estas tecnologías disruptivas y su confluencia en el 
+momento actual, son las herramientas que van a permitir al ser humano seguir 
+evolucionando en su deseo de trascender más allá del mundo físico, hacia el 
+metaverso, que desde Alvearium consideramos desde una perspectiva antropológica, 
+donde nuestras relaciones sociales, comerciales, educativas, culturales, … tendrán lugar 
+no solo en el mundo físico sino en el digital, y de un forma cada vez más inmersiva y sin 
+límites físicos de espacio y tiempo.  
+ 
+ 
+En los últimos años hemos observado la evolución hacia una sociedad mucho más 
+digitalizada y que interactúa en entornos más virtuales:  
+ 
+a) El trabajo en remoto se consolida y las relaciones humanas se virtualizan (Microsoft 
+anuncia que 145 millones de personas usan su plataforma Teams diariamente)1. 
+b) El espacio digital irrumpe como un nuevo nicho para la industria de la moda (en 
+2021 Gucci crea “The Gucci Garden Experience” para poner a la venta productos 
+virtuales y consiguió vender un gemelo digital 100% virtual de uno de sus bolsos por 
+un precio más alto que el del artículo real)2. 
+ 
+ 
+ 
+1 Latinshare, “Microsoft Teams alcanzó 145 millones de usuarios diarios” April 19, 2021,  
+http://niuoffice.com/2021/04/29/microsoft-teams-alcanza-los-145-millones-de-usuarios-diarios/  
+2 Accenture, “Nos vemos en el metaverso”, 2022,  
+https://www.accenture.com/_acnmedia/PDF-174/Accenture-Technology-Trends-2022-Nos-Vemos-en-el-Metaverso.pdf  
+ 
+ 
+5 
+6 
+c) Nuevas formas de vivir eventos sociales (un concierto de Travis Scott en Fortnite 
+tuvo 27,7 millones de espectadores, muy por encima de lo que sería posible en 
+el mundo físico)3. 
+d) Los activos digitales entran a formar parte del mundo del arte (la prestigiosa 
+casa de subastas londinense Christie’s incorporó los NFT a su línea de negocio. 
+En 2020 Christie’s subastó su primer NFT, una obra del artista Beeple titulada 
+Everydays: The First 5000 Days. Esa subasta supuso un doble récord para la 
+empresa: vendió la obra de arte digital más cara de la historia por 69 millones de 
+dólares y se convirtió en la primera casa de subastas que aceptó pagos en 
+criptomonedas)4. 
+ 
+Todavía no existe un mercado como tal que podamos denominar “metaverso”. En realidad, 
+se encuentra en la intersección de varios grandes mercados en plena expansión. Hemos 
+analizado los 5 mercados que consideramos puedan estar más próximos a la propuesta 
+de valor de Alvearium:  
+ 
+ 
+El uso de redes sociales no deja de crecer desde 2015. El tamaño del mercado 
+en 2022 asciende a 4.620 millones de usuarios de redes sociales en todo el mundo. 
+Estas cifras representan un crecimiento interanual de más del 10% (424 millones de 
+nuevos usuarios desde el año anterior). De hecho, el número de usuarios de redes 
+sociales equivale a más del 58% de la población total del mundo.  
+ 
+El promedio de plataformas usadas (entre una población de 16 a 64 años a nivel mundial) 
+es de 7,5 redes sociales por usuario. El tiempo de uso diario empleado en redes sociales 
+sigue aumentando. Ahora se sitúa en torno a las 2h y 27 minutos de media por persona 
+a nivel global. Uno de cada cuatro usuarios de Internet de 16 a 64 años (27,6 %) descubre 
+nuevas marcas, productos y servicios a través de anuncios en las redes sociales5. 
+ 
+ 
+Según los datos ofrecidos por la plataforma Crypto.com se observa que el año 2020 
+se cerraba con 106 millones de usuarios, llegando a finales del año 2021 hasta los 295 
+millones, casi triplicando el número de usuarios.  
+A esta situación posiblemente se ha llegado, por un lado, por la novedad y el espíritu 
+disruptivo de esta tecnología; y, en segundo lugar, por el mero hecho especulativo.  
+ 
+3 Marcos, Ana, November 8, 2020, “Los videojuegos, el nuevo escenario de la música pop”,  
+https://elpais.com/cultura/2020-11-07/los-videojuegos-el-nuevo-escenario-de-la-musica-pop.html  
+4 Perez, Enrique, Marzo 11, 2021, “Beeple vende su NFT por 69 millones de dólares: una subasta histórica que lo 
+coloca entre los tres artistas vivos más exitosos”  
+https://www.xataka.com/criptomonedas/beeple-vende-su-nft-69-millones-dolares-subasta-historica-que-colo- 
+ca-tres-artistas-vivos-exitosos  
+5 Hootsuite y We are social, 2002, “Digital 2022: Global Overview Report, The Essential Guide to The World’s 
+Connected Behaviours” https://wearesocial.com/es/blog/2022/01/digital-2022/  
+ 
+ 
+ 
+6 7 
+La estimación realizada por la misma plataforma establece que durante 2022 
+volverán a triplicarse el número de usuarios, llegando a los 1.000 millones de 
+usuarios, acercándonos por tanto al tamaño de mercado de las redes sociales6. 
+ 
+Finalmente, en cuanto a la capitalización del mercado en estos momentos oscila a 1,26 
+trillones (americanos) de dólares7. 
+ 
+Asimismo, el Banco de España indica que el volumen de transacciones con este tipo de 
+activos en 2021 alcanzó la cifra 60.000 millones de euros8. 
+ 
+ 
+Dentro del Ámbito de la criptografía también hay que destacar el mercado de los NFT. 
+Aunque existen desde 2014, ha sido el año 2021 cuando esta novedosa criptografía se ha 
+abierto paso en el mercado y ha adquirido una gran popularidad. Las ventas totales de 
+NFT alcanzaron los 25.000 millones de dólares en 2021, según los datos recogidos por 
+DappRadar9. Grandes empresas como American Express, Gucci, Nike, Pull and Bear, 
+deportistas, músicos o artistas están explotando las oportunidades que ofrece este 
+mercado.  
+ 
+ 
+Según datos de IDC Research las ventas de dispositivos de visualización de realidad virtual 
+y aumentada concluyeron el año 2021 con un crecimiento interanual del 92,1%. Las 
+perspectivas de cara a 2022 es que el mercado vuelva a crecer a una tasa cercana al 50%10. 
+Es este mercado el que más desarrollo tiene por delante, sobre todo en lo que a experiencia 
+de usuario se refiere. Hay alrededor de 26 millones de dispositivos de realidad virtual 
+activos en el mercado, muy lejos de los 14.000 millones de dispositivos móviles11. Este 
+dato nos muestra el enorme potencial de crecimiento que se puede alcanzar, siempre 
+que esas mejoras en la UX lleguen para que se de la adopción masiva de esta tecnología.  
+ 
+ 
+ 
+ 
+ 
+6 Wang, Kevin, Hong, Henry, Wu, William, Bolger, Michael , Zhou Joy, January 2002, “Crypto Market Sizing”,  
+https://crypto.com/research/2021-crypto-market-sizing-report-2022-forecast  
+7 Wang, Kevin, July 2020, “Measuring Global Crypto Users. A Study to Measure Market Size Using On-Chain Metrics” 
+https://crypto.com/images/202107_DataReport_OnChain_Market_Sizing.pdf  
+8 Sánchez, Alvaro, April 26, 2002, “Las criptomonedas movieron unos 60.000 millones de euros en España el año 
+pasado”, https://elpais.com/economia/2022-04-26/las-criptomonedas-movieron-unos-60000-millones-de-eu- ros-
+en-espana-el-ano-pasado.html  
+9 Zare, Medhi, January 12, 2022 “Las ventas de NFT alcanzaron un récord de 25.000 millones de dólares en 2021: 
+Informe” https://es.crypto-economy.com/las-ventas-de-nft-alcanzaron-un-record-de-25-000-millones-de-dola- res-
+en-2021-informe/  
+10 March 23, 2022 “Buenas perspectivas para el mercado de realidad virtual y aumentada”  
+https://www.ittrends.es/negocios/2022/03/buenas-perspectivas-para-el-mercado-de-realidad-virtual-y-aumentada  
+11 Benayas, Enrique, Albalá, María, Grana, Belén, Serrano, Manuel, 2002, ESIC + ICEMD “Innovation Series: 
+Metaverse Impact in Real Life” p.31.  
+ 
+ 
+ 
+7  
+ 
+ 
+ 
+ 
+En conclusión, estos mercados presentan tres particularidades que refuerzan su relevancia 
+e interés:  
+a) Expansión sostenida en el tiempo y proyección al alza.  
+b) Interrelación y retroalimentación entre cada uno de estos mercados y al mismo  
+tiempo, relevancia suficiente para ser autónomos.  
+c) La mayoría de estos mercados albergan sub-mercados emergentes y en 
+ebullición.  
+ 
+ 
+• La mayoría de plataformas  que se están creando en lo que comúnmente se llama 
+metaverso están enfocados principalmente en el modelo playtoearn habiendo otras 
+muchas opciones de creación de valor con las últimas tecnologías todavía por 
+explotar.  
+• El usuario y sus datos al usar las redes sociales principales se convierten en un producto 
+del que no tiene control. Asimismo, el usuario no obtiene recompensas por sus datos.  
+• Se consume demasiado contenido de baja calidad en redes sociales.  
+• Se han desarrollado muchas experiencias inmersivas en diferentes sectores 
+(educación, medicina, inmobiliario, comercial, …) pero no existe una plataforma que 
+las unifique y con un vínculo al mundo real a través de un mapa.  
+• El crecimiento de la economía de las redes sociales no se utiliza para generar impacto 
+positivo en el mundo.  
+• Lanzamiento de cientos de tokens al mercado sin un proyecto con utilidades reales 
+que lo respalden para hacerlo económicamente sostenible en el tiempo sin convertirse 
+en un mero vehículo de especulación.  
+ 
+ 
+12 BBVA, “Boom’ inmobiliario en el metaverso: ya hay compraventa rentable de terrenos para casas y ciuda- des” 
+https://www.bbva.com/es/boom-inmobiliario-en-el-metaverso-ya-hay-compraventa-rentable-de-terrenos-pa- ra-
+casas-y-ciudades/  
+13 Globe Newswire, Jan. 25, 2022, ”Metaverse Real Estate Market is Growing at 31.2% CAGR to 2028 Says Bran- 
+dessence Market Research” https://www.globenewswire.com/news-release/2022/01/25/2372332/0/en/Metaverse- 
+Real-Estate-Market-is-Growing-at-31-2-CAGR-to-2028-Says-Brandessence-Market-Research.html.  
+ 
+ 
+8 
+ 
+ 
+Alvearium es una plataforma Web3 que contiene experiencias inmersivas relacionadas 
+con actividades del día a día (comercio, educación, cultura, turismo, …) y vinculadas al 
+mundo real, empezando por la ciudad de Madrid.  
+Visualmente, la plataforma se basa en un mundo virtual inspirado en el mundo real. Vamos 
+a comenzar por espacios de Madrid, en concreto del Paisaje de la Luz, recientemente 
+galardonado como Patrimonio Mundial de la Unesco. Posteriormente continuaremos con 
+las principales ciudades del mundo (Nueva York, Londres, París, Barcelona, …).  
+La plataforma estará basada sobre tecnología blockchain creando un ecosistema 
+transparente, inmutable, autónomo y seguro. Asimismo, el objetivo es descentralizar 
+progresivamente la plataforma, y que sea poco a poco la comunidad, a través de la DAO, 
+quien tome las decisiones, manteniendo la cultura y valores implementados por el Equipo 
+Fundador.  
+La comunidad Alvearium, gracias a la tecnología, el Equipo Fundador y sus valores, y el 
+ecosistema, generará impacto positivo en el mundo real y sus acciones serán canalizadas 
+a través de la Fundación Alvearium GTE.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+9 
+10 
+ 
+Nuestra misión es acercar las tecnologías más avanzadas y descentralizadas a todo el 
+mundo para mejorar la manera de relacionarnos entre nosotros y con nuestro entorno.  
+Estamos ante las puertas de unos de los grandes cambios de la Historia en cuanto a la 
+forma en la que los seres humanos nos relacionamos. Una nueva era en la que la Realidad 
+Virtual y Aumentada nos permitirán disfrutar de experiencias sensoriales nunca vividas, 
+gracias a accesorios que conecten nuestros sentidos al hardware más avanzado.  
+Las ventajas que nos ofrecen los avances tecnológicos, que eliminan las barreras espaciales 
+y temporales en nuestra manera de relacionarnos, no aportarían un valor añadido real si 
+sólo las aprovechamos para el entretenimiento o la pura especulación.  
+En Alvearium estamos creando un ecosistema con su propia economía sostenible en el 
+tiempo Nuestro objetivo es comprender las necesidades, motivaciones e incentivos de 
+nuestra comunidad e intentar siempre sobrepasar sus expectativas con nuestra propuesta 
+de valor. Al mismo tiempo, entre todos generaremos un impacto positivo en el mundo real 
+que permita mejorar nuestra calidad de vida.  
+ 
+ 
+ 
+ 
+ 
+ 
+Empleo de las mejores 
+prácticas buscando la 
+máxima calidad.  Actitud positiva para 
+trabajar con perseverancia y 
+determinación.  Adaptación a los continuos 
+cambios de este mundo 
+disruptivo.  Colaboración y cooperación 
+para crear valor y multiplicar 
+la productividad.  
+ 
+ 
+ 
+ 
+ 
+ 
+Transparencia, lealtad y 
+honestidad como factores 
+de creación de valor.  Visión para impulsar nuevas 
+ideas y aplicar la mejora 
+continua.  Fiel y colaborativa con foco 
+en la responsabilidad social.  
+ 
+El Equipo Fundador de Alvearium   
+ 
+ 
+ 
+ 
+ 
+En Alvearium esperamos tener diferentes usuarios a lo largo del desarrollo e 
+implementación. A continuación, detallamos algunos de los usuarios más relevantes:  
+• Creadores de contenido: personas que publican en redes como YouTube, Twitter, 
+Facebook, Instagram, Twitch, Linkedin o TikTok (influencers, bloggers, diseñadores, artistas, 
+divulgadores científicos, profesores online, etc…) y que quieran unir todas sus redes o todo 
+su contenido actual, así como crear nuevo contenido 3D en un mismo espacio interactivo, 
+mejorando la experiencia con sus seguidores, generando mayor engagement y por tanto 
+mayor monetización.  
+• Agencias de medios alternativos: empresa que representan a influencers y que quieren 
+comprar, alquilar y gestionar alveas para la creación y/o presentación de contenido.  
+• Marcas: empresas o personas que busquen visibilidad, notoriedad, status, … y que están 
+dispuestas a pagar por introducir publicidad en las alveas más visitadas o lugares de interés 
+de la plataforma.  
+• Comercios: corporaciones y empresas que quieran tener un espacio virtual con el objetivo 
+de crear mejores experiencias para los clientes, poniendo al alcance de estos cada uno de 
+sus productos y/o servicios.  
+• Espacios de ocio y cultura: Corporaciones y empresas cuya finalidad sea el 
+entretenimiento del usuario. Temática deportiva, musical, cines, teatros, museos, parques 
+de atracciones, y todo tipo de acontecimientos.  
+• Instituciones públicas: Entidades público/privadas que ofrezcan servicios interactivos en sectores 
+como 
+la educación, sanidad, bienestar, empleo, turismo, etc…  
+• Impacto positivo: Personas o empresas cuyo principal interés sea generar impacto 
+positivo en la vida real mediante acciones que se canalizarán a través de la Fundación 
+Alvearium GTE.  
+• Comunidad: usuarios definidos anteriormente y usuarios que demanden el contenido, 
+productos o servicios ofrecidos en la plataforma (seguidores de influencers, clientes de 
+marcas, espectadores de eventos, alumnos online, etc…).  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+11 
+12 
+ 
+Alvearium ofrece diferentes propuestas de valor en relación con los diferentes tipos de usuarios 
+descritos anteriormente.  
+Los influencers y creadores de contenido podrán monetizar contenido multimedia creado en 
+la plataforma o fuera, publicándolo y promocionándolo en las alveas (espacios virtuales). 
+Cada creador de contenido decidirá el tiempo que cada contenido puede permanecer en su 
+espacio personal.  
+Las corporaciones y empresas podrán crear espacios virtuales de sus marcas para mejorar la 
+experiencia de usuario (UX) e incrementar el engagement con sus clientes.  
+Los organismos y entidades públicas podrán realizar simulaciones virtuales de mejoras en 
+ciudades y espacios públicos, para posteriormente implementarlas en las ciudades reales 
+gracias a los digital twins, minimizando así los riesgos y costes de implementación y 
+maximizando las posibilidades de éxito.  
+La comunidad Alvearium podrá vincularse con las múltiples opciones que ofrecerá nuestro 
+ecosistema para vivir experiencias inmersivas, obteniendo al mismo tiempo recompensas por 
+el tiempo invertido dentro de la plataforma que les permitirán colaborar con las diferentes 
+iniciativas de impacto social llevadas a cabo por la Fundación Alvearium GTE (ver explicación 
+en el punto 4).  
+El modelo de ingresos de Alvearium irá evolucionando en las siguientes líneas:  
+• B2B Ads en las alveas que haya más tránsito de usuarios o en espacios virtuales abiertos muy 
+concurridos.  
+• B2B y B2C Comisiones por transacciones de uso.  
+• B2C Freemium algunos usuarios pagarán cuota PREMIUM para tener privilegios y 
+otros tendrán servicios gratuitos.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+12  
+Como hemos comentado anteriormente, Alvearium va a recrear las principales ciudades 
+del mundo, en las que nos encontraremos diferentes activos digitales, en forma de NFTs, 
+que los usuarios podrán adquirir o alquilar:  
+ 
+Las alveas son salas 3D situadas en el interior de los edificios. Son espacios interactivos 
+donde se podrá compartir y crear contenido multimedia. Podrán tener vínculo y conexión 
+con otras redes sociales y almacenar, exponer o vender NFTs. El contenido podrá ser 
+público y/o privado.  
+ 
+Las posibilidades de uso irán evolucionando en función de las necesidades de la comunidad 
+(espacio para influencers, para divulgadores científicos, artistas, museo personal, vivienda 
+en el metaverso, sala de reuniones, salas de música, local de comercio individual…).  
+Las formas y texturas del interior de las alveas serán personalizables en función de las 
+necesidades de los usuarios. Inicialmente tendrán un aspecto estándar. El equipo de 
+desarrolladores de Alvearium pondrá a disposición de los usuarios varias tipologías de 
+diseño de alvea y también existirá la posibilidad de desarrollar un diseño ad-hoc.  
+ 
+ 
+ 
+Asimismo, entidades públicas o privadas podrán adquirir una réplica virtual de su espacio 
+en el mundo real, en la cual podrán desarrollar su espacio inmersivo. En estos espacios 
+podrán crearse experiencias interactivas temporales o permanentes, eventos virtuales, 
+comercios con experiencia de compra inmersiva, y un largo etcétera que abarcará 
+cualquier actividad del día a día.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+14  
+ 
+Como hemos establecido anteriormente, nuestra misión es acercar las tecnologías más 
+avanzadas a todo el mundo para mejorar la manera de relacionarnos entre nosotros y 
+con nuestro entorno. Las tecnologías inmersivas permiten la generación de experiencias 
+con un elevado grado de realismo e interacción.  
+ 
+Comprendemos que el uso de estas tecnologías todavía es poco 
+habitual entre la mayoría de la sociedad, por ello se ha optado 
+por realizar un desarrollo tecnológico progresivo que potencie la 
+experiencia del usuario de forma gradual y sostenida en el tiempo.  
+De esta forma, en la fase inicial del desarrollo, se pretende generar 
+una experiencia en formato web y app, en la que el usuario explorará 
+de manera intuitiva y sin límites de movimiento, en primera persona, 
+salas 3D interactivas. Esta experiencia podrá ser compartida 
+simultáneamente con otros usuarios.  
+En estos espacios también será posible compartir contenido creado 
+tanto dentro como fuera de Alvearium, por ejemplo, imágenes, vídeos, streamings, objetos 
+3D, documentos, enlaces para generar interacción con sus visitantes, promocionar sus 
+productos, o redirigir tráfico a su sitio web y por supuesto NFTs.  
+La interacción entre los usuarios se producirá a través de un micrófono conectado al 
+dispositivo del usuario. Esta comunicación se transmitirá mediante protocolos VoIP. 
+También se va a incluir un sistema de audio 3D por proximidad personalizable, que permita 
+escuchar únicamente aquellas fuentes de sonido que se deseen. Esta tecnología posibilita 
+mantener conversaciones independientes y/o privadas haciéndolas eficientes incluso en 
+entornos con muchos usuarios.  
+Los usuarios se identificarán por medio de avatares personalizables, a los cuales se les 
+podrá modificar características de su aspecto, ropa e incluso sus animaciones.  
+Como parte del plan de desarrollo tecnológico en favor de la mejora continua de Alvearium, 
+se habilitará la visualización de los entornos 3D a través de tecnología XR, como una nueva 
+forma, más inmersiva, de vivir la experiencia. Las innovaciones tecnológicas a nivel software 
+y por supuesto hardware que potencien experiencias inmersivas marcarán la evolución  
+de Alvearium.  
+ 
+ 
+Para dotar de transparencia, inmutabilidad, autonomía y seguridad al proyecto, la 
+plataforma se basará en la tecnología blockchain.  
+En estos momentos, Ethereum es la blockchain más extendida y con más recursos del 
+mercado. Teniendo en cuenta el alto volumen de transacciones esperado en una plataforma 
+como Alvearium y el elevado coste por transacción de la red central de Ethereum, se ha  
+ 
+ 
+ 
+15 
+ 
+ 
+ 
+ 
+ 
+tomado la decisión de lanzar Alvearium sobre la red Polygon, layer 2 de Ethereum. De 
+este modo se conseguirá procesar las transacciones en un menor tiempo y por un bajo 
+precio, permitiendo escalabilidad, al mismo tiempo que se aprovecharán los beneficios 
+de la popular red Ethereum.  
+En concreto, sobre la blockchain se desplegarán:  
+ 
+Token de utilidad de Alvearium basado en el estándar ERC-20 de Ethereum, importado de 
+la librería OpenZeppelin y auditado por nuestro partner Dekalabs.  
+ 
+Tokens no fungibles basados en el estándar ERC-721, también 
+importados de la librería OpenZeppelin.  
+Habrá 2 tipologías de NFTs:  
+• Activos que la plataforma pone a disposición de los inversores y de la  
+comunidad (alveas, espacios inmersivos, …). Para más información (ver 2.5).  
+• Activos que los usuarios puedan importar de otra plataforma o crear  
+dentro y que los puedan usar, exponer, compartir, alquilar, vender o 
+guardar de manera privada y segura en sus alveas.  
+ 
+El POAP es un certificado digital en formato de NFT que obtiene el usuario para demostrar 
+su asistencia a un evento o visualización de un contenido. De esta forma, el usuario puede 
+tener acceso a los beneficios y/o recompensas que dicha visita o presencia pueda conllevar.  
+ 
+El Equipo Fundador se reserva el derecho a utilizar diferentes mecanismos de moderación 
+sobre las decisiones que se tomen, siempre salvaguardando los intereses de la comunidad 
+y el valor de sus activos, y asegurando que se cumplen las fases previstas en el Roadmap.  
+Una vez el ecosistema y la comunidad sean estables se les concederá poder de gobernanza 
+a través de derecho de voto para tomar decisiones en el devenir de la plataforma. De esta 
+forma, comenzará una descentralización progresiva de la misma. El objetivo es que los 
+usuarios sean actores y autores en la creación del metaverso Alvearium.  
+Gracias al sistema de gobernanza de la DAO sus miembros tienen derechos de voto en 
+función de 3 factores:  
+• Grado de vinculación con el proyecto: a número de tokens de gobernanza  
+que hayan adquirido.  
+ 
+ 
+ 
+ 
+16 
+• Conocimiento del proyecto: tuser/tfound tiempo que llevan dentro del proyecto en 
+relación con el tiempo histórico que lleve constituida la fundación.  
+• Grado de compromiso con el proyecto: tblock/tmax tiempo que bloqueen el 
+token en relación con el tiempo máximo que se pueda bloquear.  
+Por lo tanto, el poder de voto (w) del sistema de votación que se establece en esta DAO va  
+a estar definido por la siguiente fórmula: w = a x (tuser)/(tfound) x (tblock)/(tmax) 
+ 
+El funcionamiento de la DAO está basado en el cumplimiento de lo establecido en sus 
+smart contracts haciendo los acuerdos inmutables, de forma que prime el compromiso y 
+la responsabilidad. 
+ 
+ 
+ 
+ 
+El avance de la inteligencia artificial es innegable. Nuestra plataforma integra diferentes 
+herramientas que permitirán desde la creación de contenido, la edición del mismo, el 
+acceso a experiencias, la identificación de gustos de los usuarios para ofrecerles mejor 
+experiencia de usuario, … 
+ 
+ 
+La política monetaria del token propio ALVY, junto con el ecosistema creado por el equipo 
+y la comunidad de Alvearium, generará utilidad y rentabilidad permitiendo el crecimiento 
+sostenible del valor de la plataforma, y por ende, del propio token.  
+ 
+ 
+A continuación, se muestra el reparto del token, así como sus periodos de bloqueo y 
+vesting: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+17 
+18 
+La distribución  de tokens se puede representar  de la siguiente  forma: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Los objetivos del Equipo Fundador de Alvearium con relación a la política monetaria del 
+token son:  
+1. Satisfacer la necesidad de liquidez de los usuarios.  
+2. Minimizar la volatilidad de su precio.  
+3. Hacer crecer el valor de la plataforma.  
+Como en cualquier ecosistema existirán diferentes fuerzas de mercado que influyen en la  
+evolución de la oferta y demanda del token.  
+Desde la perspectiva de la demanda, el Equipo Fundador junto con nuestros colaboradores, 
+tenemos el objetivo de desarrollar continuamente funcionalidades para la plataforma que 
+mejoren nuestra propuesta de valor. Con un incremento progresivo de la utilidad 
+buscamos conseguir una mayor demanda del token.  
+Desde la perspectiva de la oferta, pese a que, como hemos visto en la tabla anterior, 
+Alvearium adquiere una serie de compromisos de distribución de tokens, bloqueos y 
+vestings con los inversores de la ICO, el equipo, los consejeros y diferentes proveedores, la 
+plataforma se reserva, entre otros, estos dos mecanismos para, dentro de las posibilidades, 
+intentar conseguir adecuar la oferta a la demanda:  
+• Reserva del 30% de la cantidad total de tokens, que se irá liberando 
+progresivamente.  
+• Reutilización (no quemado) de los tokens que los usuarios utilicen para pagar 
+a Alvearium. Estos pasarán a formar parte de la reserva y se irán liberando de 
+nuevo progresivamente.  
+ 
+ 
+18 
+A continuación, veremos nuestra previsión de liberación de tokens en base a nuestra 
+expectativa de evolución de la demanda. El primer año esperamos liberar la mitad de los 
+tokens y la otra mitad durante los dos años siguientes de forma continuada y lineal.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Entre otras se encuentran las siguientes utilidades que los poseedores del ALVY tendrán en la 
+plataforma Alvearium:  
+• Compra y/o alquiler de productos y/o servicios.  El futuro del comercio online será 
+cada vez más inmersivo, y en Alvearium, con el ALVY, se podrá comprar o alquilar los 
+productos/servicios que cada marca venderá en su espacio virtual  
+• Pago suscripción Alvea premium. Todo usuario tendrá acceso a su alvea 
+gratuita, sin embargo, si alguien quiere convertirla en Premium para poder 
+monetizarla y acceder a contenido exclusivo podrá hacerlo a través del ALVY  
+• Compra de NFTs. La plataforma tendrá un Marketplace en el que los 
+usuarios podrán poner a la venta y/o adquirir NFTs importados de otras 
+plataformas o creados con las herramientas de Alvearium  
+• Suscripciones a contenido premium. En la plataforma habrá contenido gratuito y 
+contenido de pago que podrá visualizarse con el uso de ALVYs  
+• Pagos de publicidad (ADS) . Las marcas podrán reutilizar los ALVYs que hayan cobrado 
+tras la venta de sus productos/servicios en la plataforma para pagar ads en la misma  
+• Entradas para eventos. En la plataforma tendrán lugar diferentes eventos musicales, 
+deportivos, sociales de manera inmersiva. Algunos serán gratuitos y otros serán de 
+pago, dependiendo del promotor. 
+• Compra de accesorios y texturas para personalizar tus activos (alvea, avatar, 
+accesorios, texturas, diseño) y mejorar tu experiencia y la de tus clientes, 
+seguidores o amigos.  
+• Promoción para aparecer en las alveas sugeridas y tener mayor visibilidad. 
+• Consigue el token GTE con el que podrás crear impacto social a través de nuestra 
+fundación  
+• Forma parte de nuestra DAO y consigue poder de votación gracias al compromiso y 
+vínculo con la comunidad Alvearium  
+ 
+19 0100.000.000200.000.000300.000.000400.000.000500.000.000600.000.000700.000.000800.000.000900.000.0001.000.000.000
+1 3 5 7 9 11131517192123252729313335Tokens released
+Month1
+2
+3
+4
+5
+6
+7
+8
+9
+10 
+ 
+Adicionalmente el token podrá ser bloqueado, y en función de la cantidad y el tiempo que 
+esté bloqueado el usuario alcanzará diferentes status que conllevarán diferentes ventajas. 
+Dichos niveles y ventajas están por definir, a continuación, unos ejemplos:  
+ 
+• Cashback fees a los stakers se les devolverá parte de los fees que hay en la plataforma  
+• Poder de voto en la DAO futura  
+• Descuentos en compras de productos o suscripciones  
+• Acceso a sorteos, regalos, entradas, descuentos, … 
+• Bº para los creadores de contenido para posicionar la alvea  
+• Acceso a determinadas áreas/clubs exclusivos (virtual y físico)  
+• Mayores recompensas que la plataforma vaya entregando  
+Por último, el token ALVY tendrá Interacción con el mundo real, por ejemplo, de las  
+siguientes maneras:  
+• Generación de pools de liquidez donde se obtendría un interés por comprar la 
+liquidez. 
+• Generación de bonos para recomprar la liquidez a los usuarios a través de 
+descuentos del token (Protocol Owned Liquidity).  
+• Compra de token GTE de la fundación para generar impacto.  
+Teniendo en cuenta las utilidades anteriores, a continuación, nombramos varios ejemplos 
+de uso: 
+a) Monetización del contenido. Los propietarios de las alveas podrán subir, 
+crear contenido, y compartirlo con sus seguidores. Cuanta mayor valoración 
+y visualizaciones tengan las alveas, más alcance tendrán permitiendo obtener 
+ganancias de publicidad de las marcas.  
+b) Recompensas por el consumo de contenido. Al desarrollarnos en la Web3, 
+gracias a la tecnología blockchain, los usuarios pasan a ser los dueños de sus 
+datos y a decidir si consumen publicidad o no. En caso de consumir y ceder datos 
+tendrán derecho a recompensas, que podrán ser en ALVYs o en GTEs (token de 
+la fundación).  
+c) Suscripciones a contenido exclusivo. En función de la calidad del contenido, los 
+influencers podrán pedir a sus seguidores su apoyo mediante el pago de una 
+cuota al mes, para tener acceso a cierto contenido. Cuota FREEMIUM.  
+d) Compraventa y alquiler de alveas. Las adquisiciones de alveas no se limitarán 
+a un uso personal, sino que se le dará la posibilidad al usuario de invertir en una 
+alvea sin ocupar para luego poder venderla o alquilarla.  
+e) Creación y venta de NFTs. Venta de activos NFT en la propia plataforma o por 
+conexión a otras como OpenSea.  
+f) Servicios de creación para otros usuarios. Posibilidad de que un influencer  
+solicite a un diseñador 3D que cree contenido exclusivo en sus alveas.  
+ 
+ 
+ 
+ 
+20 
+ 
+Los fondos obtenidos se reinvertirán principalmente en equipo y advisors 
+(45%), tecnología (35%) y Marketing (20%) como se muestra a continuación:  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Alvearium se posiciona en las primeras fases como una red social en la Web3. La finalidad, 
+como se ha dicho previamente, es convertirse en una red descentralizada, donde los 
+creadores de contenido podrán atraer a sus seguidores y ofrecerles una experiencia más 
+inmersiva gracias a sus espacios virtuales.  
+Es un proceso que iremos implementando poco a poco en las diferentes fases del proyecto.  
+Durante la Fase I los usuarios podrán crear una cuenta y comenzar a hacer amigos y tener 
+seguidores.  
+Posteriormente, durante la fase II, el usuario podrá compartir en el espacio 3D todas sus 
+RRSS, dando la oportunidad a sus seguidores de poder tener acceso en un mismo espacio 
+a todas sus redes (Instagram, Twitter, YouTube, Twitch, …), podcast y otros contenidos que 
+haya creado fuera de la plataforma.  
+Dentro de la misma fase, cuando incorporemos el SDK 
+se podrá crear contenido en la plataforma.  
+Cuando la tecnología blockchain esté desplegada habrá 
+un sistema de chat encriptado al cual los usuarios 
+accederán mediante sus carteras y serán dueños de 
+sus datos.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+21 
+ 
+ 
+ 
+ 
+ 
+ 
+Esta fase se centra en la recreación de los diferentes espacios del Paisaje de la Luz, galardonado 
+en 2021 como Patrimonio Mundial de la Unesco, y en el que convergen espacios emblemáticos 
+de Madrid como el Parque del Retiro y los museos y edificios importantes del Paseo del Prado. 
+A finales de 2022, el Ayuntamiento de Madrid nos entregó el Premio Blockchain y Tecnologías 
+avanzadas, en la categoría Metaverso. Además, a continuación detallamos los principales hitos hasta 
+ahora: 
+• Obtención de fondos públicos (80k€) e inversión privada (100k€) 
+• Creación del equipo  
+• Lanzamiento de la web  
+• Acuerdos con partners estratégicos (tecnología, agencia de medios,  
+entidades públicas, Universidades, startups tecnológicas,…) 
+• Participación en eventos (4YFN, BVenture, Librecon, Meta World Congress, Open Expo 
+Europe) 
+• Acceso al Cluster del Videojuego y a la incubadora Madrid in Game, impulsados ambos 
+por el Ayuntamiento de Madrid  
+• Colaboración con corporaciones como Naturgy, BBVA, Uber Eats, Cámara de Comercio, 
+Policía Nacional, Shopify, …  
+• Creación del MVP, experiencia inmersiva de Casa de Fieras (antiguo Zoo del Parque del 
+Retiro) simulando virtualmente los 5 sentidos.  
+• Product-Market fit. Obtenemos el reconocimiento de corporaciones, instituciones 
+públicas, influencers, usuarios, medios de comunicación, …  
+Durante 2023 y 2024 quedan los siguientes hitos por alcanzar:  
+ 
+• Actualización de la web  
+• Lanzamiento del video promocional  
+• Creación y venta del token ALVY  
+• Aplicación estrategia de marketing y creación de la comunidad  
+• Desarrollo versión alpha de la plataforma inspirada en la recreación virtual del Parque del 
+retiro donde se podrán disfrutar de diferentes experiencias inmersivas de carácter social, 
+comercial, cultural, …  
+• Creación de herramientas SDK para desarrolladores  
+ 
+ 
+Esta fase comenzará en paralelo mientras estamos desarrollando la versión Alpha de la 
+plataforma. 
+En esta fase, lo más importante será llegar a acuerdos con los comercios, espacios de ocio y 
+agentes de turismo de Madrid para que poco a poco vayan incorporándose a la plataforma. 
+Aquellos agentes públicos/privados que se incorporen a la plataforma tendrán su espacio 
+virtual inspirado en el mundo real para mejorar la experiencia de los clientes/usuarios. 
+Mientras que en la Fase I nuestro principal objetivo es poder asegurar que la arquitectura 
+de la plataforma funcione correctamente y poder testear con los primeros usuarios el 
+potencial de Alvearium, en esta Fase II el objetivo será dar a conocer la plataforma en la 
+ciudad de Madrid y empezar a aportar valor socio-económico a los usuarios y a las 
+corporaciones o instituciones que estén dentro.  
+ 
+ 
+No habrá un momento discrecional en el que comience la fase III, sino que habrá una 
+evolución progresiva de las tecnologías haciendo que la experiencia sensorial de los 
+usuarios dentro de Alvearium sea cada vez más inmersiva, descentralizada e interoperable. 
+En ese momento estaremos disfrutando del metaverso.  
+Durante esta fase, se investigará, desarrollará e innovará la tecnología necesaria para 
+seguir mejorando. 
+Al mismo tiempo, esperamos poder escalar nuestra plataforma a espacios y usuarios de 
+otras ciudades del mundo.  
+ 
+ 
+ 
+ 
+22 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+23 
+25 
+ 
+Luis Manuel Fernández  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+José Miguel Fernández  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Luis Martín    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+25 
+Oscar Escallada  
+ Alejandro Ansodi  
+ 
+Pol Echarri  
+Diana Baldero   
+Nikolas Iturregi   
+     Yerai Llamas  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         Inés Navarro           
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Alfonso Casanova  
+Dimitri Lobato  
+Andrés Cosialls  Gonzalo Laborda  
+26 
+ 
+Estos son los partners estratégicos  que confían en nosotros y nos acompañan en el proyecto.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Estos son los los colaboradores  que confían en nosotros y nos acompañan en el proyecto.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+27 
+ 
+ 
+ 
+ 
+ 
+ 
+El objetivo principal del área de marketing es la creación de una marca de confianza y una 
+sólida comunidad virtual, y para ello contamos con un equipo experto en marketing digital 
+y en creación de comunidades.  
+ 
+ 
+La estrategia de creación de comunidad ha sido definida basada en los principios y objetivos  
+del Equipo Fundador. La misma se apoya en 3 pilares fundamentales:  
+Propósito: en línea con nuestra misión, el propósito de la comunidad será, apoyándonos 
+en nuestra tecnología y el ecosistema, disfrutar de relaciones sociales virtuales más 
+inmersivas y al mismo tiempo generar impacto positivo en el mundo, canalizado a través 
+de la Fundación Alvearium GTE.  
+Valores: desde el principio se intentará que la comunidad esté alineada con nuestros 
+valores, garantizando un ecosistema sano que permita la sostenibilidad del proyecto. Los 
+principales valores de nuestra comunidad serán la cooperación, la ética, la búsqueda de 
+la excelencia, el positivismo, la resiliencia y la innovación.  
+Gobernanza: como se ha explicado en el punto de la DAO, partiremos de un modelo 
+centralizado en el que el Equipo Fundador tomará las decisiones más importantes para 
+el devenir de la creación y desarrollo inicial de la plataforma, así como la implementación 
+de la cultura de comunidad acorde a nuestros valores. Con el tiempo evolucionará de 
+manera progresiva hacia un modelo descentralizado, a través de la DAO. El funcionamiento 
+de la misma (poder de voto) se basará en el grado de vinculación con el proyecto, el 
+conocimiento del mismo y el compromiso a largo plazo.  
+ 
+ 
+Las redes sociales son el pilar fundamental para sustentar la creación de la comunidad 
+Alvearium. Las redes en las que nos centraremos son Twitter, Telegram, Discord, Facebook, 
+Instagram, LinkedIn y YouTube. Nuestro equipo realizará publicaciones periódicas con 
+contenidos audiovisuales y creatividades en todos los canales, donde puntualmente se 
+informará a la comunidad de los avances y donde se resolverán cualquier tipo de preguntas 
+y cuestiones relacionadas con nuestro proyecto.  
+• LinkedIn  https://www.linkedin.com/company/alveariumvr  
+• Instagram https://www.instagram.com/alvearium_/  
+• Twitter https://twitter.com/alvearium  
+• Facebook https://www.facebook.com/Alvearium-105899155329412  
+• YouTube  https://youtube.com/channel/UC_CrhrY2j6OYr19PdbImNnw  
+• Telegram Próximamente  
+• Discord Próximamente  • TikTok Próximamente  
+• Medium Próximamente  
+ 
+ 
+ 
+28 
+ 
+ 
+ 
+ 
+ 
+ 
+Para potenciar la creación de la comunidad Alveraium, inicialmente el equipo de marketing 
+se apoyará en influencers, embajadores de marcas e importantes partners que respalden 
+y promocionen nuestro proyecto a sus fieles seguidores.  
+ 
+ 
+El equipo de marketing, gracias a un acuerdo de colaboración establecido con Google a 
+través de su programa de aceleración de Google Ads para proyectos con gran proyección 
+e impacto social, realizará publicidad en canales y medios digitales. El acuerdo tiene el 
+objetivo de impulsar y dar proyección a nuestro proyecto en sus fases iniciales.  
+ 
+ 
+Alvearium asistirá a eventos y convenciones relacionados con el metaverso, la tecnología 
+blockchain y las criptomonedas, donde se establecerán importantes relaciones y nuevos 
+acuerdos y colaboraciones.  
+ 
+ 
+Nuestro equipo de Marketing está definiendo junto al equipo de Diseño diferentes eventos 
+mixtos (presenciales y online) espectaculares para mostrar diferentes usos de nuestra 
+plataforma.  
+ 
+ 
+Nuestro equipo de Marketing está definiendo junto al equipo de Diseño diferentes eventos 
+mixtos (presenciales y online) espectaculares para mostrar diferentes usos de nuestra 
+plataforma.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+29 
+30 
+ 
+ 
+ 
+La misión de la fundación Alvearium GTE es 
+canalizar acciones con impacto positivo en 
+la sociedad aprovechando la tecnología, la 
+comunidad y por lo tanto el ecosistema social, 
+económico y cultural creado entorno a Alvearium.  
+ 
+ 
+Liderar el diseño, simulación y creación de las  
+primeras Smart Cities 100% autosuficientes.  
+ 
+ 
+• Cooperación y responsabilidad con el ecosistema.  
+• Importancia de la comunidad.  
+• Innovación y búsqueda de la excelencia.  
+• Sostenibilidad y autosuficiencia.  
+ 
+ 
+PRESIDENTE: alinear los objetivos estratégicos de la Fundación Alvearium GTE con los de 
+Alvearium, así como representar y liderar los valores de la compañía.  
+CONSEJO ASESOR: personas destacadas y reconocidas en las áreas o sectores de 
+actuación de la fundación. Funciones de carácter consultivo y también propositivo. 
+Conexión directa con el Presidente y con el área de investigación y estrategia. Participación 
+especial de perfiles senior.  
+DIRECTOR EJECUTIVO: dirige y coordina el trabajo diario. Representante cotidiano del 
+proyecto, da visibilidad, genera nuevas conexiones estratégicas y se ocupa de relaciones 
+institucionales.  
+ 
+ 
+ 
+30 31 
+ASAMBLEA DAO: constituida por la comunidad de Alvearium alineada y comprometida 
+con los valores de los fundadores para generar impacto positivo en el mundo. Participarán 
+en las decisiones sobre los proyectos a implementar, las actividades y la gobernanza de 
+la fundación.  
+EDUCACIÓN Y COMUNICACIÓN: responsable de organizar la formación, alfabetización y 
+difusión de novedades, actividades internas y externas.  
+INVESTIGACIÓN Y ESTRATEGIA: detectar oportunidades, plantear proyectos y generar 
+documentación/monografías de utilidad sobre cada vertical para proponer al Consejo 
+Asesor y Director Ejecutivo.  
+COORDINADORES O RESPONSABLES DE ÁREA: generar o atraer proyectos, establecer 
+relaciones estratégicas con actores de ese sector. Diseñar necesidades de su área para 
+la Smart City.  
+ 
+ 
+ 
+Misión: 
+Pensar, promover y crear nuevos modelos de educación para que sea más accesible, 
+universal y de calidad, así como incentivar, ayudar, promover y difundir la creación de 
+proyectos culturales.  
+Ejemplos de proyectos a desarrollar:  
+• Alveas promocionadas para creación de contenido dedicado a la divulgación educativa  
+y científica.  
+• Acuerdos con centros de enseñanza para que acepten ALVYs como medio de pago e 
+instrumento para becar a alumnos sin recursos.  
+• Diseñar y construir centros de enseñanza autosuficiente y sostenible, apoyándonos en  
+las tecnologías más avanzadas, los partners y la comunidad que nos aportará Alvearium.  
+• Programas de promoción, creación, exposición, 
+distribución y divulgación de arte digital (obras 
+audiovisuales o escritas a través de la venta de un 
+NFT de esa obra).  
+• Implementación del concepto CultureToEarn, 
+creando espacios virtuales de museos donde se 
+exponen obras de arte y al finalizar el recorrido se 
+hace un test al usuario, de cuyo resultado 
+dependerá una recompensa.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+31 32 
+ 
+Misión: 
+Incrementar la calidad de vida de las personas.  
+Ejemplos de proyectos a desarrollar:  
+• Atraer y promover proyectos relacionados con las 
+tecnologías inmersivas, NFTs, cryptos, … que fomenten 
+la salud física y/o mental, con incentivos como el 
+modelo move to earn.  
+• Proyecto destinado a mejorar la asistencia médica, utilizando la tecnología de 
+teleasistencia, a personas ancianas que viven en entornos rurales.  
+• Promover el uso de bicicletas en la ciudad con el objetivo mejorar la salud cardiovascular, 
+reducir la contaminación y los problemas generados por el tráfico. Para este propósito 
+las bicicletas dispondrán de un dispositivo que permitirá contabilizar su uso y generar 
+créditos de carbono, en forma de NFTs, que el usuario podrá vender.  
+ 
+ 
+Misión: 
+ 
+Promover el desarrollo y la mejora continua en la gestión 
+de recursos de manera eficiente y sostenible, priorizando 
+el cuidado a la naturaleza, a través de la innovación, la 
+tecnología y el ingenio.  
+Ejemplos de proyectos a desarrollar:  
+• Promoción y desarrollo de proyectos relacionados con la denominada “economía azul”.  
+• Desarrollo de proyectos destinados a encontrar fuentes de energías sostenibles,  
+eficientes y baratas.  
+• Proyectos destinados a mejorar la gestión de residuos.  
+• Zoológico inmersivo, divulgando conocimiento de especies desconocidas o en peligro 
+de extinción.  
+ 
+ 
+Misión: 
+ 
+Atraer proyectos arquitectónicos que diseñen nuevos 
+modelos de ciudad sostenible y autosuficiente. Vertical 
+transversal y generalista.  
+ 
+ 
+ 
+32 33 
+Ejemplos de proyectos a desarrollar:  
+• Creación de concursos con premios que incentiven el pensamiento y el diseño de  
+estas ciudades.  
+• Creación de un museo interactivo sobre modelos de ciudades, pueblos o comunidades 
+de diferentes tamaños que tengan en cuenta los criterios exigidos por la institución.  
+ 
+ 
+Misión: 
+ 
+Crear espacios de colaboración ciudadana abierta, 
+transparente, inclusiva y equitativa basados en la 
+tecnología blockchain e inteligencia artificial, para 
+colaborar en el diseño y creación del ecosistema.  
+Ejemplos de proyectos a desarrollar:  
+• Espacios en Alveas dedicadas a educación en 
+conceptos de igualdad de edad, género, religión y 
+raza. 
+• Diseñar e implementar un modelo de gestión y  
+gobernanza digital, con tecnología blockchain e Inteligencia Artificial, para mejorar la  
+transparencia y la participación.  
+ 
+ 
+Misión: 
+Visibilizar y desarrollar proyectos de educación, 
+economía, energía o gobernanza en áreas 
+subdesarrolladas.  
+Ejemplos de proyectos a desarrollar:  
+• Promoción y desarrollo de nuevos ecosistemas y 
+modelos de negocio en áreas con riesgo de 
+despoblación.  
+• Creación de centros de enseñanza obligatoria en 
+áreas despobladas y/o subdesarrolladas con 
+profesores online.  
+ 
+ 
+Misión: 
+Encabezar y acelerar la conceptualización, el diseño y la implementación del ecosistema 
+Alvearium.  
+ 
+ 
+ 
+33  
+ 
+ 
+ 
+ 
+Ejemplos de proyectos a desarrollar:  
+• Captación de talento dentro de la comunidad con incentivos y recompensas a través 
+de retos.  
+• Los principales desarrollos tecnológicos de Alvearium se pondrán a disposición de la 
+Fundación.  
+ 
+ 
+DEMOCRACIA DAO:  
+La fundación defiende y apuesta por la gestión democrática, tal y como se desprende de 
+los valores y el organigrama. Asimismo, se valora el compromiso mostrado por el proyecto, 
+el grado de vinculación y alineamiento con los valores del Equipo Fundador.  
+Gracias al sistema de gobernanza de nuestra DAO sus miembros tienen derechos de voto 
+en función de 3 factores:  
+• Grado de vinculación con el proyecto (a): número de tokens de gobernanza  
+adquiridos.  
+• Conocimiento del proyecto (tuser/tfound): tiempo dentro del proyecto en relación 
+con el tiempo histórico que lleve constituida la fundación.  
+• Grado de compromiso con el proyecto (tblock/tmax): tiempo que el token 
+permanezca bloqueado en relación con el tiempo máximo que se pueda bloquear.  
+En conclusión, el poder de voto (w) del sistema de votación que se establece en esta DAO  
+va a estar definido por la siguiente formula: w =a x (tuser)/(tfound) x (tblock)/(tmax) 
+SMART CONTRACTS:  
+El funcionamiento de la DAO está basado en el cumplimiento de lo establecido en sus 
+smart contracts, haciendo que lo codificado en el mismo sea inmutable. Es una forma de 
+compromiso y responsabilidad de la fundación con los usuarios de la misma en aquellos 
+términos que se acuerden e integren en dichos smart contracts.  
+No obstante, la estructura directiva de la Fundación es la responsable final de asegurar el  
+buen funcionamiento de la misma.  
+PROYECTOS:  
+La fundación va a colaborar con 2 tipos de proyectos cuyo modelo de financiación es  
+diferente:  
+• Emprendimiento social: el objetivo es generar impacto social al mismo tiempo 
+que el proyecto es económicamente sostenible e incluso rentable.  
+• Filantropía: el objetivo es generar impacto sin importar el resultado económico.  
+La mayor parte de los proyectos con los que colaboraremos y/o crearemos se encuadrarán 
+dentro del grupo de emprendimiento social. Sin embargo, siempre habrá proyectos 
+interesantes con los que colaboraremos y que serán meramente filantrópicos / caritativos.  
+ 
+ 
+ 
+34 
+FINANCIACIÓN:  
+Todas las transacciones de la Fundación comenzarán por el uso del token GTE 
+(GoToExcellence), que habrán sido obtenidos en la plataforma Alvearium gracias a 
+recompensas / incentivos por consumo de contenido, bloqueos de ALVYs (utilidad del 
+ALVY), challenges resueltos, u otras razones.  
+La comunidad de Alvearium tendrá acceso a la alvea de la Fundación Alvearium GTE donde 
+podrán elegir en qué tipo de proyectos colaborar:  
+• Proyectos de emprendimiento social: el inversor bloqueará tokens GTE que 
+le serán devueltos al pasar el tiempo definido en cada proyecto.  
+• Proyectos filantrópicos: el usuario donará tokens GTE para su uso en el 
+proyecto que elija.  
+En ambos casos, el inversor y/o donante recibirán un POAP (NFT del proyecto)  
+conmemorativo que certificará su participación económica en el proyecto.  
+Atendiendo a nuestras previsiones observamos un nuevo mercado potencial, de cual 
+podemos ser precursores, nos referimos a un mercado de compraventa de POAPs de 
+proyectos filantrópicos.  
+Partimos de la suposición de que hay usuarios que tiempo después de participar en un 
+proyecto puedan necesitar liquidez o bien deseen recuperar el dinero donado.  
+Por otro lado, observamos un perfil de donante que puede querer participar en un proyecto 
+a posteriori, bien porque no pudo donar desde un inicio, o bien porque le guste colaborar 
+con proyectos ya realizados y seguros, sin asumir riesgos.  
+Los inversores y donantes podrán elegir en qué proyectos colaborar, apoyar una vertical 
+determinada o simplemente aportar a la fundación de manera genérica. En este último 
+caso será la DAO de la fundación la que tomará las decisiones de su distribución por 
+proyecto.  
+RELACIÓN CON LAS INSTITUCIONES:  
+Se van a establecer acuerdos con instituciones públicas, privadas y asociaciones con una 
+doble finalidad. En primer lugar, para reforzar la financiación. En segundo lugar, para 
+colaborar conjuntamente en los problemas del entorno. Por ejemplo, se van a buscar 
+acuerdos con ayuntamientos de tal forma que los ciudadanos y usuarios puedan participar 
+en mejorar su ciudad colaborando en crear un espacio colectivo mejor. Alvearium va a ser 
+un facilitador.  
+ 
+ 
+Vamos a estructurar la puesta en marcha de la fundación en tres fases.  
+1ª FASE: Definición, formación equipo, acuerdo público-privados.  
+2ª FASE: MVP Prueba con 3 proyectos.  
+3ª FASE: Desarrollo y escalabilidad del proyecto.  
+ 
+ 
+ 
+35 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Alvearium: mundo virtual inspirado en el mundo real. Asimismo, la comunidad Alvearium está 
+formada por los usuarios de esta plataforma.  
+ALVY: token fungible de utilidad de Alvearium.  
+Blockchain layer 2: protocolo secundario (i.e. Polygon) sobre un sistema blockchain principal (i.e. 
+Ethereum) que permite resolver las dificultades de escalabilidad, velocidad de transacción y coste 
+de dicha blockchain principal.  
+DAO: Decentralized Autonomous Organization. Hace referencia a una revolucionaria forma de 
+gobernanza de organizaciones, haciendo uso de Smart Contracts y la tecnología blockchain para 
+brindar transparencia, inmutabilidad, autonomía y seguridad a las mismas.  
+Digital Twins: réplica digital de un elemento o conjunto de elementos del mundo real. Estos 
+gemelos digitales tienen diferentes usos potenciales. Nuestra visión es desarrollar la tecnología 
+que permita incorporarlos dentro de Alvearium para simular escenarios de mejoras aplicables al 
+mundo real.  
+FOMO: Fear of missing out. Se trata de un tipo de ansiedad social causada por la impresión que 
+una persona tiene de que el resto del mundo está teniendo experiencias gratificantes y divertidas 
+sin él. Se trata de una patología asociada a la tecnología y las redes sociales.  
+GTE Token: token fungible de utilidad de la Fundación Alvearium.  
+NFT: Non Fungible Token. Activo criptográfico que tiene la capacidad de ser único e irrepetible. 
+Gracias a la tecnología blockchain las propiedades de este tipo de token se pueden almacenar y, 
+de esta manera, se vuelve posible certificar tanto la originalidad del activo como su propiedad.  
+POAP: Proof of Attendance Protocol. Son certificados digitales que se dan a los asistentes de 
+eventos en su wallet de Ethereum. Cada POAP es totalmente único y solo se puede conseguir si 
+has asistido a un evento determinado.  
+ROI: Return on Investment. Principal indicador que un inversor analiza para saber la rentabilidad 
+obtenida en una inversión.  
+Smart Contract o contrato inteligente: es un programa informático inmutable que auto- ejecuta 
+ciertas acciones que suceden como resultado de que se cumplan una serie de condiciones 
+específicas, establecidas entre dos o más partes.  
+Token sale: se refiere a la emisión de tokens, también denominada “Initial Coin Offering” (ICO) o, 
+de manera más precisa, “Initial Token Offering” (ITO).  
+Web3: evolución colectiva de las relaciones y experiencias entre marcas, creadores, artistas, 
+organizaciones, usuarios, etc. que se dan en la web2 (Social Web), cuyo objetivo es dotar de 
+privacidad y control sobre la información a los usuarios basandose en la tecnología blockchain.  
+ 
+ 
+ 
+ 
+ 
+36 
+ 
+ 
+ 
+ 
+ 
+ 
+Este documento está pensado para proporcionar información sobre el proyecto y en 
+ningún caso constituye una opinión relevante para la compraventa de activos digitales o 
+incitación a la participación en un metaverso.  
+El presente Whitepaper o Libro Blanco tiene por objeto informar de la emisión de 
+1.000.000.000 tokens, de acuerdo con la Initial Coin Offering (ICO) o emisión de criptoactivos 
+que se plantea.  
+El presente Whitepaper sirve igualmente para comunicar a los inversores que Alvearium 
+trabaja continuamente para desarrollar y mejorar su plataforma, contenidos, políticas y 
+tecnología, así como cuantos detalles técnicos y parámetros sean necesarios. Por ello, 
+estos extremos, así como las funcionalidades de Alvearium descritas en este Whitepaper 
+son susceptibles de  constante actualización.  
+Se informa a los inversores interesados que las características de la ICO descrita y los 
+criptoactivos a ésta vinculados se basan en la tecnología de registro distribuido o blockchain 
+que, por su naturaleza novedosa, se encuentra en constante evolución, con los riesgos 
+que ello conlleva y de los cuales se informa en el presente Whitepaper.  
+La limitada regulación de la tecnología blockchain y, en general, de los criptoactivos, conlleva 
+que puedan aprobarse nuevas normas, o dictarse nuevos pronunciamientos judiciales o 
+administrativos, que obliguen a realizar modificaciones sustanciales en el proyecto al que 
+se destina la ICO. Tal situación no generará la obligación de que el emisor compense a los 
+poseedores de los tokens por ningún concepto.  
+Toda la información contenida en este Whitepaper relativa a proyecciones de desarrollo del 
+proyecto podrá diferir de los resultados y, en consecuencia, dicha información no podrá 
+interpretarse como un compromiso vinculante para Alvearium.  
+En ese sentido, el presente Whitepaper sirve para advertir a los inversores que la inversión 
+aquí descrita conlleva la asunción de un riesgo elevado porque los criptoactivos objeto de 
+emisión pueden:  
+a) perder su valor total o parcialmente;  
+b) no ser siempre negociables en mercados organizados;  
+c) no ser líquidos;  
+d) podrían no ser canjeables por los bienes o servicios descritos en el presente 
+documento especialmente en casos de fracaso o interrupción del proyecto que 
+lleva a cabo la emisión.  
+El documento no constituye una oferta o solicitud de venta de alveas o parcelas digitales, 
+sino la emisión de un token fungible propio de Alvearium: ALVY. No constituye ni forma 
+parte de ella y no debe interpretarse como ninguna oferta de venta o suscripción de o 
+cualquier invitación a comprar o suscribirse a ningún valor.  
+El emisor asume la responsabilidad del contenido del presente libro blanco y declara que 
+ha tomado todas las precauciones y que, según su conocimiento, la información 
+contenida en este documento es correcta y precisa, y que no ha omitido datos relevantes.  
+ 
+ 
+ 
+37 
+38 
+En cuanto a las proyecciones y los objetivos sobre el desarrollo del proyecto contenidos 
+en el presente libro blanco, evidentemente, el emisor es responsable de su actuación a la 
+hora de perseguir con buena fe esos objetivos, pero el emisor renuncia expresamente a 
+toda responsabilidad por el cumplimiento de esas proyecciones y objetivos, por cualquier 
+error, omisión o inexactitud en su contenido que escape del conocimiento del emisor y 
+por cualquier pérdida o daño directo que surja directa o indirectamente del contenido del 
+presente Whitepaper.La información contenida en este documento no debe interpretarse 
+como un asesoramiento legal, empresarial, fiscal o financiero de ningún tipo. Cualquier 
+interesado en la adquisición de tokens deberá contar con el asesoramiento que considere 
+necesario de forma previa a la toma de cualquier decisión de inversión relacionada con 
+el presente whitepaper.  
+El contenido del presente libro blanco es meramente informativo sin que nada del mismo, 
+incluidos los gráficos, pueda ser utilizado para tomar decisiones de inversión. Ninguna 
+información contenida en el presente documento supondrá una información relevante 
+para tomar decisiones de inversión.  
+La información contenida en este Whitepaper puede incluir o incorpora referencias y 
+declaraciones prospectivas que en ningún caso constituirán declaraciones de hechos 
+históricos ni promesas de futuro de ningún tipo. Cualquier proyección, previsión y 
+estimación recogida en este documento tiene una naturaleza necesariamente especulativa 
+y se basa en estimaciones. Estas declaraciones prospectivas no dejan de ser meras 
+estimaciones, susceptibles de incurrir en error, y pueden verse afectadas por suposiciones 
+inexactas o por riesgos conocidos o desconocidos, incertidumbres y otros factores, la 
+mayoría de los cuales están fuera de control.  
+Lo contenido en este Whitepaper se habrá de entender sin perjuicio de los términos 
+y condiciones establecidos para el uso de Alvearium por los usuarios y las posteriores 
+normas que la comunidad de Alvearium elabore.  
+ 
+ 
+La adquisición y uso de tokens supone asumir riesgos, entre otros, la pérdida parcial o 
+total de los tokens, o de su valor.  
+El adquirente de un token sólo debe llevar a cabo esta adquisición cuando asuma, con 
+pleno conocimiento, todos los riesgos. El adquirente no será compensado en ningún caso 
+por el emisor de los tokens por su pérdida de valor o cualquier otro acontecimiento 
+adverso para sus intereses.  
+Se informa a los interesados que, a pesar de la existencia de comunicados y/o 
+recomendaciones provenientes de la Comisión Nacional del Mercado de Valores (CNMV) 
+español y de otros organismos reguladores europeos, no existe una regulación nacional 
+específica sobre las ICO. Se facilitan a continuación, a efectos informativos, los comunicados 
+de la CNMV sobre criptoactivos y Ofertas Iniciales de Monedas o ICOs:  
+• Consideraciones de la CNMV sobre “criptomonedas” e “ICOs” dirigidas a los 
+profesionales del sector financiero, de 8 de febrero de 2018: https://www.cnmv. 
+es/Portal/verDoc.axd?t=%7B9c76eef8-839a-4c19-937f-cfde6443e4bc%7D  
+• Comunicado conjunto de la CNMV y del Banco de España sobre “criptomonedas”  
+ 
+ 
+38 39 
+y “ofertas iniciales de criptomonedas” (ICOs), de 8 de febrero de 2018: http://www. 
+cnmv.es/Portal/verDoc.axd?t=%7bf3ab3acc-c4fc-4b99-b61f-b9ef8dab7a98%7d  
+• Comunicado sobre operaciones de captación de fondos a través de Initial Coin 
+Offerings (ICOs), de 26 de marzo de 2019: https://www.cnmv.es/Portal/verDoc. 
+axd?t=%7B54a67a2d-4691-405f-942b-1755ea195cf1%7D  
+• Comunicado conjunto de la CNMV y el Banco de España sobre los riesgos 
+de la inversión en criptomonedas, de 9 de Febrero de 2021 
+https://www.cnmv.es/portal/verDoc.axd?t=%7B52286f9f-c592-4418-9559- 
+b75bf97115d2%7D  
+De otra parte, se informa a los interesados que existe una Propuesta de Reglamento del 
+Parlamento Europeo y del Consejo relativo a los mercados de criptoactivos y por el que se 
+modifica la Directiva (UE) 2019/1937 (COM/2020/593 final) pendiente de aprobación en el 
+momento de redacción del presente Whitepaper. Aunque dicha Propuesta de Reglamento 
+de la Unión Europea ha sido tenida en cuenta para la redacción del presente Whitepaper, 
+el interesado debe tener en cuenta la redacción que finalmente se apruebe y entre en vigor 
+de ese Reglamento de la Unión Europea, pues será el momento en el que se determine 
+un marco regulatorio en relación con la emisión, negociación y custodia de tokens.  
+En el momento de la emisión de los tokens, los inversores interesados deben tener 
+presente que no se puede garantizar la naturaleza jurídica de los derechos derivados de 
+los mismos, como que la inversión en tokens conlleva un riesgo por el efecto que puedan 
+tener sobre los mismos o sobre la ICO cualquier resolución dictada por un órgano 
+jurisdiccional o de una autoridad pública, cualquier otro posible cambio en la normativa 
+o en la doctrina y práctica administrativa con posterioridad a la fecha de redacción del 
+presente Whitepaper.  
+ 
+a. Riesgos asociados a la oferta y a la negociación  
+Cabe la posibilidad de que no se consiga incluir el token en cuestión en algún mercado  
+secundario o que exista falta de liquidez en mercados OTC (over the counter).  
+La compañía no se hace responsable de las fluctuaciones que el token en cuestión pueda 
+sufrir en cualquier tipo de mercado o de que tales tipos de mercado permitan poner a 
+cotizar el token, pudiendo ello conllevar riesgos de iliquidez. Incluso en el caso de que 
+el token llegase a cotizar en la plataforma de un tercero, dichas plataformas pueden no 
+disponer de suficiente liquidez o incluso encontrarse ante riesgos de cambios regulatorios 
+o de compliance, siendo por tanto susceptibles de falla, caída o manipulación.  
+Además, en la medida en que la plataforma de un tercero ponga a cotizar el token en 
+cuestión, otorgando un valor de cambio al token (ya sea en criptodivisas o dinero fiduciario), 
+dicho valor puede padecer volatilidades.  
+El adquirente de los tokens asume todos los riesgos anteriormente mencionados, incluidos 
+aquellos asociados a la especulación.  
+ 
+ 
+ 
+ 
+ 
+ 
+39  
+ 
+ 
+ 
+ 
+b. Riesgos asociados a la ejecución del proyecto y al emisor  
+• Riesgos asociados a la prospectiva  
+Este documento contiene información de carácter prospectivo, incluyendo 
+proyecciones financieras y de crecimiento del proyecto. Dicha información se basa en 
+suposiciones de Alvearium que atienden a criterios de mera racionalidad y que, en ningún 
+caso, deben considerarse ciertas, seguras o reales. La prospectiva de Alvearium puede ser 
+alterada por cualesquiera adversidades o circunstancias sobrevenidas.  
+• Riesgos asociados a la diversidad de regulaciones y a la evolución normativa  
+La todavía limitada regulación de la tecnología blockchain y las diferentes 
+regulaciones existentes en los diferentes territorios constituyen riesgos, asociados tanto 
+a la diversidad de normativas aplicables como a las novedades legislativas que vayan 
+entrando en vigor en unos territorios y otros. Estos riesgos causados por la aprobación de 
+nueva normativa aplicable incluyen la alteración de la configuración actual o la resolución 
+de los smart contracts, la pérdida de funcionalidad de los tokens para el adquirente, o su 
+pérdida de valor.  
+No se garantiza el impacto que pueda tener sobre el precio o la capacidad de uso de los 
+tokens cualquier resolución dictada por un órgano jurisdiccional o de una autoridad pública, 
+cualquier otro posible cambio en la normativa o en la doctrina y práctica administrativa 
+con posterioridad a la fecha de redacción del presente Whitepaper.  
+• Riesgos asociados al fracaso o abandono del proyecto  
+El desarrollo del proyecto descrito en el presente documento puede verse 
+interrumpido y cesado por diferentes razones, entre otras, la falta de interés por parte del 
+mercado, la falta de financiación y la falta de éxito comercial (por ejemplo, provocadas por 
+otros proyectos competidores). En ningún caso se garantiza que los hitos marcados en el 
+presente documento lleguen a ser desarrollados total o parcialmente ni que el adquirente 
+de tokens obtendrá beneficios.  
+• Riesgo asociados a la competencia  
+La competencia de otras empresas que presten servicios similares en el mercado 
+puede impactar negativamente en el desarrollo del proyecto descrito en el presente 
+documento, así como en el valor de los tokens.  
+ 
+c. Riesgos asociados a los tokens y la tecnología utilizada  
+• Riesgos asociados a la propia tecnología  
+Los tokens criptográficos se basan en una tecnología de reciente creación, todavía 
+en fase de prueba, por lo que existen riesgos asociados a dicha tecnología, entre los que 
+pueden indicarse los asociados a su adquisición, almacenamiento, transmisión y uso. La 
+naturaleza de los riesgos asociados a la tecnología que sirve de base a los tokens puede 
+ser de cualquier índole. Dado que estamos ante una tecnología que se encuentra todavía 
+en desarrollo, por ende, pueden existir riesgos no anticipables a fecha de redacción del 
+presente Whitepaper y que, de materializarse, podrían provocar variaciones no previstas.  
+ 
+ 
+ 
+40 
+• Riesgos asociados a la volatilidad  
+Este tipo de productos tienen un alto riesgo implícito, debido a las trayectorias y 
+las fluctuaciones de su valor. El valor de los tokens puede experimentar variaciones al 
+alza y a la baja, y existe el riesgo de que un comprador no recupere el capital utilizado 
+inicialmente.  
+• Riesgos asociados a su régimen fiscal  
+La normativa tributaria se encuentra muy limitada en materia de criptoactivos, 
+por lo que la fiscalidad de los tokens que se emiten en esta ICO podrá sujetarse a 
+pronunciamientos futuros o a modificaciones legislativas que puedan aprobarse y, además, 
+dependerá de las circunstancias concretas de cada adquirente.  
+• Riesgos asociados al software  
+Los códigos informáticos (smart contracts) por los que se transmiten los tokens 
+estarán basados en Polygon. Cualquier mal funcionamiento, caída o abandono del proyecto 
+Polygon puede provocar efectos adversos en el funcionamiento de los tokens y en el proyecto 
+descrito en el presente documento.  
+Los avances tecnológicos en general y en criptografía en particular, tales como el desarrollo de 
+la computación cuántica, pueden tener efectos adversos sobre el funcionamiento de los tokens.  
+Los smart contracts y el software en el que se basan los tokens se encuentran en una etapa 
+temprana de desarrollo. No existe garantía ni forma de asegurar que la emisión de tokens y su 
+posterior comercialización puedan ser interrumpidas o padezcan cualquier otro tipo de error, 
+por lo que hay un riesgo inherente de que se produzcan defectos, fallas y vulnerabilidades 
+que puedan dar lugar a la pérdida del capital aportado inicialmente o de los tokens obtenidos.  
+Existe un riesgo de ataques de piratas o hackers informáticos en la infraestructura tecnológica 
+utilizada por el emisor y en las redes y tecnologías.  
+El emisor de los tokens se puede ver en la imposibilidad temporal o permanente de llevar a 
+cabo su actividad.  
+En el momento de redacción del presente Whitepaper, se utilizará la blockchain Polygon, 
+sin perjuicio de que posteriormente se escoja la red blockchain que mejor se adapte a las 
+necesidades de Alvearium.  
+En el caso de los mecanismos de consenso de prueba de trabajo en Polygon podría darse el 
+caso de que alguien pudiese controlar más del 50% del poder computacional de los mineros 
+de la cadena de bloques en un llamado ataque del 51% y, por lo tanto, toma el control de la 
+red (la cadena de bloques). Utilizando más del 50% del poder minero (poder hash), el atacante 
+siempre representará a la mayoría, lo que significa que puede imponer su versión de la cadena 
+de bloques.  
+En principio, esto también es posible con menos del 51% de la potencia de minería. Una vez 
+que el atacante haya ganado el control de la red, podría revertir o redirigir las transacciones que 
+inició, de modo que sería posible “duplicar el gasto” (es decir, realizar transacciones múltiples 
+del mismo token). El atacante también puede bloquear las transacciones de otros negándose 
+la confirmación.  
+Podrían, además, darse otros ataques informáticos en la blockchain de Polygon, el software  
+ 
+ 
+41 
+ 
+ 
+ 
+ 
+ 
+y el hardware utilizado por el emisor. Además de los ataques de hackers informáticos, 
+existe el riesgo de que los empleados del emisor o terceros puedan sabotear los sistemas 
+tecnológicos, lo que puede provocar el fallo de los sistemas de hardware y software del 
+emisor. Esto también podría acarrear un impacto negativo en las actividades comerciales 
+del emisor.  
+• Riesgo asociados a la custodia y pérdida de las claves privadas  
+El adquirente sólo puede obtener los tokens emitidos por el emisor utilizando 
+una cartera digital de Polygon de la que el adquirente de tokens disponga de su respectiva 
+clave privada y contraseña. La clave privada, por regla general, suele estar encriptada por 
+una contraseña.  
+El adquirente de tokens del emisor reconoce, comprende y acepta que, si pierde o le roban 
+su clave privada o contraseña de los tokens obtenidos y asociados a cualquier cartera 
+digital compatible con la blockhain Polygon, podría perder el acceso a sus tokens de forma 
+permanente. Además, cualquier tercero que disponga de acceso a la referida clave privada, 
+podría apropiarse indebidamente de los tokens contenidos en la cartera digital en cuestión. 
+Cualquier error o mal funcionamiento causado o relacionado con la cartera digital o con 
+el sistema de almacenamiento de tokens en el que el adquirente desee recibir sus tokens 
+también podría ocasionar la pérdida de éstos.  
+• Riesgo de robo  
+Los smart contracts y la plataforma de software en la que funcionan pueden estar 
+expuestos a ataques informáticos o hackeos por parte de terceros, por ejemplo, pero no 
+limitado a ataques de malware, ataques de denegación de servicio, ataques de consenso, 
+ataques Sybil, smurfing y spoofing. Cualquiera de estos ataques podría suponer la pérdida 
+de capital aportado por el adquirente o de los tokens obtenidos, así como la imposibilidad 
+para el emisor de continuar con el desarrollo del proyecto definido en el presente 
+documento.  
+• Riesgos asociados a la incompatibilidad de los servicios de cartera digital  
+El proveedor de servicios de cartera digital o wallet utilizados para recibir tokens 
+debe cumplir con el estándar de ERC-20 En caso contrario, no será técnicamente 
+compatible con dichos tokens. La compatibilidad de los servicios de cartera digital no está 
+garantizada por lo que existe riesgo de que, si existe incompatibilidad, el adquirente no 
+obtenga acceso a los tokens.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+42 
+ 
+ 
+ 
+ 
+ 
+ 
+El adquirente de los tokens reconoce y acepta que estos TÉRMINOS Y CONDICIONES  
+GENERALES DE SUSCRIPCIÓN DE LA EMISIÓN DE TOKENS DE ALVEARIUM incluidos en el  
+presente LIBRO BLANCO se complementan con los TÉRMINOS Y CONDICIONES GENERALES  
+DE LOS SERVICIOS de Alvearium disponibles en https://alvearium.io/terms-conditions  
+El adquirente de los tokens reconoce que ha leído y comprendido, y acepta, los TÉRMINOS 
+Y CONDICIONES GENERALES DE LOS SERVICIOS de Alvearium, pues dicha aceptación es 
+condición necesaria tanto para la adquisición de tokens como para registrarse como 
+usuario en el sitio web de Alvearium.  
+Todo el contenido del Libro Blanco y de los presentes Términos y Condiciones estará 
+disponible en el sitio web de Alvearium: www.alvearium.io El adquirente reconoce y acepta 
+que su obtención de los tokens se produce de conformidad y en las condiciones descritas 
+en el Libro Blanco y en los Términos y Condiciones.  
+Los presentes Términos y Condiciones no podrán considerarse una oferta o invitación 
+para suscribir, comprar o adquirir de otro modo los tokens, ni tendrán efectos ni validez 
+algunos para aquellos adquirentes sometidos a cualquier jurisdicción:  
+• en la que dicha oferta o invitación no esté autorizada; o  
+• en la que la persona que realiza dicha oferta no esté cualificada para hacerlo; o  
+• en la que para el adquirente sea ilegal aceptar dicha oferta o invitación.  
+El adquirente no debe interpretar el contenido de los presentes Términos y Condiciones 
+como un asesoramiento legal, empresarial o fiscal. Antes de aceptarlos, el adquirente 
+deberá buscar el asesoramiento jurídico, fiscal y comercial que requiera para comprender 
+en su integridad el proyecto y los presentes Términos y Condiciones.  
+El contenido del sitio web de Alvearium o cualquier página web vinculada, directa o 
+indirectamente no forma parte de los presentes Términos y Condiciones. El adquirente sólo 
+debe tener en cuenta el contenido del Libro Blanco y de los Términos y Condiciones para 
+tomar la decisión de adquirir tokens, sin prestar atención a cualesquiera otros contenidos, 
+incluidos los que figuren en el sitio web de Alvearium.  
+ 
+a) Entrada en vigor y modificaciones  
+Los presentes Términos y Condiciones entrarán en vigor cuando el adquirente acepte los 
+Términos y Condiciones clicando el botón “He leído y acepto los Términos y Condiciones” 
+habilitado en el sitio web.  
+En cumplimiento de lo establecido en el artículo 28 de la Ley 34/2002 de 11 de Julio de 
+Servicios de la sociedad de información y de comercio electrónico, en el plazo máximo de 
+veinticuatro horas desde la entrada en vigor de los Términos y Condiciones, Alvearium 
+confirmará la aceptación de los presentes Términos y Condiciones confirmando su entrada 
+en vigor.  
+ 
+ 
+ 
+ 
+ 
+43 
+44 
+b) Objeto 
+El objeto de los presentes Términos y Condiciones es la compraventa de los tokens de 
+Alvearium.  
+El adquirente, a cambio del precio, recibirá una cantidad de tokens que le serán entregados 
+y desbloqueados conforme a lo establecido en el apartado 2.7 del presente Libro Blanco.  
+ 
+c) Derechos y obligaciones del adquirente  
+• Para adquirir tokens, el adquirente habrá de ser verificado por el emisor. Para ello 
+deberá pasar por el proceso de KYC y AML (Conoce a tu Cliente / Prevención de 
+Blanqueo de Capitales por sus siglas en inglés).  
+• El adquirente sólo podrá adquirir tokens si tiene la capacidad jurídica y aptitud 
+suficientes para asumir los derechos y obligaciones recogidos en los presentes 
+Términos y Condiciones.  
+• El adquirente se obliga al pago efectivo del precio de los tokens en cualquiera de las 
+formas de pago ofrecidas por el emisor.  
+• El adquirente se obliga a cumplir con las normas de conducta y navegación del sitio 
+web del emisor, así como con los términos y condiciones.  
+• El adquirente se obliga a actuar siempre de buena fe.  
+• El adquirente realiza la compraventa en su propio nombre y representación, bajo 
+su propia responsabilidad y por su propia iniciativa, sin que pueda considerarse 
+que la voluntad del adquirente surge o está influenciada por cualquier actividad 
+de asesoramiento del Emisor. El adquirente se obliga a no adquirir los tokens en 
+representación de un tercero, ni con objeto de su distribución o reventa.  
+• El adquirente declara que tiene conocimientos y experiencia suficiente en materia 
+financiera y empresarial y que es capaz de evaluar los riesgos y las ventajas de aceptar 
+los presentes Términos y Condiciones, y asumir sus derechos y obligaciones. Asimismo, 
+el adquirente declara que tiene la capacidad económica suficiente para afrontar la 
+pérdida total del capital aportado sin perjudicar a su situación financiera y que, por lo 
+tanto, es capaz de soportar el riesgo de la pérdida de valor de los tokens que adquiera.  
+• El adquirente acepta el presente documento con la expectativa de que pueda 
+beneficiarse de las funcionalidades del sitio web del Emisor indicadas. Sin embargo, el 
+adquirente reconoce y acepta que el desarrollo del proyecto está sujeto a incertidumbre 
+y a riesgos que pueden condicionar la viabilidad y la operatividad de las funcionalidades, 
+incluso del propio proyecto.  
+• Si el adquirente decide demandar al emisor ante un tribunal con motivo de la 
+información contenida en este documento, el adquirente se compromete, siempre que 
+lo permita la normativa aplicable, a abonar los costes de la traducción del documento, 
+si fuera necesaria, antes de iniciar cualquier procedimiento judicial.  
+ 
+ 
+ 
+ 
+ 
+44 45 
+d) Derechos y obligaciones del emisor  
+El emisor asume la responsabilidad del contenido del presente LIBRO BLANCO y los 
+presentes Términos y Condiciones y declara que ha tomado todas las precauciones y que, 
+según su conocimiento, la información contenida en este documento es correcta y 
+precisa, y que no ha omitido datos relevantes.  
+Las funcionalidades de los tokens se detallan en el apartado 3.3 del presente documento. 
+Además, el emisor tiene como objetivo ir incrementando las funcionalidades de los tokens 
+de acuerdo con las necesidades y en beneficio de los adquirentes.  
+El Libro Blanco y los presentes Términos y Condiciones constituyen una obligación para 
+el emisor, sin perjuicio de las limitaciones que la normativa aplicable pueda prever (por 
+ejemplo, la relativa a situaciones de quiebra o insolvencia).  
+Aunque todavía no ha entrado en vigor, el emisor ha tratado de adaptar el presente 
+documento en todo lo posible a la Propuesta de REGLAMENTO DEL PARLAMENTO 
+EUROPEO Y DEL CONSEJO relativo a los mercados de criptoactivos y por el que se modifica 
+la Directiva (UE) 2019/1937 (COM/2020/593 final).  
+El emisor declara que es una sociedad debidamente constituida y en regla con la legislación 
+española, y cuenta con la autorización y la capacidad suficientes para desarrollar su 
+actividad en los términos recogidos en el presente documento.  
+ 
+e) Tasas e impuestos  
+El pago de las tasas e impuestos se realizará con arreglo a la legislación aplicable.  
+ 
+f) Tipo de cambio  
+Todos los importes monetarios citados en el presente documento están expresados 
+en dólares (USD). A la hora de calcular su valor en euros se utilizarán los tipos de cambio 
+oficiales del Banco Central Europeo en el momento del canje que, en cada caso, 
+corresponda.  
+ 
+g) Prevención del Blanqueo de Capitales y de la financiación del terrorismo  
+La emisión de los tokens se encuentra sujeta a la Ley 10/2010, de 28 de abril, de prevención  
+del blanqueo de capitales y de la financiación del terrorismo. En concreto, el artículo 2, 1.  
+z) incluye al emisor de los tokens como sujeto obligado dentro del ámbito de aplicación 
+de la ley.  
+h) De conformidad con la ley de prevención del blanqueo de capitales y de la financiación 
+del terrorismo, el emisor está obligado a identificar documentalmente al adquirente, a 
+recabar información sobre la naturaleza de su actividad profesional o empresarial y a 
+comunicar, por iniciativa propia, al Servicio Ejecutivo de la Comisión de Prevención del 
+Blanqueo de Capitales e Infracciones Monetarias cualquier hecho u operación, incluso la 
+mera tentativa, sobre el que exista indicio o certeza de que está relacionado con el 
+blanqueo de capitales o la financiación del terrorismo.  
+ 
+ 
+45  
+ 
+ 
+ 
+ 
+i) El tratamiento de datos personales se realizará conforme al REGLAMENTO (UE) 2016/679 
+DEL PARLAMENTO EUROPEO Y DEL CONSEJO de 27 de abril de 2016 relativo a la protección 
+de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre 
+circulación de estos datos y por el que se deroga la Directiva 95/46/CE (Reglamento general 
+de protección deDatos y Garantía de los Derechos Digitales.  
+El adquirente declara que la Política de Privacidad del sitio web del emisor ha sido aceptada 
+con anterioridad a la aceptación de los presentes Términos y Condiciones. La Política de 
+Privacidad completa está accesible en el siguiente enlace https://alvearium.io/privacy- 
+policy 
+ 
+j) Nulidad parcial  
+Si algún tribunal competente para decidir sobre la materia determinase que alguna 
+disposición de los presentes Términos y Condiciones es nula, será eliminada, sin que ello 
+afecte al resto de los Términos y Condiciones, cuyas disposiciones continuarán siendo 
+válidas y exigibles.  
+ 
+k) Normativa y jurisdicción aplicables  
+Cualquier disputa o demanda derivada del objeto o relacionada con los presentes Términos 
+y Condiciones se regirá por la legislación española y en caso de reclamación judicial se 
+resolverá ante los tribunales de la ciudad de Zaragoza con expresa renuncia a cualquier 
+otro fuero; todo ello sin perjuicio únicamente de que lo impida cualquier ley imperativa 
+aplicable.  
+ 
+ 
+El token descrito en el presente Libro Blanco no es una garantía ni un instrumento 
+financiero en el sentido de la Directiva sobre Mercados de Instrumentos Financieros (MiFID 
+II) del Parlamento Europeo (2014/65/UE), valores u otras leyes de los estados miembros. El 
+token no es una garantía de ningún tipo y no representa ningún derecho de voto, gestión 
+o participación en los beneficios de ninguna entidad. El token no representa la propiedad 
+de ningún activo físico y no será reembolsable.  
+ 
+La oferta y la venta del token no han sido registrada en virtud de la Ley de Valores de 
+Estados Unidos de 1933, en su versión modificada, ni en virtud de las leyes de valores de 
+determinados estados. El token no puede ofrecerse, venderse o transferirse de otro 
+modo, pignorarse o hipotecarse, salvo en la medida en que lo permita la Ley y las leyes 
+de valores estatales aplicables de acuerdo con una declaración de registro efectiva o una 
+exención de la misma.  
+ 
+ 
+ 
+46 
+No se ha presentado ningún SAFT, documento de colocación, prospecto, declaración de 
+divulgación del producto u otro documento de divulgación ante la Australian Securities and 
+Investments Commission en relación con la oferta. La SAFT y cualquier documento utilizado 
+en relación con ella y cualquier documento relacionado no constituyen un prospecto, una 
+declaración de divulgación del producto u otros documentos de divulgación en virtud de la 
+Ley de Sociedades de 2001. En Australia, alguien sólo puede ofrecer el token a “inversores 
+sofisticados” o “inversores profesionales” o de otra manera de acuerdo con una o más 
+exenciones contenidas en la Ley de Sociedades, de modo que es legal ofrecer el token en 
+observancia de las leyes aplicables.  
+ 
+Los derechos del token no se ofrecen ni se venden y no pueden ofrecerse ni venderse, 
+directa o indirectamente, dentro de la República Popular China, salvo que lo permitan 
+expresamente las leyes y reglamentos de la República Popular China.  
+ 
+El token no se ha registrado ni se registrará en virtud de la legislación financiera o de valores 
+de Japón. Los potenciales compradores del token se comprometen a no retransmitir o 
+reasignar el token a nadie que sea residente en Japón, salvo en virtud de una exención de 
+colocación privada de los requisitos de registro y de conformidad con las leyes y 
+reglamentos pertinentes de Japón.  
+ 
+La SAFT y cualquier documento relacionado no son una oferta, o una invitación a 
+hacer ofertas, para vender, comprar, intercambiar o transferir de otro modo valores 
+o instrumentos financieros extranjeros o en beneficio de cualquier persona o entidad 
+residente, constituida, establecida o que tenga su residencia habitual en la Federación 
+Rusa. La SAFT y cualquier documento utilizado en relación con la oferta y la venta del token 
+no son anuncios relacionados con la colocación de valores o la circulación pública, tal y 
+como determina la legislación rusa. El token no está destinado a la colocación o circulación 
+pública en la Federación Rusa. Ni la SAFT ni ningún otro documento relacionado con ella 
+ha sido o será registrado en el Banco Central de la Federación Rusa.  
+ 
+El token no podrá ser ofrecido públicamente en Suiza y no cotizará en las bolsas suizas ni 
+en ninguna otra bolsa de valores o centro de negociación regulado en Suiza. La SAFT y 
+cualquier documento relacionado se han preparado sin tener en cuenta las normas de 
+divulgación de los folletos de emisión según el Código de Obligaciones suizo o las normas 
+de divulgación de los folletos de cotización. Ni SAFT ni ningún material de comercialización 
+relacionado puede ser distribuido públicamente o puesto a disposición del público en 
+Suiza. La SAFT y cualquier material de marketing relacionado no ha sido ni será presentado  
+ 
+ 
+ 
+47 
+ 
+ 
+ 
+ 
+ 
+ni aprobado por ninguna autoridad reguladora suiza, principalmente por la Autoridad de 
+Supervisión del Mercado Financiero de Suiza. La oferta y la venta de tokens no han sido 
+autorizadas por la Ley Federal Suiza de Sistemas de Inversión Colectiva.  
+ 
+En el Reino Unido, la SAFT se distribuye y se dirige únicamente (y cualquier actividad de 
+compra a la que se refiera se llevará a cabo sólo con profesionales de la inversión) en el 
+sentido del artículo 19(5) de la Orden de Promoción Financiera (la “FPO”); (ii) personas 
+o entidades del tipo descrito en el artículo 49 de la FPO; (iii) inversores sofisticados 
+certificados (en el sentido del artículo 50(1) de la FPO); y (iv) otras personas a las que 
+se puede comunicar legalmente de otro modo (todas estas personas se denominan 
+conjuntamente “personas relevantes”). Las personas que no sean personas relevantes no 
+deben tomar ninguna medida en relación con el SAFT o basada en cualquier documento 
+utilizado en relación con el mismo. Es una condición para la adquisición del token que 
+la persona garantice ser una persona relevante. El SAFT y los documentos utilizados en 
+relación con él no han sido aprobados por ninguna autoridad reguladora del Reino Unido.  
+ 
+No se ha tomado ninguna medida para permitir la oferta, la venta, la posesión o la 
+distribución del token o de cualquier documento relacionado en cualquier jurisdicción en 
+la que se requiera una acción con ese fin. Usted está obligado a informarse y a observar 
+cualquier restricción relacionada con la oferta del token, el SAFT y cualquier documento 
+relacionado en su jurisdicción.  
+No se contempla una rentabilidad económica por la compra del token, y usted no debe 
+comprar el token con fines especulativos. La participación en la venta del token no debe 
+tener ninguna expectativa de beneficios, dividendos, ganancias de capital, rendimiento 
+financiero o cualquier otro retorno, pago o ingreso de cualquier tipo. La compra del token 
+conlleva un riesgo sustancial que podría conducir a una pérdida.  
+No existe ninguna garantía de que se alcancen los objetivos o de que los tokens tengan o 
+mantengan siempre su valor dentro del ecosistema.  
+Cualquier reventa del token debe realizarse por exenciones de los requisitos de valores y 
+en cumplimiento de los requisitos de las leyes aplicables.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+48 
+ 
+ 
+ 
+ 
+ 
+Ready.to join us? 
+{ 
+} 
+ 
+ 
+ 
+49 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+www.alvearium.io support@alvearium.io  

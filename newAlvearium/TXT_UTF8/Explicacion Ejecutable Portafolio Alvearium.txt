@@ -1,0 +1,49 @@
+en este documento  explicamos el ejecutable de unreal de nuestro portafolio cuando se inicie  
+la experiencia te encontraras en un entorno llamado alvea delante habra un mapa 3d 
+interactivo con 6 marcadores cada uno representando una experiencia aonica para sumergirte 
+en ellas simplemente  haz clic con el trigger  cada una tiene su encanto y contexto que te 
+ayudaran a comprenderla mejor aqua te doy un pequeao adelanto  
+ac bbva  se trata de una galeraa que se creó para una colección de nfts que en su daa 
+sacó bbva lo especial de esta experiencia es que transformamos las imagenes 2d que 
+nos entregaron en obras 3d lo hicimos sacando las bolas amarillas de la imagen ademas al a cercarte a cada nft empieza a sonar distintas melodias que se diseaaron 
+especaficamente para lo que la obra quiere transmitir  
+o cosas a tener en cuenta  el usuario aparece mirando hacia la galeraa detras 
+suyo hay una pantalla con un video que explica los nfts para salir de la 
+experiencia y volver a la alvea hay que pulsar sobre la bola que esta frente al 
+logo de bbva ac campus javi martinez  creamos esta experiencia para una posible colaboración por lo 
+que es muy conceptual primero diseaamos un estadio basandonos en el actual 
+equipo de javi martinez el usuario aparece en el centro del campo frente a unas 
+pantallas no interactivas concep tuales donde como usuario del campus tiene sus 
+estadasticas de los entrenamientos y partidos jugados en el campus ademas en el lado 
+derecho hay una pantalla gigante donde se esta retransmitiendo un partido de 
+champions en directo concepto la idea es que los chavales desde casa puedan 
+juntarse para ver partidos en vivo por aoltimo por el campo hay material de 
+entrenamiento simulando diferentes ejercicios aqua la idea es que los jugadores 
+pudieran ver antes de ir a entrenar los ejercicios que vayan a hacer en 3d o cosas a tener en cuenta  para salir de la experiencia hay que pulsar con el 
+trigger sobre la bola roja al lado de la pantalla de estadasticas ac restaurante inmersivo del campus de naturgy  esta experiencia se creó para enseaar 
+a naturgy un concepto de un restaurante inmersivo que se podraa llegar a hacer en una 
+de las salas de su campus para esto recreamos en 3d con medidas reales este espacio en esta experiencia el usuario aparece en un  espacio donde hay una larga mesa al 
+entrar un robot circular empieza a guiar al usuario por la experiencia y en la tv de la 
+derecha comienza a reproducirse un video sobre la historia del campus de naturgy al 
+acabar el video el robot guaa al usuario a t ransformar la sala en un restaurante 
+inmersivo al pulsar una opción que muestra el robot comienza la transformación o cosas a tener en cuenta  para salir de la experiencia pulsar sobre la bola que 
+esta en la parte trasera izquierda de la posición inicial del usuario ac casa de fieras  este proyecto lo realizamos para el meta world congress 2023 alla 
+llevamos el concepto de 5senses en el que el usuario podra disfrutar de los 5 sentidos 
+en una sola experiencia la vista con el visor vr el oado con unos cascos 
+insonorizadores y sonidos espaciales dentro de la experiencia el olor con una maquina 
+dispensadora de olores de la empresa olorama el tacto con una camiseta haptica de la 
+empresa owo y por aoltimo el gusto con unas tortillas de patata con uber eats y el 
+restaurante lamartinuca o cosas a tener en cuenta  en caso de que durante la experiencia se bloquee la 
+narrativa por ejemplo  si vas a la zona del elefante antes de tiempo pulsa la 
+tecla a para que la experiencia pueda continuar ac camara de comercio  esta es la primera sala que hemos hecho del palacio de santoaa 
+el modelo 3d esta hecho con fotogrametraa tambiacn se hizo para el meta world 
+congress 2023 cuando estacs en la experiencia puedes pulsar sobre la estatua central y 
+saldra una pantalla con un  video o cosas a tener en cuenta  si te mueves mientras esta el video activo la pantalla 
+rotara y se quedara mirando hacia ti para volver a la alvea y elegir otra 
+experiencia hay que pulsar sobre la bola que esta en una de las esquinas de la 
+sala ac lamartinuca  esta experiencia se presentó junto  a la de casa de fieras para completar 
+el 5o sentido fue una colaboración con uber eats y lamartinuca se puede seleccionar 
+uno de los productos que se sitaoan sobre la mesa central y darle al botón de pedir para 
+simular ese pedido por ubereats y volver a tu alvea este era el momento en el que el 
+usuario recibe la tortilla de patatas o cosas a tener en cuenta  para volver a la alvea y elegir otra experiencia hay 
+que pulsar sobre la bola que esta al fondo de la sala tras la mesa
