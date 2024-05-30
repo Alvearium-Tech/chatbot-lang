@@ -14,7 +14,7 @@ from openai import OpenAI
 from langchain.vectorstores.faiss import FAISS
 
 
-UPLOAD_DIRECTORY = "audio_files"
+UPLOAD_DIRECTORY = "newAlvearium/audio_files"
 os.makedirs(UPLOAD_DIRECTORY, exist_ok=True)
 
 #Cargar todo lo necesario

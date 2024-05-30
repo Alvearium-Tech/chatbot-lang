@@ -43,7 +43,7 @@ def text_to_speech(text: str, save_path: str) -> bytes:
             if wav_subprocess.returncode != 0:
                 raise Exception(f"ffmpeg error: {stderr.decode()}")
             
-            
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -100,7 +100,7 @@ def generate_speech(request_body: TextToSpeechRequest ) -> bytes:
         #audio_file_path_mp3 = "audio_files/respuesta.mp3"
         #audio_url_mp3 = f"{base_url}/{audio_file_path_mp3}"
 
-        audio_file_path_wav = "audio_files/respuesta.wav"
+        audio_file_path_wav = "newAlvearium/audio_files/respuesta.wav"
         audio_url_wav = f"{base_url}/{audio_file_path_wav}"
 
         response_data = {
