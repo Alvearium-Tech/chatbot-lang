@@ -33,9 +33,9 @@ def text_to_speech(text: str, save_path: str) -> bytes:
 
         wav_file_path = save_path
         with subprocess.Popen(
-            ['ffmpeg', '-y', '-f', 'mp3', '-i', 'pipe:0', '-f', 'wav', '-acodec', 'pcm_s16le', '-ar', '44100', '-ac', '2', wav_file_path], 
-            stdin=subprocess.PIPE, 
-            stdout=subprocess.PIPE, 
+            ['ffmpeg', '-y', '-i', 'pipe:0', wav_file_path],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
             stderr=subprocess.PIPE
         ) as wav_subprocess:
             stdout, stderr = wav_subprocess.communicate(input=audio_data)
