@@ -31,10 +31,9 @@ def text_to_speech(text: str, save_path: str) -> bytes:
 
         audio_data = response.read()
 
-        # Guardar el audio en formato WAV directamente desde los datos de audio recibidos
         wav_file_path = save_path
         with subprocess.Popen(
-            ['ffmpeg', '-y', '-i', 'pipe:0', '-f', 'wav', '-acodec', 'pcm_s16le', '-ar', '44100', '-ac', '2', wav_file_path], 
+            ['ffmpeg', '-y', '-f', 'mp3', '-i', 'pipe:0', '-f', 'wav', '-acodec', 'pcm_s16le', '-ar', '44100', '-ac', '2', wav_file_path], 
             stdin=subprocess.PIPE, 
             stdout=subprocess.PIPE, 
             stderr=subprocess.PIPE
@@ -42,7 +41,8 @@ def text_to_speech(text: str, save_path: str) -> bytes:
             stdout, stderr = wav_subprocess.communicate(input=audio_data)
             if wav_subprocess.returncode != 0:
                 raise Exception(f"ffmpeg error: {stderr.decode()}")
-            
+
+        print(f"Received audio data length: {len(audio_data)}")
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
