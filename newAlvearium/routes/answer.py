@@ -43,7 +43,7 @@ async def get_answer(request_body: AnswerRequest):
     new_entry1 = ("question", question)
     chat_history.append(new_entry1)
 
-    question = question + "\nEl chat history es el siguiente: " + str(chat_history)
+    question = question + "Utiliza solo lo el contexto que te doy. " + "\nEl chat history es el siguiente: " + str(chat_history)
 
     with get_openai_callback() as cb:
         try:
