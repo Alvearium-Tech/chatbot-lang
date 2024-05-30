@@ -31,20 +31,19 @@ def text_to_speech(text: str, save_path: str) -> bytes:
 
         audio_data = response.read()
 
-        # Guardar el audio en formato MP3
-        '''mp3_file_path = save_path
-        mp3_subprocess = subprocess.Popen(['ffmpeg', "-y", "-i", "pipe:0", "-codec:a", "libmp3lame", mp3_file_path], stdin=subprocess.PIPE)
-        mp3_subprocess.communicate(input=response.read())
-        mp3_subprocess.wait()
-
-        # Convertir el archivo MP3 a WAV
-        wav_file_path = save_path.replace('.mp3', '.wav')
-        wav_subprocess = subprocess.run(['ffmpeg', '-y', '-i', mp3_file_path, '-acodec', 'pcm_s16le', '-ar', '44100', '-ac', '2', wav_file_path], check=True)'''
-
+        # Guardar el audio en formato WAV directamente desde los datos de audio recibidos
         wav_file_path = save_path
-        with subprocess.Popen(['ffmpeg', '-y', '-i', 'pipe:0', '-acodec', 'pcm_s16le', '-ar', '44100', '-ac', '2', wav_file_path], stdin=subprocess.PIPE) as wav_subprocess:
-            wav_subprocess.communicate(input=audio_data)
-    
+        with subprocess.Popen(
+            ['ffmpeg', '-y', '-i', 'pipe:0', '-f', 'wav', '-acodec', 'pcm_s16le', '-ar', '44100', '-ac', '2', wav_file_path], 
+            stdin=subprocess.PIPE, 
+            stdout=subprocess.PIPE, 
+            stderr=subprocess.PIPE
+        ) as wav_subprocess:
+            stdout, stderr = wav_subprocess.communicate(input=audio_data)
+            if wav_subprocess.returncode != 0:
+                raise Exception(f"ffmpeg error: {stderr.decode()}")
+            
+            
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
