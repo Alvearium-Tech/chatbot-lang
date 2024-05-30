@@ -116,7 +116,7 @@ _inputs = RunnableMap(
         chat_history=lambda x: _format_chat_history(x["chat_history"])
     )
     | CONDENSE_QUESTION_PROMPT
-    | ChatOpenAI(api_key=OPENAI_API_KEY, model="gpt-4o", temperature=0.2)
+    | ChatOpenAI(api_key=OPENAI_API_KEY, model="gpt-4o", temperature=0.4)
     | StrOutputParser(),
 )
 _context = {
@@ -136,7 +136,7 @@ class ChatHistory(BaseModel):
 
 # Cadena de procesamiento de la conversación
 conversational_qa_chain = (
-    _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model="gpt-4o", max_tokens=300, temperature=0.2) | StrOutputParser()
+    _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model="gpt-4o", max_tokens=300, temperature=0.4) | StrOutputParser()
 )
 chain = conversational_qa_chain.with_types(input_type=ChatHistory)
 
