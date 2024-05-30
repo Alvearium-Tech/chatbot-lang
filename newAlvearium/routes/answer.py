@@ -74,7 +74,7 @@ async def get_answer(request_body: AnswerRequest):
     #audio_file_path_mp3 = "audio_files/respuesta.mp3"
     #audio_url_mp3 = f"{base_url}/{audio_file_path_mp3}"
 
-    audio_file_path_wav = "newAlvearium/audio_files/respuesta.wav"
+    audio_file_path_wav = "Alvearium-VR/newAlvearium/audio_files/respuesta.wav"
     audio_url_wav = f"{base_url}/{audio_file_path_wav}"
 
     response_data = {
