@@ -4,6 +4,7 @@ from routes.audio import app_audio
 from routes.chat_history import app_chat_history
 from routes.answer import app_answer
 from routes.data_preprocessor import app_data
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI(
     title="LangChain Server",
@@ -25,3 +26,5 @@ app.include_router(app_audio)
 app.include_router(app_chat_history)
 app.include_router(app_answer)
 app.include_router(app_data)
+
+app.mount("/audio_files", StaticFiles(directory="audio_files"), name="audio_files")
